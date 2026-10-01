@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>News & Events | Ndejje Central High School – Zanta</title>
+
+  <meta
+    name="description"
+    content="Read the latest news, announcements, activities and upcoming events from Ndejje Central High School – Zanta."
+  />
+  <meta name="theme-color" content="#003366" />
+
+  <meta property="og:title" content="News & Events | Ndejje Central High School – Zanta" />
+  <meta
+    property="og:description"
+    content="Latest news, announcements and events from Ndejje Central High School – Zanta."
+  />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="images/nchslogo.png" />
+
+  <style>
+    :root {
+      --primary: #003366;
+      --primary-dark: #00264d;
+      --secondary: #00509e;
+      --accent: #ffd700;
+      --light: #f4f7fb;
+      --white: #ffffff;
+      --text: #222222;
+      --muted: #667085;
+      --border: #dce4ee;
+      --success: #16834a;
+      --danger: #c62828;
+      --shadow: 0 10px 30px rgba(0, 51, 102, 0.08);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: 20px;
+      z-index: 9999;
+      background: var(--primary);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* =========================================
+       TOP BAR
+    ========================================= */
+
+    .top-bar {
+      background: var(--primary-dark);
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+
+    .top-bar-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+      min-height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-bar a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-inner {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 78px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-name {
+      color: var(--primary);
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .brand-tagline {
+      color: var(--muted);
+      font-size: 0.76rem;
+      margin-top: 3px;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--primary);
+      border-radius: 8px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 10px 12px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 7px;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--primary);
+      background: #eef4fa;
+    }
+
+    .main-nav a.active {
+      color: var(--primary);
+      background: #eef4fa;
+    }
+
+    .main-nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 4px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      min-height: 360px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 38, 77, 0.92),
+          rgba(0, 51, 102, 0.72)
+        ),
+        url("images/school-hero.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+      color: var(--white);
+      padding: 70px 0;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 13px;
+      border: 1px solid rgba(255, 215, 0, 0.6);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.08rem;
+    }
+
+    /* =========================================
+       GENERAL
+    ========================================= */
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    .section-heading {
+      margin-bottom: 34px;
+    }
+
+    .section-heading.center {
+      text-align: center;
+    }
+
+    .section-kicker {
+      color: var(--secondary);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      color: var(--primary);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      max-width: 720px;
+      color: var(--muted);
+    }
+
+    .section-heading.center p {
+      margin: auto;
+    }
+
+    /* =========================================
+       FEATURED NEWS
+    ========================================= */
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .news-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 35px rgba(0, 51, 102, 0.13);
+    }
+
+    .news-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #e8eef5;
+    }
+
+    .news-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .news-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .news-category {
+      display: inline-flex;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #eef4fa;
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    .news-card h3 {
+      color: var(--primary);
+      font-size: 1.22rem;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .news-excerpt {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .news-link {
+      margin-top: auto;
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    .news-link:hover {
+      color: var(--primary);
+    }
+
+    /* =========================================
+       ALL NEWS
+    ========================================= */
+
+    .news-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .news-list {
+      display: grid;
+      gap: 20px;
+    }
+
+    .news-list-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .news-list-card .news-image {
+      height: 100%;
+      min-height: 180px;
+    }
+
+    .news-list-card .news-body {
+      padding: 22px;
+    }
+
+    /* =========================================
+       SIDEBAR
+    ========================================= */
+
+    .sidebar {
+      display: grid;
+      gap: 20px;
+    }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.15rem;
+    }
+
+    .category-list {
+      list-style: none;
+      display: grid;
+      gap: 7px;
+    }
+
+    .category-list button {
+      width: 100%;
+      text-align: left;
+      border: 0;
+      background: transparent;
+      padding: 8px 0;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .category-list button:hover,
+    .category-list button.active {
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    /* =========================================
+       EVENTS
+    ========================================= */
+
+    .events-section {
+      background: var(--white);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .event-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .event-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 7px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .event-card h3 {
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin-bottom: 9px;
+    }
+
+    .event-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .event-location {
+      margin-top: 12px;
+      color: var(--secondary) !important;
+      font-weight: 600;
+    }
+
+    /* =========================================
+       STATES
+    ========================================= */
+
+    .loading,
+    .empty-state,
+    .error-state {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 24px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .error-state {
+      color: var(--danger);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* =========================================
+       CTA
+    ========================================= */
+
+    .cta {
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary)
+        );
+      color: var(--white);
+    }
+
+    .cta-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--primary-dark);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(0.96);
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.7);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      background: var(--primary-dark);
+      color: var(--white);
+      padding: 50px 0 22px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 35px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .footer-brand {
+      max-width: 400px;
+    }
+
+    .footer-brand img {
+      width: 70px;
+      margin-bottom: 15px;
+    }
+
+    .footer-brand h3 {
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    footer h4 {
+      margin-bottom: 13px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      padding-top: 20px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.9rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .main-nav {
+        gap: 0;
+      }
+
+      .main-nav a {
+        padding-inline: 8px;
+      }
+
+      .featured-grid,
+      .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .main-nav {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: calc(100% + 8px);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav a {
+        width: 100%;
+      }
+
+      .news-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .top-bar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .top-bar-inner span:last-child {
+        display: none;
+      }
+
+      .brand img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand-name {
+        font-size: 0.92rem;
+      }
+
+      .brand-tagline {
+        font-size: 0.7rem;
+      }
+
+      .hero {
+        min-height: 330px;
+      }
+
+      .section {
+        padding: 55px 0;
+      }
+
+      .featured-grid,
+      .events-grid,
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .news-list-card {
+        grid-template-columns: 1fr;
+      }
+
+      .news-list-card .news-image {
+        height: 220px;
+      }
+
+      .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+  <!-- =========================================
+       TOP BAR
+  ========================================== -->
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span>Excellence • Discipline • Innovation</span>
+
+      <span>
+        <a href="tel:0705414545">0705 414 545</a>
+        &nbsp; | &nbsp;
+        <a href="mailto:ndejjecentralhighschool@gmail.com">
+          ndejjecentralhighschool@gmail.com
+        </a>
+      </span>
+    </div>
+  </div>
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header class="site-header" id="siteHeader">
+
+    <div class="header-inner">
+
+      <a class="brand" href="index.html" aria-label="Ndejje Central High School – Zanta home">
+
+        <img
+          src="images/nchslogo.png"
+          alt="Ndejje Central High School logo"
+        />
+
+        <div class="brand-text">
+          <div class="brand-name">
+            Ndejje Central High School – Zanta
+          </div>
+
+          <div class="brand-tagline">
+            Centre of Knowledge
+          </div>
+        </div>
+
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mainNav"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+
+        <a href="index.html">Home</a>
+
+        <a href="about.html">About Us</a>
+
+        <a href="academic.html">Academics</a>
+
+        <a href="studentLife.html">Student Life</a>
+
+        <a
+          href="news.html"
+          class="active"
+          aria-current="page"
+        >
+          News & Events
+        </a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="downloads.html">Downloads</a>
+
+        <a href="contact.html">Contact</a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- =========================================
+       HERO
+  ========================================== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        School Updates
+      </span>
+
+      <h1>
+        News & Events
+      </h1>
+
+      <p>
+        Stay informed about the latest activities, announcements,
+        achievements, learning experiences and upcoming events
+        at Ndejje Central High School – Zanta.
+      </p>
+
+    </div>
+
+  </section>
+
+  <main id="main-content">
+
+    <!-- =========================================
+         FEATURED NEWS
+    ========================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-kicker">
+            Featured
+          </div>
+
+          <h2>
+            Latest School News
+          </h2>
+
+          <p>
+            Discover the latest stories and updates from our school
+            community.
+          </p>
+
+        </div>
+
+        <div id="featuredNews">
+
+          <div class="loading">
+            Loading latest news...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================================
+         NEWS ARCHIVE
+    ========================================== -->
+
+    <section class="section" style="padding-top: 0;">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-kicker">
+            News
+          </div>
+
+          <h2>
+            School News
+          </h2>
+
+          <p>
+            Read published updates from Ndejje Central High School –
+            Zanta.
+          </p>
+
+        </div>
+
+        <div class="news-layout">
+
+          <div>
+
+            <div
+              id="newsList"
+              class="news-list"
+            >
+              <div class="loading">
+                Loading news...
+              </div>
+            </div>
+
+          </div>
+
+          <aside class="sidebar">
+
+            <div class="sidebar-card">
+
+              <h3>
+                News Categories
+              </h3>
+
+              <ul class="category-list" id="categoryList">
+
+                <li>
+                  <button
+                    type="button"
+                    class="active"
+                    data-category="all"
+                  >
+                    All News
+                  </button>
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="sidebar-card">
+
+              <h3>
+                Stay Connected
+              </h3>
+
+              <p style="color: var(--muted); margin-bottom: 16px;">
+                Contact the school for enquiries, admissions
+                information and additional updates.
+              </p>
+
+              <a
+                href="contact.html"
+                class="btn btn-primary"
+                style="width: 100%;"
+              >
+                Contact School
+              </a>
+
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================================
+         EVENTS
+    ========================================== -->
+
+    <section class="section events-section">
+
+      <div class="container">
+
+        <div class="section-heading center">
+
+          <div class="section-kicker">
+            Calendar
+          </div>
+
+          <h2>
+            Upcoming Events
+          </h2>
+
+          <p>
+            Keep track of published school activities and events.
+          </p>
+
+        </div>
+
+        <div id="eventsList">
+
+          <div class="loading">
+            Loading upcoming events...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================================
+         CTA
+    ========================================== -->
+
+    <section class="section cta">
+
+      <div class="container">
+
+        <div class="cta-inner">
+
+          <div>
+
+            <h2>
+              Want to learn more about our school?
+            </h2>
+
+            <p>
+              Contact Ndejje Central High School – Zanta for
+              admissions information and general enquiries.
+            </p>
+
+          </div>
+
+          <a
+            href="contact.html"
+            class="btn btn-primary"
+          >
+            Contact Us
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <img
+            src="images/nchslogo.png"
+            alt="Ndejje Central High School logo"
+          />
+
+          <h3>
+            Ndejje Central High School – Zanta
+          </h3>
+
+          <p>
+            Centre of Knowledge, committed to excellence,
+            discipline, innovation and practical skills development.
+          </p>
+
+        </div>
+
+        <div>
+
+          <h4>
+            Quick Links
+          </h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="about.html">About Us</a>
+            </li>
+
+            <li>
+              <a href="academic.html">Academics</a>
+            </li>
+
+            <li>
+              <a href="studentLife.html">Student Life</a>
+            </li>
+
+            <li>
+              <a href="gallery.html">Gallery</a>
+            </li>
+
+            <li>
+              <a href="downloads.html">Downloads</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h4>
+            Contact
+          </h4>
+
+          <ul class="footer-links">
+
+            <li>
+              Zanta, Kampala, Uganda
+            </li>
+
+            <li>
+              <a href="tel:0705414545">
+                0705 414 545
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:ndejjecentralhighschool@gmail.com">
+                ndejjecentralhighschool@gmail.com
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        © <span id="currentYear"></span>
+        Ndejje Central High School – Zanta.
+        All rights reserved.
+        <br />
+        Centre of Knowledge.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- =========================================
+       FIREBASE + PAGE JAVASCRIPT
+  ========================================== -->
+
+  <script type="module">
+
+    /*
+      IMPORTANT:
+      This page expects:
+
+        js/firebase-config.js
+
+      to export the initialized Firebase app.
+
+      Example:
+
+      export const app = initializeApp(firebaseConfig);
+    */
+
+    import { db } from "./js/firebase-config.js";
+
+    import {
+      collection,
+      getDocs,
+      query,
+      where,
+      orderBy,
+      limit
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+    /* =========================================
+       DOM ELEMENTS
+    ========================================== */
+
+    const featuredNewsContainer =
+      document.getElementById("featuredNews");
+
+    const newsListContainer =
+      document.getElementById("newsList");
+
+    const eventsListContainer =
+      document.getElementById("eventsList");
+
+    const categoryList =
+      document.getElementById("categoryList");
+
+    const navToggle =
+      document.getElementById("navToggle");
+
+    const mainNav =
+      document.getElementById("mainNav");
+
+    const siteHeader =
+      document.getElementById("siteHeader");
+
+    const currentYear =
+      document.getElementById("currentYear");
+
+
+    /* =========================================
+       PAGE STATE
+    ========================================== */
+
+    let allNews = [];
+
+    let selectedCategory = "all";
+
+
+    /* =========================================
+       UTILITY FUNCTIONS
+    ========================================== */
+
+    function escapeHTML(value) {
+
+      if (value === null || value === undefined) {
+        return "";
+      }
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+
+    function formatDate(timestamp) {
+
+      if (!timestamp) {
+        return "";
+      }
+
+      try {
+
+        const date =
+          typeof timestamp.toDate === "function"
+            ? timestamp.toDate()
+            : new Date(timestamp);
+
+        if (Number.isNaN(date.getTime())) {
+          return "";
+        }
+
+        return new Intl.DateTimeFormat("en-UG", {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        }).format(date);
+
+      } catch (error) {
+
+        console.warn("Could not format date:", error);
+
+        return "";
+      }
+    }
+
+
+    function formatEventDate(timestamp) {
+
+      if (!timestamp) {
+        return "Date to be announced";
+      }
+
+      try {
+
+        const date =
+          typeof timestamp.toDate === "function"
+            ? timestamp.toDate()
+            : new Date(timestamp);
+
+        if (Number.isNaN(date.getTime())) {
+          return "Date to be announced";
+        }
+
+        return new Intl.DateTimeFormat("en-UG", {
+          day: "numeric",
+          month: "short",
+          year: "numeric"
+        }).format(date);
+
+      } catch (error) {
+
+        return "Date to be announced";
+      }
+    }
+
+
+    function getNewsImage(news) {
+
+      return (
+  	news.imageUrl ||
+  	"https://placehold.co/1200x675?text=Ndejje+Central+High+School"
+      );
+    }
+
+
+    function truncateText(text, maxLength = 180) {
+
+      if (!text) {
+        return "";
+      }
+
+      if (text.length <= maxLength) {
+        return text;
+      }
+
+      return text.substring(0, maxLength).trim() + "...";
+    }
+
+
+    function getNewsDate(news) {
+
+      return (
+        news.publishedAt ||
+        news.createdAt ||
+        null
+      );
+    }
+
+
+    /* =========================================
+       FEATURED NEWS
+    ========================================== */
+
+    function renderFeaturedNews(newsItems) {
+
+      if (!newsItems.length) {
+
+        featuredNewsContainer.innerHTML = `
+          <div class="empty-state">
+            No featured news has been published yet.
+          </div>
+        `;
+
+        return;
+      }
+
+      const featured =
+        newsItems
+          .filter(news => news.featured === true)
+          .slice(0, 3);
+
+      const items =
+        featured.length
+          ? featured
+          : newsItems.slice(0, 3);
+
+      featuredNewsContainer.innerHTML = `
+        <div class="featured-grid">
+
+          ${items.map(news => {
+
+            const title =
+              escapeHTML(news.title || "School News");
+
+            const category =
+              escapeHTML(news.category || "School News");
+
+            const excerpt =
+              escapeHTML(
+                truncateText(
+                  news.excerpt ||
+                  news.content ||
+                  "Read the latest update from Ndejje Central High School – Zanta."
+                )
+              );
+
+            const date =
+              escapeHTML(
+                formatDate(getNewsDate(news))
+              );
+
+            const image =
+              escapeHTML(getNewsImage(news));
+
+            const id =
+              encodeURIComponent(news.id);
+
+            return `
+              <article class="news-card">
+
+                <img
+                  class="news-image"
+                  src="${image}"
+                  alt="${title}"
+                  loading="lazy"
+                  onerror="this.src='images/school-hero.jpg';"
+                />
+
+                <div class="news-body">
+
+                  <div class="news-meta">
+
+                    <span class="news-category">
+                      ${category}
+                    </span>
+
+                    ${date ? `<span>${date}</span>` : ""}
+
+                  </div>
+
+                  <h3>
+                    ${title}
+                  </h3>
+
+                  <p class="news-excerpt">
+                    ${excerpt}
+                  </p>
+
+                  <a
+                    class="news-link"
+                    href="news.html?article=${id}"
+                  >
+                    Read More →
+                  </a>
+
+                </div>
+
+              </article>
+            `;
+
+          }).join("")}
+
+        </div>
+      `;
+    }
+
+
+    /* =========================================
+       NEWS LIST
+    ========================================== */
+
+    function renderNewsList(newsItems) {
+
+      let filteredNews = newsItems;
+
+      if (selectedCategory !== "all") {
+
+        filteredNews =
+          newsItems.filter(news =>
+            String(news.category || "")
+              .toLowerCase() ===
+            selectedCategory.toLowerCase()
+          );
+      }
+
+      if (!filteredNews.length) {
+
+        newsListContainer.innerHTML = `
+          <div class="empty-state">
+            No news articles are available in this category.
+          </div>
+        `;
+
+        return;
+      }
+
+      newsListContainer.innerHTML =
+        filteredNews.map(news => {
+
+          const title =
+            escapeHTML(news.title || "School News");
+
+          const category =
+            escapeHTML(news.category || "School News");
+
+          const excerpt =
+            escapeHTML(
+              truncateText(
+                news.excerpt ||
+                news.content ||
+                "Read the latest update from the school."
+              )
+            );
+
+          const date =
+            escapeHTML(
+              formatDate(getNewsDate(news))
+            );
+
+          const image =
+            escapeHTML(getNewsImage(news));
+
+          const id =
+            encodeURIComponent(news.id);
+
+          return `
+            <article class="news-list-card">
+
+              <img
+                class="news-image"
+                src="${image}"
+                alt="${title}"
+                loading="lazy"
+                onerror="this.src='images/school-hero.jpg';"
+              />
+
+              <div class="news-body">
+
+                <div class="news-meta">
+
+                  <span class="news-category">
+                    ${category}
+                  </span>
+
+                  ${date ? `<span>${date}</span>` : ""}
+
+                </div>
+
+                <h3>
+                  ${title}
+                </h3>
+
+                <p class="news-excerpt">
+                  ${excerpt}
+                </p>
+
+                <a
+                  class="news-link"
+                  href="news.html?article=${id}"
+                >
+                  Read More →
+                </a>
+
+              </div>
+
+            </article>
+          `;
+
+        }).join("");
+    }
+
+
+    /* =========================================
+       NEWS CATEGORIES
+    ========================================== */
+
+    function renderCategories(newsItems) {
+
+      const categories =
+        [
+          ...new Set(
+            newsItems
+              .map(news => news.category)
+              .filter(Boolean)
+              .map(category => String(category).trim())
+          )
+        ]
+        .sort();
+
+      categoryList.innerHTML = `
+        <li>
+          <button
+            type="button"
+            class="${selectedCategory === "all" ? "active" : ""}"
+            data-category="all"
+          >
+            All News
+          </button>
+        </li>
+
+        ${categories.map(category => `
+          <li>
+            <button
+              type="button"
+              class="${
+                selectedCategory.toLowerCase() ===
+                category.toLowerCase()
+                  ? "active"
+                  : ""
+              }"
+              data-category="${escapeHTML(category)}"
+            >
+              ${escapeHTML(category)}
+            </button>
+          </li>
+        `).join("")}
+      `;
+
+      categoryList
+        .querySelectorAll("button")
+        .forEach(button => {
+
+          button.addEventListener("click", () => {
+
+            selectedCategory =
+              button.dataset.category || "all";
+
+            renderCategories(allNews);
+
+            renderNewsList(allNews);
+
+          });
+
+        });
+    }
+
+
+    /* =========================================
+       LOAD NEWS
+    ========================================== */
+
+    async function loadNews() {
+
+      try {
+
+        const newsQuery =
+          query(
+            collection(db, "news"),
+            where("published", "==", true),
+            orderBy("publishedAt", "desc")
+          );
+
+        const snapshot =
+          await getDocs(newsQuery);
+
+        allNews =
+          snapshot.docs.map(documentSnapshot => ({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data()
+          }));
+
+        renderFeaturedNews(allNews);
+
+        renderCategories(allNews);
+
+        renderNewsList(allNews);
+
+      } catch (error) {
+
+        console.error("Error loading news:", error);
+
+        featuredNewsContainer.innerHTML = `
+          <div class="error-state">
+            We could not load the latest news right now.
+            Please try again later.
+          </div>
+        `;
+
+        newsListContainer.innerHTML = `
+          <div class="error-state">
+            News could not be loaded at this time.
+          </div>
+        `;
+
+      }
+    }
+
+
+    /* =========================================
+       LOAD EVENTS
+    ========================================== */
+
+    async function loadEvents() {
+
+      try {
+
+        const eventsQuery =
+          query(
+            collection(db, "events"),
+            where("published", "==", true),
+            orderBy("eventDate", "asc"),
+            limit(6)
+          );
+
+        const snapshot =
+          await getDocs(eventsQuery);
+
+        const events =
+          snapshot.docs.map(documentSnapshot => ({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data()
+          }));
+
+        renderEvents(events);
+
+      } catch (error) {
+
+        console.error("Error loading events:", error);
+
+        eventsListContainer.innerHTML = `
+          <div class="error-state">
+            Upcoming events could not be loaded at this time.
+          </div>
+        `;
+
+      }
+    }
+
+
+    /* =========================================
+       RENDER EVENTS
+    ========================================== */
+
+    function renderEvents(events) {
+
+      if (!events.length) {
+
+        eventsListContainer.innerHTML = `
+          <div class="empty-state">
+            No upcoming events have been published yet.
+          </div>
+        `;
+
+        return;
+      }
+
+      eventsListContainer.innerHTML = `
+        <div class="events-grid">
+
+          ${events.map(event => {
+
+            const title =
+              escapeHTML(
+                event.title || "School Event"
+              );
+
+            const description =
+              escapeHTML(
+                truncateText(
+                  event.description ||
+                  "School event information will be provided here.",
+                  160
+                )
+              );
+
+            const date =
+              escapeHTML(
+                formatEventDate(event.eventDate)
+              );
+
+            const location =
+              escapeHTML(
+                event.location ||
+                "Ndejje Central High School – Zanta"
+              );
+
+            return `
+              <article class="event-card">
+
+                <div class="event-date">
+                  ${date}
+                </div>
+
+                <h3>
+                  ${title}
+                </h3>
+
+                <p>
+                  ${description}
+                </p>
+
+                <p class="event-location">
+                  📍 ${location}
+                </p>
+
+              </article>
+            `;
+
+          }).join("")}
+
+        </div>
+      `;
+    }
+
+
+    /* =========================================
+       MOBILE NAVIGATION
+    ========================================== */
+
+    navToggle.addEventListener("click", () => {
+
+      const isOpen =
+        mainNav.classList.toggle("open");
+
+      navToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      navToggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation"
+          : "Open navigation"
+      );
+
+    });
+
+
+    mainNav
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          mainNav.classList.remove("open");
+
+          navToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          navToggle.setAttribute(
+            "aria-label",
+            "Open navigation"
+          );
+
+        });
+
+      });
+
+
+    /* =========================================
+       HEADER SHADOW
+    ========================================== */
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        siteHeader.classList.toggle(
+          "scrolled",
+          window.scrollY > 10
+        );
+
+      },
+      { passive: true }
+    );
+
+
+    /* =========================================
+       CURRENT YEAR
+    ========================================== */
+
+    currentYear.textContent =
+      new Date().getFullYear();
+
+
+    /* =========================================
+       INITIALIZE
+    ========================================== */
+
+    loadNews();
+
+    loadEvents();
+
+  </script>
+
+</body>
+</html>

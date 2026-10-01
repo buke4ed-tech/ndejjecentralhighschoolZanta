@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Academics | Ndejje Central High School – Zanta</title>
+
+    <meta
+        name="description"
+        content="Explore academics at Ndejje Central High School – Zanta, including curriculum, learning, assessment, ICT, practical skills, entrepreneurship, vocational training and academic development."
+    >
+
+    <meta
+        name="keywords"
+        content="Ndejje Central High School, Zanta, academics, curriculum, secondary school, Uganda, ICT, entrepreneurship, vocational training, education"
+    >
+
+    <meta name="theme-color" content="#003366">
+
+    <meta property="og:title" content="Academics | Ndejje Central High School – Zanta">
+    <meta
+        property="og:description"
+        content="Discover the academic and practical learning approach at Ndejje Central High School – Zanta."
+    >
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --primary: #003366;
+            --primary-dark: #00264d;
+            --secondary: #00509e;
+            --accent: #ffd700;
+            --light: #f4f7fb;
+            --lighter: #f8fbff;
+            --white: #ffffff;
+            --text: #222222;
+            --muted: #667085;
+            --border: #dce4ee;
+            --success: #16794c;
+            --shadow-sm: 0 6px 18px rgba(0, 51, 102, 0.08);
+            --shadow-md: 0 14px 35px rgba(0, 51, 102, 0.12);
+            --radius: 16px;
+            --container: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .container {
+            width: min(92%, var(--container));
+            margin-inline: auto;
+        }
+
+        .skip-link {
+            position: fixed;
+            left: 16px;
+            top: -100px;
+            z-index: 9999;
+            padding: 10px 16px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 6px;
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 16px;
+        }
+
+        /* =========================================================
+           TOP BAR
+        ========================================================= */
+
+        .topbar {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.88rem;
+        }
+
+        .topbar-inner {
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .topbar a:hover {
+            color: var(--accent);
+        }
+
+        /* =========================================================
+           HEADER / NAVIGATION
+        ========================================================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.25s ease;
+        }
+
+        .site-header.scrolled {
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.1);
+        }
+
+        .nav-wrap {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            min-width: 0;
+        }
+
+        .brand-title {
+            display: block;
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        .brand-subtitle {
+            display: block;
+            margin-top: 3px;
+            color: var(--secondary);
+            font-size: 0.73rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .site-nav {
+            margin-left: auto;
+        }
+
+        .site-nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .site-nav a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 42px;
+            padding: 8px 11px;
+            color: #344054;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 650;
+            transition:
+                background 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a.active {
+            color: var(--secondary);
+            background: #edf5ff;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 9px 16px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 750;
+            white-space: nowrap;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+        }
+
+        .nav-toggle {
+            display: none;
+            margin-left: auto;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.35rem;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .page-hero {
+            position: relative;
+            min-height: 440px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 31, 63, 0.9),
+                    rgba(0, 51, 102, 0.68)
+                ),
+                url("images/school-hero.jpg") center / cover no-repeat;
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0;
+            height: 80px;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(0, 0, 0, 0.12)
+            );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 780px;
+            padding: 70px 0;
+            color: var(--white);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .hero-content h1 {
+            max-width: 760px;
+            font-size: clamp(2.3rem, 5vw, 4.2rem);
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            max-width: 720px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.08rem;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumbs span:last-child {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* =========================================================
+           GENERAL SECTIONS
+        ========================================================= */
+
+        .section {
+            padding: 88px 0;
+        }
+
+        .section.alt {
+            background: var(--light);
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .section-heading .eyebrow {
+            justify-content: center;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 14px;
+            color: var(--primary);
+            font-size: clamp(1.9rem, 3vw, 2.7rem);
+            line-height: 1.15;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           INTRO
+        ========================================================= */
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .intro-image {
+            position: relative;
+        }
+
+        .intro-image img {
+            width: 100%;
+            min-height: 390px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .image-badge {
+            position: absolute;
+            left: 24px;
+            bottom: 24px;
+            max-width: 260px;
+            padding: 18px 20px;
+            background: rgba(0, 51, 102, 0.94);
+            color: var(--white);
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .image-badge strong {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 3px;
+        }
+
+        .intro-copy h2 {
+            color: var(--primary);
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .intro-copy p {
+            color: #475467;
+            margin-bottom: 16px;
+        }
+
+        .check-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 30px;
+            color: #344054;
+            font-weight: 600;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 21px;
+            height: 21px;
+            display: grid;
+            place-items: center;
+            background: #e8f6ef;
+            color: var(--success);
+            border-radius: 50%;
+            font-size: 0.76rem;
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           ACADEMIC AREAS
+        ========================================================= */
+
+        .academic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .academic-card {
+            position: relative;
+            padding: 28px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .academic-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary),
+                var(--accent)
+            );
+        }
+
+        .academic-card:hover {
+            transform: translateY(-5px);
+            border-color: #c6d8eb;
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            background: #edf5ff;
+            color: var(--secondary);
+            border-radius: 12px;
+            font-size: 1.35rem;
+            font-weight: 800;
+        }
+
+        .academic-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .academic-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* =========================================================
+           CURRICULUM
+        ========================================================= */
+
+        .curriculum-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .curriculum-intro h2 {
+            color: var(--primary);
+            font-size: clamp(1.9rem, 3vw, 2.5rem);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .curriculum-intro p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .curriculum-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .curriculum-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .curriculum-number {
+            flex: 0 0 38px;
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            background: var(--primary);
+            color: var(--accent);
+            border-radius: 50%;
+            font-weight: 800;
+        }
+
+        .curriculum-item h3 {
+            color: var(--primary);
+            margin-bottom: 3px;
+            font-size: 1rem;
+        }
+
+        .curriculum-item p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================================
+           LEARNING MODEL
+        ========================================================= */
+
+        .learning-model {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-dark),
+                    var(--primary)
+                );
+            color: var(--white);
+        }
+
+        .learning-model .section-heading h2 {
+            color: var(--white);
+        }
+
+        .learning-model .section-heading p {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .learning-card {
+            padding: 28px 22px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 14px;
+        }
+
+        .learning-card span {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: var(--accent);
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        .learning-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .learning-card p {
+            color: rgba(255, 255, 255, 0.74);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================================
+           ASSESSMENT
+        ========================================================= */
+
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .assessment-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--white);
+        }
+
+        .assessment-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .assessment-card p {
+            color: var(--muted);
+        }
+
+        .assessment-card ul {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .assessment-card li {
+            padding-left: 24px;
+            position: relative;
+            color: #475467;
+            font-size: 0.94rem;
+        }
+
+        .assessment-card li::before {
+            content: "•";
+            position: absolute;
+            left: 6px;
+            color: var(--secondary);
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           ISIE
+        ========================================================= */
+
+        .isie-section {
+            background: var(--lighter);
+        }
+
+        .isie-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .isie-card {
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .isie-letter {
+            width: 58px;
+            height: 58px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 18px;
+            background: var(--primary);
+            color: var(--accent);
+            border-radius: 50%;
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .isie-card h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .isie-card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        /* =========================================================
+           ACADEMIC JOURNEY
+        ========================================================= */
+
+        .journey {
+            position: relative;
+        }
+
+        .journey::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 150px;
+            bottom: 80px;
+            width: 2px;
+            background: #d5e1ed;
+            transform: translateX(-50%);
+        }
+
+        .journey-list {
+            position: relative;
+            display: grid;
+            gap: 28px;
+        }
+
+        .journey-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .journey-item:nth-child(even) .journey-content {
+            grid-column: 2;
+        }
+
+        .journey-item:nth-child(even) .journey-stage {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: right;
+        }
+
+        .journey-content {
+            padding: 26px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .journey-content h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .journey-content p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .journey-stage {
+            color: var(--primary);
+        }
+
+        .journey-stage strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--secondary);
+            font-size: 0.84rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .journey-stage h3 {
+            font-size: 1.45rem;
+        }
+
+        /* =========================================================
+           SUPPORT / MANAGEMENT
+        ========================================================= */
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .support-card {
+            padding: 28px;
+            background: var(--light);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .support-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .support-card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta-section {
+            padding: 80px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+        }
+
+        .cta-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+        }
+
+        .cta-copy {
+            max-width: 720px;
+            color: var(--white);
+        }
+
+        .cta-copy h2 {
+            margin-bottom: 10px;
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            line-height: 1.2;
+        }
+
+        .cta-copy p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-weight: 750;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #1c2a00;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover {
+            background: #ffe44d;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .site-footer {
+            background: #001f3d;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .footer-main {
+            padding: 65px 0 45px;
+            display: grid;
+            grid-template-columns: 1.3fr 0.8fr 0.9fr 1fr;
+            gap: 45px;
+        }
+
+        .footer-brand {
+            max-width: 360px;
+        }
+
+        .footer-brand img {
+            width: 68px;
+            height: 68px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand h2 {
+            color: var(--white);
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-contact {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 0.84rem;
+        }
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition:
+                opacity 0.65s ease,
+                transform 0.65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1080px) {
+            .site-nav a {
+                padding-inline: 8px;
+                font-size: 0.83rem;
+            }
+
+            .nav-wrap {
+                gap: 15px;
+            }
+
+            .learning-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .site-nav {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                display: none;
+                padding: 12px 4%;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+
+            .site-nav.open {
+                display: block;
+            }
+
+            .site-nav ul {
+                display: grid;
+                gap: 3px;
+            }
+
+            .site-nav a {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 11px 12px;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .intro-grid,
+            .curriculum-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .academic-grid,
+            .isie-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .journey::before {
+                display: none;
+            }
+
+            .journey-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .journey-item:nth-child(even) .journey-content,
+            .journey-item:nth-child(even) .journey-stage {
+                grid-column: auto;
+                grid-row: auto;
+                text-align: left;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .topbar {
+                display: none;
+            }
+
+            .nav-wrap {
+                min-height: 68px;
+            }
+
+            .brand img {
+                width: 44px;
+                height: 44px;
+            }
+
+            .brand-title {
+                font-size: 0.88rem;
+            }
+
+            .brand-subtitle {
+                font-size: 0.65rem;
+            }
+
+            .page-hero {
+                min-height: 390px;
+            }
+
+            .hero-content {
+                padding: 55px 0;
+            }
+
+            .hero-content p {
+                font-size: 0.98rem;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .academic-grid,
+            .assessment-grid,
+            .isie-grid,
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image img {
+                min-height: 300px;
+            }
+
+            .image-badge {
+                left: 14px;
+                bottom: 14px;
+                right: 14px;
+                max-width: none;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .cta-section {
+                padding: 65px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <!-- =========================================================
+         TOP BAR
+    ========================================================== -->
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <div class="topbar-left">
+                <span>Excellence • Discipline • Innovation</span>
+            </div>
+
+            <div class="topbar-right">
+                <a href="tel:+256705414545">0705 414 545</a>
+                <a href="mailto:ndejjecentralhighschool@gmail.com">
+                    ndejjecentralhighschool@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+    <header class="site-header" id="site-header">
+        <div class="container nav-wrap">
+
+            <a class="brand" href="index.html" aria-label="Ndejje Central High School – Zanta home">
+                <img
+                    src="images/nchslogo.png"
+                    alt="Ndejje Central High School logo"
+                >
+
+                <span class="brand-text">
+                    <span class="brand-title">
+                        Ndejje Central High School
+                    </span>
+                    <span class="brand-subtitle">
+                        Zanta • Centre of Knowledge
+                    </span>
+                </span>
+            </a>
+
+            <button
+                class="nav-toggle"
+                id="nav-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="primary-navigation"
+            >
+                ☰
+            </button>
+
+            <nav
+                class="site-nav"
+                id="primary-navigation"
+                aria-label="Primary navigation"
+            >
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="academic.html"
+                            class="active"
+                            aria-current="page"
+                        >
+                            Academics
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="student-life.html">Student Life</a>
+                    </li>
+
+                    <li>
+                        <a href="news.html">News &amp; Events</a>
+                    </li>
+
+                    <li>
+                        <a href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li>
+                        <a href="downloads.html">Downloads</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a class="nav-cta" href="contact.html">
+                Get in Touch
+            </a>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="eyebrow">Our Academics</div>
+
+                    <h1>
+                        Learning for Knowledge, Skills &amp; the Future
+                    </h1>
+
+                    <p>
+                        At Ndejje Central High School – Zanta, academic
+                        learning is connected with practical skills,
+                        innovation, ICT, entrepreneurship and responsible
+                        leadership.
+                    </p>
+
+                    <div class="breadcrumbs" aria-label="Breadcrumb">
+                        <span>Home</span>
+                        <span>/</span>
+                        <span>Academics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             INTRODUCTION
+        ====================================================== -->
+        <section class="section">
+            <div class="container intro-grid">
+
+                <div class="intro-image reveal">
+                    <img
+                        src="images/ict3.png"
+                        alt="Students engaging with ICT and practical learning"
+                        loading="lazy"
+                    >
+
+                    <div class="image-badge">
+                        <strong>Centre of Knowledge</strong>
+                        Learning that connects academic understanding with
+                        practical application.
+                    </div>
+                </div>
+
+                <div class="intro-copy reveal">
+                    <div class="eyebrow">Academic Approach</div>
+
+                    <h2>
+                        Building strong learners for a changing world
+                    </h2>
+
+                    <p>
+                        Our academic programme is designed to develop strong
+                        foundations in knowledge while giving learners
+                        opportunities to apply what they learn.
+                    </p>
+
+                    <p>
+                        Through our Integrated Skills, Innovation &amp;
+                        Enterprise approach, learners are encouraged to
+                        connect classroom learning with practical skills,
+                        problem-solving, creativity and enterprise.
+                    </p>
+
+                    <ul class="check-list">
+                        <li>Strong academic foundations</li>
+                        <li>Practical and applied learning</li>
+                        <li>ICT and digital skills development</li>
+                        <li>Innovation and problem-solving</li>
+                        <li>Entrepreneurship and enterprise</li>
+                        <li>Leadership, discipline and responsibility</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================
+             ACADEMIC AREAS
+        ====================================================== -->
+        <section class="section alt">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">Academic Framework</div>
+
+                    <h2>
+                        More Than Classroom Learning
+                    </h2>
+
+                    <p>
+                        Our academic programme brings together knowledge,
+                        practical application, assessment, technology,
+                        creativity and personal development.
+                    </p>
+                </div>
+
+                <div class="academic-grid">
+
+                    <article class="academic-card reveal">
+                        <div class="card-icon">01</div>
+
+                        <h3>Curriculum &amp; Learning</h3>
+
+                        <p>
+                            Structured learning that develops subject
+                            knowledge, understanding, critical thinking and
+                            the ability to apply concepts.
+                        </p>
+                    </article>
+
+                    <article class="academic-card reveal">
+                        <div class="card-icon">02</div>
+
+                        <h3>ICT &amp; Digital Learning</h3>
+
+                        <p>
+                            Learners develop digital competencies through
+                            technology-focused learning and practical digital
+                            skills.
+                        </p>
+                    </article>
+
+                    <article class="academic-card reveal">
+                        <div class="card-icon">03</div>
+
+                        <h3>Practical Skills</h3>
+
+                        <p>
+                            Academic learning is complemented by practical
+                            experiences in agriculture, vocational skills,
+                            creative work and technology.
+                        </p>
+                    </article>
+
+                    <article class="academic-card reveal">
+                        <div class="card-icon">04</div>
+
+                        <h3>Assessment &amp; Progress</h3>
+
+                        <p>
+                            Assessment helps learners understand their
+                            progress and provides information for continued
+                            academic support and development.
+                        </p>
+                    </article>
+
+                    <article class="academic-card reveal">
+                        <div class="card-icon">05</div>
+
+                        <h3>Entrepreneurship</h3>
+
+                        <p>
+                            Learners are exposed to enterprise thinking,
+                            financial awareness, innovation and opportunities
+                            to turn skills into productive ideas.
+                        </p>
+                    </article>
+
+                    <article class="academic-card reveal">
+                        <div class="card-icon">06</div>
+
+                        <h3>Leadership &amp; Character</h3>
+
+                        <p>
+                            Academic development is supported by discipline,
+                            teamwork, responsibility, communication and
+                            leadership development.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CURRICULUM
+        ====================================================== -->
+        <section class="section">
+            <div class="container curriculum-layout">
+
+                <div class="curriculum-intro reveal">
+                    <div class="eyebrow">Our Curriculum</div>
+
+                    <h2>
+                        Connecting knowledge with application
+                    </h2>
+
+                    <p>
+                        Our academic approach seeks to make learning relevant
+                        and useful by connecting subject knowledge with
+                        practical experiences and real-world problem solving.
+                    </p>
+
+                    <p>
+                        Learners are encouraged to ask questions, develop
+                        solutions, work collaboratively and apply knowledge
+                        beyond the classroom.
+                    </p>
+                </div>
+
+                <div class="curriculum-list">
+
+                    <article class="curriculum-item reveal">
+                        <div class="curriculum-number">1</div>
+
+                        <div>
+                            <h3>Subject Knowledge</h3>
+                            <p>
+                                Build a strong foundation of concepts,
+                                principles and academic understanding.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="curriculum-item reveal">
+                        <div class="curriculum-number">2</div>
+
+                        <div>
+                            <h3>Critical Thinking</h3>
+                            <p>
+                                Encourage learners to analyse information,
+                                ask meaningful questions and develop
+                                reasoned solutions.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="curriculum-item reveal">
+                        <div class="curriculum-number">3</div>
+
+                        <div>
+                            <h3>Practical Application</h3>
+                            <p>
+                                Connect classroom concepts with projects,
+                                experiments, skills and real-world
+                                situations.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="curriculum-item reveal">
+                        <div class="curriculum-number">4</div>
+
+                        <div>
+                            <h3>Creativity &amp; Innovation</h3>
+                            <p>
+                                Give learners opportunities to develop ideas,
+                                create solutions and explore new possibilities.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="curriculum-item reveal">
+                        <div class="curriculum-number">5</div>
+
+                        <div>
+                            <h3>Enterprise &amp; Responsibility</h3>
+                            <p>
+                                Develop initiative, teamwork, financial
+                                awareness and responsible participation in
+                                productive activities.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             LEARNING MODEL
+        ====================================================== -->
+        <section class="section learning-model">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">How We Learn</div>
+
+                    <h2>
+                        A Practical Approach to Education
+                    </h2>
+
+                    <p>
+                        Learning becomes more meaningful when learners can
+                        understand, practise, create and reflect.
+                    </p>
+                </div>
+
+                <div class="learning-grid">
+
+                    <article class="learning-card reveal">
+                        <span>01</span>
+                        <h3>Learn</h3>
+                        <p>
+                            Develop knowledge and understanding through
+                            structured academic learning.
+                        </p>
+                    </article>
+
+                    <article class="learning-card reveal">
+                        <span>02</span>
+                        <h3>Practise</h3>
+                        <p>
+                            Reinforce understanding through practical
+                            activities, projects and guided application.
+                        </p>
+                    </article>
+
+                    <article class="learning-card reveal">
+                        <span>03</span>
+                        <h3>Create</h3>
+                        <p>
+                            Use knowledge and skills to develop ideas,
+                            solutions, products and projects.
+                        </p>
+                    </article>
+
+                    <article class="learning-card reveal">
+                        <span>04</span>
+                        <h3>Lead</h3>
+                        <p>
+                            Develop responsibility, teamwork, communication,
+                            enterprise and leadership.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             ASSESSMENT
+        ====================================================== -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">Assessment &amp; Progress</div>
+
+                    <h2>
+                        Understanding Learner Progress
+                    </h2>
+
+                    <p>
+                        Assessment is an important part of the learning
+                        process, helping teachers and learners understand
+                        strengths, needs and areas for continued development.
+                    </p>
+                </div>
+
+                <div class="assessment-grid">
+
+                    <article class="assessment-card reveal">
+                        <h3>Continuous Learning</h3>
+
+                        <p>
+                            Learning progress can be followed through
+                            classroom activities, exercises, assignments,
+                            projects and other academic work.
+                        </p>
+
+                        <ul>
+                            <li>Classroom activities</li>
+                            <li>Assignments and coursework</li>
+                            <li>Practical activities</li>
+                            <li>Projects and learner participation</li>
+                        </ul>
+                    </article>
+
+                    <article class="assessment-card reveal">
+                        <h3>Tests &amp; Examinations</h3>
+
+                        <p>
+                            Formal assessments provide opportunities to
+                            measure understanding and review academic
+                            progress.
+                        </p>
+
+                        <ul>
+                            <li>Subject assessments</li>
+                            <li>Term-based examinations</li>
+                            <li>Academic review</li>
+                            <li>Performance feedback</li>
+                        </ul>
+                    </article>
+
+                    <article class="assessment-card reveal">
+                        <h3>Academic Support</h3>
+
+                        <p>
+                            Assessment information can help identify areas
+                            where learners require additional guidance,
+                            practice or support.
+                        </p>
+
+                        <ul>
+                            <li>Identifying learning needs</li>
+                            <li>Targeted academic support</li>
+                            <li>Progress monitoring</li>
+                            <li>Communication with learners and families</li>
+                        </ul>
+                    </article>
+
+                    <article class="assessment-card reveal">
+                        <h3>Results &amp; Development</h3>
+
+                        <p>
+                            Academic results form part of the wider picture
+                            of learner development and are considered
+                            alongside skills, discipline and participation.
+                        </p>
+
+                        <ul>
+                            <li>Academic records</li>
+                            <li>Progress reporting</li>
+                            <li>Learning reflection</li>
+                            <li>Planning for continued development</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             ISIE
+        ====================================================== -->
+        <section class="section isie-section">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">Integrated Skills, Innovation &amp; Enterprise</div>
+
+                    <h2>
+                        Bringing Education to Life
+                    </h2>
+
+                    <p>
+                        Our ISIE approach helps connect academic learning with
+                        practical competencies, innovation and productive
+                        enterprise.
+                    </p>
+                </div>
+
+                <div class="isie-grid">
+
+                    <article class="isie-card reveal">
+                        <div class="isie-letter">S</div>
+
+                        <h3>Skills</h3>
+
+                        <p>
+                            Learners develop practical competencies alongside
+                            academic knowledge, including digital, vocational,
+                            agricultural and creative skills.
+                        </p>
+                    </article>
+
+                    <article class="isie-card reveal">
+                        <div class="isie-letter">I</div>
+
+                        <h3>Innovation</h3>
+
+                        <p>
+                            Learners are encouraged to think creatively,
+                            identify problems and develop useful solutions.
+                        </p>
+                    </article>
+
+                    <article class="isie-card reveal">
+                        <div class="isie-letter">E</div>
+
+                        <h3>Enterprise</h3>
+
+                        <p>
+                            Enterprise learning develops initiative,
+                            financial awareness and the ability to turn
+                            knowledge and skills into productive opportunities.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             ACADEMIC JOURNEY
+        ====================================================== -->
+        <section class="section journey">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">Learner Development</div>
+
+                    <h2>
+                        The Academic &amp; Skills Journey
+                    </h2>
+
+                    <p>
+                        Learners can progressively explore, develop and
+                        specialise their academic and practical capabilities.
+                    </p>
+                </div>
+
+                <div class="journey-list">
+
+                    <article class="journey-item reveal">
+
+                        <div class="journey-stage">
+                            <strong>Stage 1</strong>
+                            <h3>Foundation</h3>
+                        </div>
+
+                        <div class="journey-content">
+                            <h3>S.1 – S.2</h3>
+
+                            <p>
+                                Learners build academic foundations while
+                                exploring ICT, agriculture, entrepreneurship
+                                and practical skills.
+                            </p>
+                        </div>
+
+                    </article>
+
+                    <article class="journey-item reveal">
+
+                        <div class="journey-stage">
+                            <strong>Stage 2</strong>
+                            <h3>Exploration</h3>
+                        </div>
+
+                        <div class="journey-content">
+                            <h3>S.3 – S.4</h3>
+
+                            <p>
+                                Learners deepen their academic understanding,
+                                explore skill tracks and participate in
+                                practical and small-enterprise projects.
+                            </p>
+                        </div>
+
+                    </article>
+
+                    <article class="journey-item reveal">
+
+                        <div class="journey-stage">
+                            <strong>Stage 3</strong>
+                            <h3>Specialisation</h3>
+                        </div>
+
+                        <div class="journey-content">
+                            <h3>S.5 – S.6</h3>
+
+                            <p>
+                                Learners continue academic development while
+                                specialising in selected areas and engaging
+                                in production-based projects and enterprise
+                                opportunities.
+                            </p>
+                        </div>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             ACADEMIC SUPPORT
+        ====================================================== -->
+        <section class="section alt">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <div class="eyebrow">Academic Support</div>
+
+                    <h2>
+                        Supporting Every Learner's Development
+                    </h2>
+
+                    <p>
+                        Academic success is supported through structured
+                        teaching, monitoring, communication and opportunities
+                        for learners to apply their knowledge.
+                    </p>
+                </div>
+
+                <div class="support-grid">
+
+                    <article class="support-card reveal">
+                        <h3>Teacher Assignment</h3>
+
+                        <p>
+                            Academic organisation includes appropriate
+                            teacher assignment and coordination of subject
+                            learning.
+                        </p>
+                    </article>
+
+                    <article class="support-card reveal">
+                        <h3>Timetabling</h3>
+
+                        <p>
+                            Structured schedules help organise lessons,
+                            practical activities, assessments and other
+                            academic engagements.
+                        </p>
+                    </article>
+
+                    <article class="support-card reveal">
+                        <h3>Academic Records</h3>
+
+                        <p>
+                            Academic records help maintain a clear picture of
+                            learner progress and development over time.
+                        </p>
+                    </article>
+
+                    <article class="support-card reveal">
+                        <h3>Assignments &amp; Coursework</h3>
+
+                        <p>
+                            Coursework gives learners opportunities to
+                            practise concepts, conduct research and
+                            demonstrate understanding.
+                        </p>
+                    </article>
+
+                    <article class="support-card reveal">
+                        <h3>Academic Communication</h3>
+
+                        <p>
+                            Clear communication helps connect learners,
+                            teachers and families around academic development.
+                        </p>
+                    </article>
+
+                    <article class="support-card reveal">
+                        <h3>Progress &amp; Development</h3>
+
+                        <p>
+                            Academic progress is considered as part of the
+                            learner's broader educational and personal
+                            development.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+
+                    <div class="cta-copy reveal">
+                        <h2>
+                            Discover learning at Ndejje Central High School
+                        </h2>
+
+                        <p>
+                            Explore our school, learning environment,
+                            student life and opportunities for practical
+                            skills, innovation and enterprise.
+                        </p>
+                    </div>
+
+                    <div class="cta-actions reveal">
+                        <a class="btn btn-primary" href="about.html">
+                            Learn About Our School
+                        </a>
+
+                        <a class="btn btn-secondary" href="contact.html">
+                            Contact the School
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="site-footer">
+
+        <div class="container footer-main">
+
+            <div class="footer-brand">
+                <img
+                    src="images/nchslogo.png"
+                    alt="Ndejje Central High School logo"
+                >
+
+                <h2>
+                    Ndejje Central High School – Zanta
+                </h2>
+
+                <p>
+                    Centre of Knowledge.
+                    Excellence • Discipline • Innovation.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academic.html">Academics</a></li>
+                    <li><a href="student-life.html">Student Life</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Resources</h3>
+
+                <ul class="footer-links">
+                    <li><a href="news.html">News &amp; Events</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="downloads.html">Downloads</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+
+                <ul class="footer-contact">
+                    <li>Zanta, Kampala</li>
+
+                    <li>
+                        <a href="tel:+256705414545">
+                            0705 414 545
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="mailto:ndejjecentralhighschool@gmail.com">
+                            ndejjecentralhighschool@gmail.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <span>
+                &copy; <span id="current-year"></span>
+                Ndejje Central High School – Zanta.
+            </span>
+
+            <span>
+                Centre of Knowledge
+            </span>
+        </div>
+
+    </footer>
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+    <script>
+        (() => {
+            "use strict";
+
+            const header = document.getElementById("site-header");
+            const navToggle = document.getElementById("nav-toggle");
+            const nav = document.getElementById("primary-navigation");
+            const currentYear = document.getElementById("current-year");
+
+            /* -----------------------------------------------------
+               Current year
+            ----------------------------------------------------- */
+            if (currentYear) {
+                currentYear.textContent = new Date().getFullYear();
+            }
+
+            /* -----------------------------------------------------
+               Mobile navigation
+            ----------------------------------------------------- */
+            if (navToggle && nav) {
+                navToggle.addEventListener("click", () => {
+                    const isOpen = nav.classList.toggle("open");
+
+                    navToggle.setAttribute(
+                        "aria-expanded",
+                        String(isOpen)
+                    );
+
+                    navToggle.setAttribute(
+                        "aria-label",
+                        isOpen
+                            ? "Close navigation menu"
+                            : "Open navigation menu"
+                    );
+
+                    navToggle.textContent = isOpen ? "×" : "☰";
+                });
+
+                nav.querySelectorAll("a").forEach((link) => {
+                    link.addEventListener("click", () => {
+                        nav.classList.remove("open");
+
+                        navToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        navToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation menu"
+                        );
+
+                        navToggle.textContent = "☰";
+                    });
+                });
+            }
+
+            /* -----------------------------------------------------
+               Header shadow on scroll
+            ----------------------------------------------------- */
+            const updateHeader = () => {
+                if (!header) return;
+
+                header.classList.toggle(
+                    "scrolled",
+                    window.scrollY > 10
+                );
+            };
+
+            updateHeader();
+            window.addEventListener("scroll", updateHeader, {
+                passive: true
+            });
+
+            /* -----------------------------------------------------
+               Scroll reveal
+            ----------------------------------------------------- */
+            const revealElements =
+                document.querySelectorAll(".reveal");
+
+            if (
+                "IntersectionObserver" in window &&
+                revealElements.length
+            ) {
+                const observer = new IntersectionObserver(
+                    (entries, observerInstance) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) return;
+
+                            entry.target.classList.add("visible");
+
+                            observerInstance.unobserve(
+                                entry.target
+                            );
+                        });
+                    },
+                    {
+                        threshold: 0.12,
+                        rootMargin: "0px 0px -40px 0px"
+                    }
+                );
+
+                revealElements.forEach((element) => {
+                    observer.observe(element);
+                });
+            } else {
+                revealElements.forEach((element) => {
+                    element.classList.add("visible");
+                });
+            }
+        })();
+    </script>
+
+</body>
+</html>

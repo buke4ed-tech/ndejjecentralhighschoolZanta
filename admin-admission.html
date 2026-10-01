@@ -1,0 +1,2986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Applications & Admissions | Ndejje Central High School – Zanta
+  </title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #003366;
+      --blue-dark: #002447;
+      --blue-light: #eef5fb;
+      --gold: #c9a227;
+      --green: #18794e;
+      --green-bg: #eaf7f0;
+      --red: #b42318;
+      --red-bg: #fff0ee;
+      --orange: #a15c00;
+      --orange-bg: #fff5df;
+      --gray: #667085;
+      --border: #d9e0e7;
+      --background: #f4f7fa;
+      --white: #ffffff;
+      --shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: #17202a;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .topbar {
+      background: var(--blue);
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      background: white;
+      border-radius: 50%;
+      padding: 3px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      opacity: 0.85;
+      font-size: 12px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .top-actions button,
+    .top-actions a {
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent;
+      color: white;
+      padding: 9px 13px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .top-actions button:hover,
+    .top-actions a:hover {
+      background: rgba(255,255,255,.1);
+    }
+
+    .container {
+      max-width: 1450px;
+      margin: 0 auto;
+      padding: 28px 22px 60px;
+    }
+
+    .page-heading {
+      margin-bottom: 22px;
+    }
+
+    .page-heading h2 {
+      color: var(--blue);
+      margin: 0 0 7px;
+      font-size: 28px;
+    }
+
+    .page-heading p {
+      color: var(--gray);
+      margin: 0;
+    }
+
+    .status-message {
+      display: none;
+      padding: 13px 16px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .status-message.show {
+      display: block;
+    }
+
+    .status-message.success {
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .status-message.error {
+      background: var(--red-bg);
+      color: var(--red);
+    }
+
+    .status-message.info {
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card .label {
+      color: var(--gray);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .value {
+      color: var(--blue);
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .workspace {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .toolbar {
+      padding: 17px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1.7fr 1fr 1fr auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .field label {
+      display: block;
+      color: #344054;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #cbd5df;
+      border-radius: 6px;
+      padding: 10px 11px;
+      outline: none;
+      background: white;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px rgba(0,51,102,.08);
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-success {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-danger {
+      background: var(--red);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #edf1f5;
+      color: #344054;
+    }
+
+    .btn:hover {
+      opacity: .9;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 950px;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid #edf0f3;
+      text-align: left;
+      vertical-align: middle;
+      font-size: 13px;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #475467;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    tr:hover td {
+      background: #fafcff;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .status-submitted {
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .status-under_review {
+      background: var(--orange-bg);
+      color: var(--orange);
+    }
+
+    .status-admitted {
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .status-rejected {
+      background: var(--red-bg);
+      color: var(--red);
+    }
+
+    .action-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .action-row .btn {
+      padding: 7px 9px;
+      font-size: 11px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--gray);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 45px;
+      color: var(--gray);
+    }
+
+    /* Modal */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 100;
+      padding: 25px;
+      overflow-y: auto;
+    }
+
+    .modal.show {
+      display: block;
+    }
+
+    .modal-card {
+      max-width: 1050px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 20px 70px rgba(0,0,0,.25);
+    }
+
+    .modal-header {
+      background: var(--blue);
+      color: white;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 19px;
+    }
+
+    .close-btn {
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 22px;
+    }
+
+    .detail-section {
+      margin-bottom: 24px;
+    }
+
+    .detail-section h4 {
+      color: var(--blue);
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 7px;
+      margin: 0 0 14px;
+      font-size: 15px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 20px;
+    }
+
+    .detail-item {
+      padding: 9px 0;
+      border-bottom: 1px solid #edf0f3;
+    }
+
+    .detail-item .key {
+      color: var(--gray);
+      display: block;
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+
+    .detail-item .value {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .interest-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .interest {
+      background: var(--blue-light);
+      color: var(--blue);
+      padding: 6px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .review-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .modal-actions {
+      padding: 16px 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .danger-zone {
+      border: 1px solid #f2c5c1;
+      background: #fff8f7;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .danger-zone h4 {
+      color: var(--red);
+      margin: 0 0 10px;
+    }
+
+    @media (max-width: 900px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 18px 12px 40px;
+      }
+
+      .modal {
+        padding: 8px;
+      }
+
+      .modal-card {
+        margin: 5px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <img
+        src="images/nchslogo.png"
+        alt="Ndejje Central High School logo"
+      >
+
+      <div>
+        <h1>NDEJJE CENTRAL HIGH SCHOOL – ZANTA</h1>
+        <p>Applications & Admissions Administration</p>
+      </div>
+
+    </div>
+
+    <div class="top-actions">
+
+  <a href="admin-news.html">
+    News & Events
+  </a>
+
+  <a href="application.html">
+    Applications
+  </a>
+
+  <a href="admission.html">
+    Issue Admission
+  </a>
+
+  <button id="refreshButton" type="button">
+    Refresh
+  </button>
+
+  <button id="logoutButton" type="button">
+    Sign Out
+  </button>
+
+</div>
+
+  </header>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
+
+  <main class="container">
+
+    <div class="page-heading">
+
+      <h2>
+        Applications & Admissions
+      </h2>
+
+      <p>
+        Review learner applications, record decisions and create
+        official student admission records.
+      </p>
+
+    </div>
+
+
+    <div
+      id="statusMessage"
+      class="status-message"
+    ></div>
+
+
+    <!-- =======================================================
+         STATISTICS
+    ======================================================== -->
+
+    <section class="stats">
+
+      <div class="stat-card">
+        <div class="label">
+          Submitted
+        </div>
+        <div
+          id="submittedCount"
+          class="value"
+        >
+          0
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="label">
+          Under Review
+        </div>
+        <div
+          id="reviewCount"
+          class="value"
+        >
+          0
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="label">
+          Admitted
+        </div>
+        <div
+          id="admittedCount"
+          class="value"
+        >
+          0
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="label">
+          Rejected
+        </div>
+        <div
+          id="rejectedCount"
+          class="value"
+        >
+          0
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         APPLICATION WORKSPACE
+    ======================================================== -->
+
+    <section class="workspace">
+
+      <div class="toolbar">
+
+        <div class="field">
+
+          <label for="searchInput">
+            Search
+          </label>
+
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Name or application number..."
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="statusFilter">
+            Status
+          </label>
+
+          <select id="statusFilter">
+
+            <option value="">
+              All statuses
+            </option>
+
+            <option value="submitted">
+              Submitted
+            </option>
+
+            <option value="under_review">
+              Under Review
+            </option>
+
+            <option value="admitted">
+              Admitted
+            </option>
+
+            <option value="rejected">
+              Rejected
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="classFilter">
+            Class
+          </label>
+
+          <select id="classFilter">
+
+            <option value="">
+              All classes
+            </option>
+
+            <option value="S.1">S.1</option>
+            <option value="S.2">S.2</option>
+            <option value="S.3">S.3</option>
+            <option value="S.4">S.4</option>
+            <option value="S.5">S.5</option>
+            <option value="S.6">S.6</option>
+
+          </select>
+
+        </div>
+
+
+        <button
+          id="clearFiltersButton"
+          class="btn btn-secondary"
+          type="button"
+        >
+          Clear Filters
+        </button>
+
+      </div>
+
+
+      <div
+        id="tableContainer"
+        class="table-wrap"
+      >
+
+        <div class="loading">
+          Loading applications...
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       APPLICATION DETAIL MODAL
+  ========================================================== -->
+
+  <div
+    id="applicationModal"
+    class="modal"
+  >
+
+    <div class="modal-card">
+
+      <div class="modal-header">
+
+        <h3 id="modalTitle">
+          Application
+        </h3>
+
+        <button
+          id="closeModalButton"
+          class="close-btn"
+          type="button"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div
+        id="modalBody"
+        class="modal-body"
+      ></div>
+
+
+      <div class="modal-actions">
+
+        <button
+          id="reviewButton"
+          class="btn btn-primary"
+          type="button"
+        >
+          Mark Under Review
+        </button>
+
+        <button
+          id="saveReviewButton"
+          class="btn btn-secondary"
+          type="button"
+        >
+          Save Review Notes
+        </button>
+
+        <button
+          id="rejectButton"
+          class="btn btn-danger"
+          type="button"
+        >
+          Reject Application
+        </button>
+
+        <button
+          id="admitButton"
+          class="btn btn-success"
+          type="button"
+        >
+          Admit Student
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       FIREBASE / APPLICATION LOGIC
+  ========================================================== -->
+
+  <script type="module">
+
+    import {
+      auth,
+      db
+    } from "./js/firebase-config.js";
+
+
+    import {
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+    import {
+      collection,
+      doc,
+      getDoc,
+      getDocs,
+      orderBy,
+      query,
+      serverTimestamp,
+      runTransaction
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+    /* =========================================================
+       STATE
+    ========================================================== */
+
+    const state = {
+      user: null,
+      admin: null,
+      applications: [],
+      selectedApplication: null,
+      initialized: false
+    };
+
+
+    /* =========================================================
+       DOM
+    ========================================================== */
+
+    const statusMessage =
+      document.getElementById("statusMessage");
+
+    const tableContainer =
+      document.getElementById("tableContainer");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const statusFilter =
+      document.getElementById("statusFilter");
+
+    const classFilter =
+      document.getElementById("classFilter");
+
+    const applicationModal =
+      document.getElementById("applicationModal");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalBody =
+      document.getElementById("modalBody");
+
+
+    /* =========================================================
+       MESSAGE HELPERS
+    ========================================================== */
+
+    function showMessage(
+      message,
+      type = "info"
+    ) {
+
+      statusMessage.textContent =
+        message;
+
+      statusMessage.className =
+        `status-message show ${type}`;
+
+    }
+
+
+    function clearMessage() {
+
+      statusMessage.textContent =
+        "";
+
+      statusMessage.className =
+        "status-message";
+
+    }
+
+
+    /* =========================================================
+       SAFE HELPERS
+    ========================================================== */
+
+    function safeObject(value) {
+
+      return (
+        value &&
+        typeof value === "object" &&
+        !Array.isArray(value)
+      )
+        ? value
+        : {};
+
+    }
+
+
+    function safeArray(value) {
+
+      return Array.isArray(value)
+        ? value
+        : [];
+
+    }
+
+
+    function text(value) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+
+        return "—";
+
+      }
+
+      return String(value);
+
+    }
+
+
+    function escapeHtml(value) {
+
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    }
+
+
+    function formatDate(value) {
+
+      if (!value) {
+        return "—";
+      }
+
+      try {
+
+        if (
+          typeof value.toDate ===
+          "function"
+        ) {
+
+          return value
+            .toDate()
+            .toLocaleString();
+
+        }
+
+        return new Date(value)
+          .toLocaleString();
+
+      } catch {
+
+        return "—";
+
+      }
+
+    }
+
+
+    function normalizeStatus(value) {
+
+      return String(
+        value || "submitted"
+      )
+        .trim()
+        .toLowerCase();
+
+    }
+
+
+    /* =========================================================
+       ADMIN AUTHORIZATION
+    ========================================================== */
+
+    async function verifyAdmin(
+      user
+    ) {
+
+      if (!user?.uid) {
+        return false;
+      }
+
+      const adminRef =
+        doc(
+          db,
+          "admins",
+          user.uid
+        );
+
+      const snapshot =
+        await getDoc(
+          adminRef
+        );
+
+      if (!snapshot.exists()) {
+        return false;
+      }
+
+      const data =
+        snapshot.data() || {};
+
+      if (
+        data.role !== "admin" ||
+        data.active !== true
+      ) {
+
+        return false;
+
+      }
+
+      state.admin = data;
+
+      return true;
+
+    }
+
+
+    /* =========================================================
+       LOAD APPLICATIONS
+    ========================================================== */
+
+    async function loadApplications() {
+
+      tableContainer.innerHTML = `
+        <div class="loading">
+          Loading applications...
+        </div>
+      `;
+
+      try {
+
+        const applicationsQuery =
+          query(
+            collection(
+              db,
+              "applications"
+            ),
+            orderBy(
+              "createdAt",
+              "desc"
+            )
+          );
+
+        const snapshot =
+          await getDocs(
+            applicationsQuery
+          );
+
+        state.applications =
+          snapshot.docs.map(
+            snapshotDoc => ({
+              id:
+                snapshotDoc.id,
+
+              ...snapshotDoc.data()
+
+            })
+          );
+
+        renderStatistics();
+
+        renderApplications();
+
+      } catch (error) {
+
+        console.error(
+          "Failed to load applications:",
+          error
+        );
+
+        /*
+         * If createdAt ordering causes an index/query problem,
+         * fall back to an unordered collection read.
+         */
+
+        try {
+
+          const fallbackSnapshot =
+            await getDocs(
+              collection(
+                db,
+                "applications"
+              )
+            );
+
+          state.applications =
+            fallbackSnapshot.docs.map(
+              snapshotDoc => ({
+                id:
+                  snapshotDoc.id,
+
+                ...snapshotDoc.data()
+
+              })
+            );
+
+          state.applications.sort(
+            (a, b) => {
+
+              const aDate =
+                a.createdAt?.toMillis?.() ||
+                0;
+
+              const bDate =
+                b.createdAt?.toMillis?.() ||
+                0;
+
+              return bDate - aDate;
+
+            }
+          );
+
+          renderStatistics();
+
+          renderApplications();
+
+        } catch (fallbackError) {
+
+          console.error(
+            "Application fallback failed:",
+            fallbackError
+          );
+
+          showMessage(
+            "Unable to load applications. Check your Firestore rules and administrator access.",
+            "error"
+          );
+
+          tableContainer.innerHTML = `
+            <div class="empty">
+              Applications could not be loaded.
+            </div>
+          `;
+
+        }
+
+      }
+
+    }
+
+
+    /* =========================================================
+       STATISTICS
+    ========================================================== */
+
+    function renderStatistics() {
+
+      const counts = {
+        submitted: 0,
+        under_review: 0,
+        admitted: 0,
+        rejected: 0
+      };
+
+      state.applications.forEach(
+        application => {
+
+          const status =
+            normalizeStatus(
+              application.status
+            );
+
+          if (
+            Object.prototype.hasOwnProperty
+              .call(
+                counts,
+                status
+              )
+          ) {
+
+            counts[status]++;
+
+          }
+
+        }
+      );
+
+      document.getElementById(
+        "submittedCount"
+      ).textContent =
+        counts.submitted;
+
+      document.getElementById(
+        "reviewCount"
+      ).textContent =
+        counts.under_review;
+
+      document.getElementById(
+        "admittedCount"
+      ).textContent =
+        counts.admitted;
+
+      document.getElementById(
+        "rejectedCount"
+      ).textContent =
+        counts.rejected;
+
+    }
+
+
+    /* =========================================================
+       FILTER APPLICATIONS
+    ========================================================== */
+
+    function getFilteredApplications() {
+
+      const search =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+      const selectedStatus =
+        statusFilter.value;
+
+      const selectedClass =
+        classFilter.value;
+
+      return state.applications.filter(
+        application => {
+
+          const student =
+            safeObject(
+              application.student
+            );
+
+          const applicationNumber =
+            String(
+              application.applicationNumber ||
+              ""
+            ).toLowerCase();
+
+          const fullName =
+            String(
+              student.fullName ||
+              ""
+            ).toLowerCase();
+
+          const status =
+            normalizeStatus(
+              application.status
+            );
+
+          const classApplyingFor =
+            String(
+              student.classApplyingFor ||
+              ""
+            );
+
+          const matchesSearch =
+            !search ||
+            applicationNumber.includes(search) ||
+            fullName.includes(search);
+
+          const matchesStatus =
+            !selectedStatus ||
+            status === selectedStatus;
+
+          const matchesClass =
+            !selectedClass ||
+            classApplyingFor === selectedClass;
+
+          return (
+            matchesSearch &&
+            matchesStatus &&
+            matchesClass
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =========================================================
+       RENDER APPLICATION TABLE
+    ========================================================== */
+
+    function renderApplications() {
+
+      const applications =
+        getFilteredApplications();
+
+      if (!applications.length) {
+
+        tableContainer.innerHTML = `
+          <div class="empty">
+            No applications match the current filters.
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      const rows =
+        applications.map(
+          application => {
+
+            const student =
+              safeObject(
+                application.student
+              );
+
+            const status =
+              normalizeStatus(
+                application.status
+              );
+
+            const applicationNumber =
+              text(
+                application.applicationNumber
+              );
+
+            const name =
+              text(
+                student.fullName
+              );
+
+            const className =
+              text(
+                student.classApplyingFor
+              );
+
+            const guardian =
+              safeObject(
+                application.guardian
+              );
+
+            const guardianName =
+              text(
+                guardian.name
+              );
+
+            return `
+              <tr>
+
+                <td>
+                  <strong>
+                    ${escapeHtml(applicationNumber)}
+                  </strong>
+                </td>
+
+                <td>
+                  ${escapeHtml(name)}
+                </td>
+
+                <td>
+                  ${escapeHtml(className)}
+                </td>
+
+                <td>
+                  ${escapeHtml(guardianName)}
+                </td>
+
+                <td>
+                  <span
+                    class="status-badge status-${escapeHtml(status)}"
+                  >
+                    ${escapeHtml(
+                      status.replaceAll(
+                        "_",
+                        " "
+                      )
+                    )}
+                  </span>
+                </td>
+
+                <td>
+                  ${escapeHtml(
+                    formatDate(
+                      application.createdAt
+                    )
+                  )}
+                </td>
+
+                <td>
+
+                  <div class="action-row">
+
+                    <button
+                      class="btn btn-primary"
+                      data-action="view"
+                      data-id="${escapeHtml(application.id)}"
+                    >
+                      View
+                    </button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+            `;
+
+          }
+        )
+        .join("");
+
+
+      tableContainer.innerHTML = `
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>
+                Application No.
+              </th>
+
+              <th>
+                Applicant
+              </th>
+
+              <th>
+                Class
+              </th>
+
+              <th>
+                Parent / Guardian
+              </th>
+
+              <th>
+                Status
+              </th>
+
+              <th>
+                Submitted
+              </th>
+
+              <th>
+                Action
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+            ${rows}
+          </tbody>
+
+        </table>
+
+      `;
+
+
+      tableContainer
+        .querySelectorAll(
+          "[data-action='view']"
+        )
+        .forEach(
+          button => {
+
+            button.addEventListener(
+              "click",
+              () => {
+
+                openApplication(
+                  button.dataset.id
+                );
+
+              }
+            );
+
+          }
+        );
+
+    }
+
+
+    /* =========================================================
+       OPEN APPLICATION
+    ========================================================== */
+
+    function openApplication(
+      applicationId
+    ) {
+
+      const application =
+        state.applications.find(
+          item =>
+            item.id ===
+            applicationId
+        );
+
+      if (!application) {
+
+        showMessage(
+          "Application could not be found.",
+          "error"
+        );
+
+        return;
+
+      }
+
+      state.selectedApplication =
+        application;
+
+      renderApplicationModal();
+
+      applicationModal
+        .classList
+        .add("show");
+
+    }
+
+
+    /* =========================================================
+       DETAIL FIELD
+    ========================================================== */
+
+    function detail(
+      label,
+      value
+    ) {
+
+      return `
+        <div class="detail-item">
+
+          <span class="key">
+            ${escapeHtml(label)}
+          </span>
+
+          <span class="value">
+            ${escapeHtml(text(value))}
+          </span>
+
+        </div>
+      `;
+
+    }
+
+
+    /* =========================================================
+       RENDER APPLICATION MODAL
+    ========================================================== */
+
+    function renderApplicationModal() {
+
+      const application =
+        state.selectedApplication;
+
+      if (!application) {
+        return;
+      }
+
+      const student =
+        safeObject(
+          application.student
+        );
+
+      const guardian =
+        safeObject(
+          application.guardian
+        );
+
+      const academic =
+        safeObject(
+          application.academic
+        );
+
+      const medical =
+        safeObject(
+          application.medical
+        );
+
+      const documents =
+        safeObject(
+          application.documents
+        );
+
+      const review =
+        safeObject(
+          application.review
+        );
+
+      const admission =
+        safeObject(
+          application.admission
+        );
+
+      const rejection =
+        safeObject(
+          application.rejection
+        );
+
+      const interests =
+        safeArray(
+          application.interests
+        );
+
+      const status =
+        normalizeStatus(
+          application.status
+        );
+
+
+      modalTitle.textContent =
+        application.applicationNumber ||
+        "Application";
+
+
+      modalBody.innerHTML = `
+
+        <!-- STUDENT -->
+
+        <section class="detail-section">
+
+          <h4>
+            Student Information
+          </h4>
+
+          <div class="detail-grid">
+
+            ${detail(
+              "Full Name",
+              student.fullName
+            )}
+
+            ${detail(
+              "Gender",
+              student.gender
+            )}
+
+            ${detail(
+              "Date of Birth",
+              student.dateOfBirth
+            )}
+
+            ${detail(
+              "Nationality",
+              student.nationality
+            )}
+
+            ${detail(
+              "Religion",
+              student.religion
+            )}
+
+            ${detail(
+              "Class Applying For",
+              student.classApplyingFor
+            )}
+
+            ${detail(
+              "Former School",
+              student.formerSchool
+            )}
+
+            ${detail(
+              "Student Phone",
+              student.phone
+            )}
+
+            ${detail(
+              "Student Email",
+              student.email
+            )}
+
+            ${detail(
+              "Home Address",
+              student.homeAddress
+            )}
+
+          </div>
+
+        </section>
+
+
+        <!-- GUARDIAN -->
+
+        <section class="detail-section">
+
+          <h4>
+            Parent / Guardian
+          </h4>
+
+          <div class="detail-grid">
+
+            ${detail(
+              "Name",
+              guardian.name
+            )}
+
+            ${detail(
+              "Relationship",
+              guardian.relationship
+            )}
+
+            ${detail(
+              "Occupation",
+              guardian.occupation
+            )}
+
+            ${detail(
+              "Phone",
+              guardian.phone
+            )}
+
+            ${detail(
+              "Residential Address",
+              guardian.address
+            )}
+
+          </div>
+
+        </section>
+
+
+        <!-- ACADEMIC -->
+
+        <section class="detail-section">
+
+          <h4>
+            Academic Information
+          </h4>
+
+          <div class="detail-grid">
+
+            ${detail(
+              "Last Class Completed",
+              academic.lastClassCompleted
+            )}
+
+            ${detail(
+              "National Examination",
+              academic.nationalExamination
+            )}
+
+            ${detail(
+              "Examination Year",
+              academic.examinationYear
+            )}
+
+            ${detail(
+              "Index Number",
+              academic.indexNumber
+            )}
+
+            ${detail(
+              "Results / Grades",
+              academic.results
+            )}
+
+          </div>
+
+        </section>
+
+
+        <!-- INTERESTS -->
+
+        <section class="detail-section">
+
+          <h4>
+            Skills, Talents & Interests
+          </h4>
+
+          <div class="interest-list">
+
+            ${
+              interests.length
+                ? interests.map(
+                    interest => `
+                      <span class="interest">
+                        ${escapeHtml(interest)}
+                      </span>
+                    `
+                  ).join("")
+                : `
+                  <span>
+                    No interests recorded.
+                  </span>
+                `
+            }
+
+          </div>
+
+        </section>
+
+
+        <!-- MEDICAL -->
+
+        <section class="detail-section">
+
+          <h4>
+            Medical Information
+          </h4>
+
+          <div class="detail-grid">
+
+            ${detail(
+              "Medical Conditions",
+              medical.conditions
+            )}
+
+            ${detail(
+              "Allergies / Special Considerations",
+              medical.allergies
+            )}
+
+          </div>
+
+        </section>
+
+
+        <!-- DOCUMENTS -->
+
+        <section class="detail-section">
+
+          <h4>
+            Required Documents
+          </h4>
+
+          <div class="detail-grid">
+
+            ${detail(
+              "Passport Photograph",
+              documents.passportPhotograph
+            )}
+
+            ${detail(
+              "Academic Results",
+              documents.academicResults
+            )}
+
+            ${detail(
+              "Birth Certificate",
+              documents.birthCertificate
+            )}
+
+            ${detail(
+              "Originals Required",
+              documents.originalsRequired
+                ? "Yes"
+                : "No"
+            )}
+
+          </div>
+
+        </section>
+
+
+        <!-- REVIEW -->
+
+        <section class="detail-section">
+
+          <h4>
+            Administrative Review
+          </h4>
+
+          <div class="review-box">
+
+            <div class="field">
+
+              <label for="reviewNotes">
+                Review Notes
+              </label>
+
+              <textarea
+                id="reviewNotes"
+                rows="5"
+                placeholder="Enter review notes..."
+              >${escapeHtml(
+                review.notes || ""
+              )}</textarea>
+
+            </div>
+
+            <br>
+
+            ${detail(
+              "Reviewed By",
+              review.reviewedBy
+            )}
+
+            ${detail(
+              "Reviewed At",
+              formatDate(
+                review.reviewedAt
+              )
+            )}
+
+          </div>
+
+        </section>
+
+
+        ${
+          status === "admitted"
+            ? `
+
+              <section class="detail-section">
+
+                <h4>
+                  Admission
+                </h4>
+
+                <div class="detail-grid">
+
+                  ${detail(
+                    "Admission Number",
+                    admission.admissionNumber
+                  )}
+
+                  ${detail(
+                    "Admission Date",
+                    formatDate(
+                      admission.admittedAt
+                    )
+                  )}
+
+                  ${detail(
+                    "Admitted By",
+                    admission.admittedBy
+                  )}
+
+                </div>
+
+              </section>
+
+            `
+            : ""
+        }
+
+
+        ${
+          status === "rejected"
+            ? `
+
+              <section class="detail-section">
+
+                <h4>
+                  Rejection
+                </h4>
+
+                <div class="detail-grid">
+
+                  ${detail(
+                    "Reason",
+                    rejection.reason
+                  )}
+
+                  ${detail(
+                    "Rejected By",
+                    rejection.rejectedBy
+                  )}
+
+                  ${detail(
+                    "Rejected At",
+                    formatDate(
+                      rejection.rejectedAt
+                    )
+                  )}
+
+                </div>
+
+              </section>
+
+            `
+            : ""
+        }
+
+      `;
+
+
+      const reviewButton =
+        document.getElementById(
+          "reviewButton"
+        );
+
+      const saveReviewButton =
+        document.getElementById(
+          "saveReviewButton"
+        );
+
+      const rejectButton =
+        document.getElementById(
+          "rejectButton"
+        );
+
+      const admitButton =
+        document.getElementById(
+          "admitButton"
+        );
+
+
+      const isFinal =
+        status === "admitted" ||
+        status === "rejected";
+
+
+      reviewButton.disabled =
+        isFinal ||
+        status === "under_review";
+
+      saveReviewButton.disabled =
+        isFinal;
+
+      rejectButton.disabled =
+        isFinal;
+
+      admitButton.disabled =
+        isFinal;
+
+    }
+
+
+    /* =========================================================
+       UPDATE APPLICATION
+    ========================================================== */
+
+    async function updateApplication(
+      applicationId,
+      updates
+    ) {
+
+      const applicationRef =
+        doc(
+          db,
+          "applications",
+          applicationId
+        );
+
+      /*
+       * We use a transaction so the update is read from the
+       * current Firestore document before writing.
+       */
+
+      await runTransaction(
+        db,
+        async transaction => {
+
+          const snapshot =
+            await transaction.get(
+              applicationRef
+            );
+
+          if (!snapshot.exists()) {
+
+            throw new Error(
+              "Application no longer exists."
+            );
+
+          }
+
+          transaction.update(
+            applicationRef,
+            {
+              ...updates,
+              updatedAt:
+                serverTimestamp()
+            }
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =========================================================
+       MARK UNDER REVIEW
+    ========================================================== */
+
+    async function markUnderReview() {
+
+      const application =
+        state.selectedApplication;
+
+      if (!application) {
+        return;
+      }
+
+      try {
+
+        await updateApplication(
+          application.id,
+          {
+            status:
+              "under_review",
+
+            "review.reviewedBy":
+              state.user.uid,
+
+            "review.reviewedByEmail":
+              state.user.email || null,
+
+            "review.reviewedAt":
+              serverTimestamp()
+          }
+        );
+
+        showMessage(
+          "Application marked as under review.",
+          "success"
+        );
+
+        closeModal();
+
+        await loadApplications();
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+        showMessage(
+          error.message ||
+          "Unable to update application.",
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SAVE REVIEW NOTES
+    ========================================================== */
+
+    async function saveReviewNotes() {
+
+      const application =
+        state.selectedApplication;
+
+      if (!application) {
+        return;
+      }
+
+      const notes =
+        document.getElementById(
+          "reviewNotes"
+        )?.value.trim() || "";
+
+
+      try {
+
+        await updateApplication(
+          application.id,
+          {
+            "review.notes":
+              notes,
+
+            "review.reviewedBy":
+              state.user.uid,
+
+            "review.reviewedByEmail":
+              state.user.email || null,
+
+            "review.reviewedAt":
+              serverTimestamp(),
+
+            status:
+              normalizeStatus(
+                application.status
+              ) === "submitted"
+                ? "under_review"
+                : application.status
+          }
+        );
+
+        showMessage(
+          "Review notes saved.",
+          "success"
+        );
+
+        closeModal();
+
+        await loadApplications();
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+        showMessage(
+          error.message ||
+          "Unable to save review notes.",
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       GENERATE ADMISSION NUMBER
+    ========================================================== */
+
+    function generateAdmissionNumber() {
+
+      const year =
+        new Date()
+          .getFullYear();
+
+      const random =
+        Math.floor(
+          100000 +
+          Math.random() * 900000
+        );
+
+      return `NCHS/${year}/${random}`;
+
+    }
+
+
+    /* =========================================================
+       ADMIT APPLICATION
+    ========================================================== */
+
+    async function admitApplication() {
+
+      const application =
+        state.selectedApplication;
+
+      if (!application) {
+        return;
+      }
+
+
+      const student =
+        safeObject(
+          application.student
+        );
+
+      const guardian =
+        safeObject(
+          application.guardian
+        );
+
+
+      if (!student.fullName) {
+
+        showMessage(
+          "The application does not contain a student name.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      const confirmed =
+        window.confirm(
+          `Admit ${student.fullName} and create the official student record?`
+        );
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      try {
+
+        const applicationRef =
+          doc(
+            db,
+            "applications",
+            application.id
+          );
+
+        const studentRef =
+          doc(
+            collection(
+              db,
+              "students"
+            )
+          );
+
+
+        const admissionNumber =
+          generateAdmissionNumber();
+
+
+        await runTransaction(
+          db,
+          async transaction => {
+
+            const applicationSnapshot =
+              await transaction.get(
+                applicationRef
+              );
+
+
+            if (
+              !applicationSnapshot.exists()
+            ) {
+
+              throw new Error(
+                "Application no longer exists."
+              );
+
+            }
+
+
+            const currentApplication =
+              applicationSnapshot.data();
+
+
+            const currentStatus =
+              normalizeStatus(
+                currentApplication.status
+              );
+
+
+            if (
+              currentStatus ===
+                "admitted"
+            ) {
+
+              throw new Error(
+                "This application has already been admitted."
+              );
+
+            }
+
+
+            if (
+              currentStatus ===
+                "rejected"
+            ) {
+
+              throw new Error(
+                "A rejected application cannot be admitted."
+              );
+
+            }
+
+
+            const currentStudent =
+              safeObject(
+                currentApplication.student
+              );
+
+            const currentGuardian =
+              safeObject(
+                currentApplication.guardian
+              );
+
+            const currentAcademic =
+              safeObject(
+                currentApplication.academic
+              );
+
+            const currentInterests =
+              safeArray(
+                currentApplication.interests
+              );
+
+
+            /*
+             * Official student record.
+             *
+             * The application remains the source application,
+             * while this document becomes the official student
+             * record.
+             */
+
+            const studentRecord = {
+
+              admissionNumber,
+
+              applicationId:
+                application.id,
+
+              applicationNumber:
+                currentApplication.applicationNumber ||
+                null,
+
+              status:
+                "active",
+
+              fullName:
+                currentStudent.fullName ||
+                null,
+
+              gender:
+                currentStudent.gender ||
+                null,
+
+              dateOfBirth:
+                currentStudent.dateOfBirth ||
+                null,
+
+              nationality:
+                currentStudent.nationality ||
+                null,
+
+              religion:
+                currentStudent.religion ||
+                null,
+
+              classApplyingFor:
+                currentStudent.classApplyingFor ||
+                null,
+
+              className:
+                currentStudent.classApplyingFor ||
+                null,
+
+              formerSchool:
+                currentStudent.formerSchool ||
+                null,
+
+              homeAddress:
+                currentStudent.homeAddress ||
+                null,
+
+              phone:
+                currentStudent.phone ||
+                null,
+
+              email:
+                currentStudent.email ||
+                null,
+
+              guardian: {
+                name:
+                  currentGuardian.name ||
+                  null,
+
+                relationship:
+                  currentGuardian.relationship ||
+                  null,
+
+                occupation:
+                  currentGuardian.occupation ||
+                  null,
+
+                phone:
+                  currentGuardian.phone ||
+                  null,
+
+                address:
+                  currentGuardian.address ||
+                  null
+              },
+
+              academic: {
+                lastClassCompleted:
+                  currentAcademic.lastClassCompleted ||
+                  null,
+
+                nationalExamination:
+                  currentAcademic.nationalExamination ||
+                  null,
+
+                examinationYear:
+                  currentAcademic.examinationYear ||
+                  null,
+
+                indexNumber:
+                  currentAcademic.indexNumber ||
+                  null,
+
+                results:
+                  currentAcademic.results ||
+                  null
+              },
+
+              interests:
+                currentInterests,
+
+              source:
+                "admission-application",
+
+              sourceApplicationId:
+                application.id,
+
+              createdAt:
+                serverTimestamp(),
+
+              updatedAt:
+                serverTimestamp(),
+
+              admittedAt:
+                serverTimestamp(),
+
+              admittedBy:
+                state.user.uid,
+
+              admittedByEmail:
+                state.user.email || null
+
+            };
+
+
+            transaction.set(
+              studentRef,
+              studentRecord
+            );
+
+
+            transaction.update(
+              applicationRef,
+              {
+
+                status:
+                  "admitted",
+
+                "admission.admissionNumber":
+                  admissionNumber,
+
+                "admission.studentId":
+                  studentRef.id,
+
+                "admission.admittedAt":
+                  serverTimestamp(),
+
+                "admission.admittedBy":
+                  state.user.uid,
+
+                "admission.admittedByEmail":
+                  state.user.email || null,
+
+                "review.reviewedBy":
+                  state.user.uid,
+
+                "review.reviewedByEmail":
+                  state.user.email || null,
+
+                "review.reviewedAt":
+                  serverTimestamp(),
+
+                updatedAt:
+                  serverTimestamp()
+
+              }
+            );
+
+          }
+        );
+
+
+        showMessage(
+          `Student admitted successfully. Admission Number: ${admissionNumber}`,
+          "success"
+        );
+
+
+        closeModal();
+
+        await loadApplications();
+
+
+      } catch (error) {
+
+        console.error(
+          "Admission failed:",
+          error
+        );
+
+        showMessage(
+          error.message ||
+          "Unable to admit the applicant.",
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       REJECT APPLICATION
+    ========================================================== */
+
+    async function rejectApplication() {
+
+      const application =
+        state.selectedApplication;
+
+      if (!application) {
+        return;
+      }
+
+
+      const reason =
+        window.prompt(
+          "Enter the reason for rejecting this application:"
+        );
+
+
+      if (
+        reason === null
+      ) {
+
+        return;
+
+      }
+
+
+      const cleanReason =
+        reason.trim();
+
+
+      if (!cleanReason) {
+
+        showMessage(
+          "A rejection reason is required.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      const confirmed =
+        window.confirm(
+          "Reject this application?"
+        );
+
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      try {
+
+        await updateApplication(
+          application.id,
+          {
+
+            status:
+              "rejected",
+
+            "rejection.reason":
+              cleanReason,
+
+            "rejection.rejectedAt":
+              serverTimestamp(),
+
+            "rejection.rejectedBy":
+              state.user.uid,
+
+            "rejection.rejectedByEmail":
+              state.user.email || null,
+
+            "review.reviewedBy":
+              state.user.uid,
+
+            "review.reviewedByEmail":
+              state.user.email || null,
+
+            "review.reviewedAt":
+              serverTimestamp()
+
+          }
+        );
+
+
+        showMessage(
+          "Application rejected.",
+          "success"
+        );
+
+        closeModal();
+
+        await loadApplications();
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+        showMessage(
+          error.message ||
+          "Unable to reject application.",
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       CLOSE MODAL
+    ========================================================== */
+
+    function closeModal() {
+
+      applicationModal
+        .classList
+        .remove("show");
+
+      state.selectedApplication =
+        null;
+
+    }
+
+
+    /* =========================================================
+       EVENT LISTENERS
+    ========================================================== */
+
+    searchInput.addEventListener(
+      "input",
+      renderApplications
+    );
+
+    statusFilter.addEventListener(
+      "change",
+      renderApplications
+    );
+
+    classFilter.addEventListener(
+      "change",
+      renderApplications
+    );
+
+
+    document
+      .getElementById(
+        "clearFiltersButton"
+      )
+      .addEventListener(
+        "click",
+        () => {
+
+          searchInput.value =
+            "";
+
+          statusFilter.value =
+            "";
+
+          classFilter.value =
+            "";
+
+          renderApplications();
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        "refreshButton"
+      )
+      .addEventListener(
+        "click",
+        async () => {
+
+          clearMessage();
+
+          await loadApplications();
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        "closeModalButton"
+      )
+      .addEventListener(
+        "click",
+        closeModal
+      );
+
+
+    applicationModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          applicationModal
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    document
+      .getElementById(
+        "reviewButton"
+      )
+      .addEventListener(
+        "click",
+        markUnderReview
+      );
+
+
+    document
+      .getElementById(
+        "saveReviewButton"
+      )
+      .addEventListener(
+        "click",
+        saveReviewNotes
+      );
+
+
+    document
+      .getElementById(
+        "rejectButton"
+      )
+      .addEventListener(
+        "click",
+        rejectApplication
+      );
+
+
+    document
+      .getElementById(
+        "admitButton"
+      )
+      .addEventListener(
+        "click",
+        admitApplication
+      );
+
+
+    document
+      .getElementById(
+        "logoutButton"
+      )
+      .addEventListener(
+        "click",
+        async () => {
+
+          await signOut(auth);
+
+          window.location.replace(
+            "admin-login.html"
+          );
+
+        }
+      );
+
+
+    /* =========================================================
+       AUTH INITIALIZATION
+    ========================================================== */
+
+    onAuthStateChanged(
+      auth,
+      async user => {
+
+        if (!user) {
+
+          window.location.replace(
+            "admin-login.html"
+          );
+
+          return;
+
+        }
+
+
+        try {
+
+          const authorized =
+            await verifyAdmin(
+              user
+            );
+
+
+          if (!authorized) {
+
+            await signOut(auth);
+
+            window.location.replace(
+              "admin-login.html"
+            );
+
+            return;
+
+          }
+
+
+          state.user =
+            user;
+
+          state.initialized =
+            true;
+
+
+          await loadApplications();
+
+
+        } catch (error) {
+
+          console.error(
+            "Admin authorization failed:",
+            error
+          );
+
+          await signOut(auth);
+
+          window.location.replace(
+            "admin-login.html"
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

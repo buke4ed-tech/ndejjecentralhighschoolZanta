@@ -1,0 +1,4415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Ndejje Central High School – Zanta. A Centre of Knowledge committed to academic excellence, discipline, innovation, practical skills and enterprise development.">
+
+    <meta name="keywords"
+          content="Ndejje Central High School, Zanta, Kampala, Uganda, secondary school, ISIE, innovation, entrepreneurship, education">
+
+    <meta name="author"
+          content="Ndejje Central High School – Zanta">
+
+    <meta name="theme-color"
+          content="#063b72">
+
+    <meta property="og:title"
+          content="Ndejje Central High School – Zanta">
+
+    <meta property="og:description"
+          content="Centre of Knowledge — Excellence, Discipline, Innovation and Enterprise.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:image"
+          content="images/school-hero.jpg">
+
+    <title>Ndejje Central High School – Zanta | Centre of Knowledge</title>
+
+    <style>
+
+        /* =========================================================
+           1. ROOT DESIGN SYSTEM
+        ========================================================= */
+
+        :root {
+            --primary: #063b72;
+            --primary-dark: #03284f;
+            --secondary: #0b68b2;
+            --secondary-light: #1687d5;
+
+            --accent: #f5c400;
+            --accent-dark: #dcae00;
+
+            --success: #16834a;
+
+            --dark: #102033;
+            --text: #334155;
+            --muted: #64748b;
+
+            --light: #f5f8fc;
+            --lighter: #f9fbfe;
+
+            --white: #ffffff;
+            --border: #e2e8f0;
+
+            --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.06);
+            --shadow: 0 12px 35px rgba(15, 23, 42, 0.10);
+            --shadow-lg: 0 20px 55px rgba(15, 23, 42, 0.15);
+
+            --radius-sm: 8px;
+            --radius: 14px;
+            --radius-lg: 22px;
+
+            --container: 1200px;
+
+            --transition: 0.3s ease;
+        }
+
+
+        /* =========================================================
+           2. RESET
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        section {
+            scroll-margin-top: 90px;
+        }
+
+
+        /* =========================================================
+           3. ACCESSIBILITY
+        ========================================================= */
+
+        .skip-link {
+            position: fixed;
+            top: -100px;
+            left: 20px;
+            z-index: 9999;
+
+            background: var(--primary);
+            color: var(--white);
+
+            padding: 12px 18px;
+            border-radius: 0 0 8px 8px;
+
+            text-decoration: none;
+            font-weight: 700;
+
+            transition: var(--transition);
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+
+        /* =========================================================
+           4. GLOBAL UTILITIES
+        ========================================================= */
+
+        .container {
+            width: min(92%, var(--container));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-light {
+            background: var(--light);
+        }
+
+        .section-white {
+            background: var(--white);
+        }
+
+        .section-header {
+            max-width: 760px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--secondary);
+            font-size: 0.82rem;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+        }
+
+        .eyebrow::before,
+        .eyebrow::after {
+            content: "";
+            width: 28px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            font-size: 1.02rem;
+        }
+
+
+        /* =========================================================
+           5. TOP BAR
+        ========================================================= */
+
+        .top-bar {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.92);
+            font-size: 0.86rem;
+        }
+
+        .top-bar-inner {
+            min-height: 38px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .top-bar a {
+            text-decoration: none;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent);
+        }
+
+        .top-socials {
+            display: flex;
+            gap: 14px;
+        }
+
+
+        /* =========================================================
+           6. HEADER / NAVIGATION
+        ========================================================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1500;
+
+            background: rgba(255,255,255,0.97);
+
+            border-bottom: 1px solid rgba(226,232,240,0.8);
+
+            box-shadow: var(--shadow-sm);
+
+            transition: var(--transition);
+        }
+
+        .site-header.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            min-height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            text-decoration: none;
+            min-width: 0;
+        }
+
+        .logo-area img {
+            width: 58px;
+            height: 58px;
+
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            min-width: 0;
+        }
+
+        .logo-text strong {
+            display: block;
+
+            color: var(--primary);
+
+            font-size: 1.08rem;
+            line-height: 1.25;
+        }
+
+        .logo-text span {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 0.75rem;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            gap: 4px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: block;
+
+            color: var(--dark);
+
+            padding: 10px 11px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-size: 0.91rem;
+            font-weight: 650;
+
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary);
+            background: #eef6fd;
+        }
+
+        .nav-links .nav-apply {
+            background: var(--accent);
+            color: #111827;
+
+            margin-left: 7px;
+            padding-inline: 18px;
+
+            font-weight: 800;
+        }
+
+        .nav-links .nav-apply:hover {
+            background: var(--accent-dark);
+            color: #111827;
+        }
+
+        .menu-toggle {
+            display: none;
+
+            width: 44px;
+            height: 44px;
+
+            border: 1px solid var(--border);
+            border-radius: 9px;
+
+            background: var(--white);
+            color: var(--primary);
+
+            font-size: 1.4rem;
+        }
+
+
+        /* =========================================================
+           7. HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: calc(100vh - 120px);
+            min-height: 720px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(2, 25, 50, 0.88) 0%,
+                    rgba(3, 40, 79, 0.70) 48%,
+                    rgba(3, 40, 79, 0.35) 100%
+                ),
+                url("images/school-hero.jpg")
+                center / cover no-repeat;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: min(92%, var(--container));
+
+            padding: 80px 0 150px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 14px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 999px;
+
+            background: rgba(255,255,255,0.10);
+            backdrop-filter: blur(10px);
+
+            color: var(--white);
+
+            font-size: 0.82rem;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            max-width: 850px;
+
+            color: var(--white);
+
+            font-size: clamp(2.6rem, 6vw, 5rem);
+            line-height: 1.04;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-motto {
+            min-height: 34px;
+
+            color: rgba(255,255,255,0.96);
+
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 600;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 15px;
+        }
+
+        .hero-description {
+            max-width: 690px;
+
+            color: rgba(255,255,255,0.88);
+
+            font-size: 1.08rem;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            min-height: 50px;
+
+            padding: 12px 22px;
+
+            border-radius: 9px;
+
+            text-decoration: none;
+
+            font-size: 0.95rem;
+            font-weight: 800;
+
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #111827;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: #ffd83d;
+            box-shadow: 0 10px 25px rgba(245,196,0,0.25);
+        }
+
+        .btn-outline-light {
+            border: 1px solid rgba(255,255,255,0.65);
+            background: rgba(255,255,255,0.08);
+
+            color: var(--white);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+        }
+
+        .hero-stats {
+            position: absolute;
+            z-index: 3;
+
+            bottom: 0;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: min(92%, var(--container));
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            background: rgba(255,255,255,0.97);
+
+            border-radius: 18px 18px 0 0;
+
+            box-shadow: var(--shadow-lg);
+
+            overflow: hidden;
+        }
+
+        .hero-stat {
+            padding: 20px;
+
+            text-align: center;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .hero-stat:last-child {
+            border-right: 0;
+        }
+
+        .hero-stat strong {
+            display: block;
+
+            color: var(--primary);
+
+            font-size: 1.35rem;
+        }
+
+        .hero-stat span {
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+
+        /* =========================================================
+           8. QUICK ACCESS
+        ========================================================= */
+
+        .quick-access {
+            position: relative;
+            z-index: 5;
+
+            margin-top: -1px;
+
+            background: var(--white);
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+
+            border: 1px solid var(--border);
+            border-top: 0;
+
+            border-radius: 0 0 var(--radius) var(--radius);
+
+            overflow: hidden;
+        }
+
+        .quick-card {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            padding: 20px;
+
+            background: var(--white);
+
+            text-decoration: none;
+
+            border-right: 1px solid var(--border);
+
+            transition: var(--transition);
+        }
+
+        .quick-card:last-child {
+            border-right: 0;
+        }
+
+        .quick-card:hover {
+            background: #f4f9fe;
+        }
+
+        .quick-icon {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            background: #eaf4fc;
+            color: var(--secondary);
+
+            border-radius: 10px;
+
+            font-size: 1.15rem;
+        }
+
+        .quick-card strong {
+            display: block;
+
+            color: var(--primary);
+
+            font-size: 0.9rem;
+        }
+
+        .quick-card span {
+            color: var(--muted);
+
+            font-size: 0.75rem;
+        }
+
+
+        /* =========================================================
+           9. ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1.05fr 0.95fr;
+
+            gap: 65px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            min-height: 440px;
+
+            object-fit: cover;
+
+            border-radius: var(--radius-lg);
+
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image-badge {
+            position: absolute;
+
+            right: -25px;
+            bottom: 25px;
+
+            max-width: 210px;
+
+            padding: 20px;
+
+            background: var(--primary);
+            color: var(--white);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image-badge strong {
+            display: block;
+
+            color: var(--accent);
+
+            font-size: 1.4rem;
+        }
+
+        .about-content h2 {
+            color: var(--primary);
+
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            list-style: none;
+
+            margin: 25px 0 30px;
+        }
+
+        .feature-list li {
+            display: flex;
+            gap: 9px;
+
+            color: var(--dark);
+
+            font-size: 0.9rem;
+            font-weight: 650;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+
+            color: var(--success);
+            font-weight: 900;
+        }
+
+
+        /* =========================================================
+           10. MISSION / VISION / VALUES
+        ========================================================= */
+
+        .mv-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .mv-card {
+            padding: 32px;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+
+            transition: var(--transition);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .mv-icon {
+            width: 50px;
+            height: 50px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 20px;
+
+            background: #eaf4fc;
+            color: var(--secondary);
+
+            border-radius: 12px;
+
+            font-size: 1.3rem;
+        }
+
+        .mv-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .mv-card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+
+        /* =========================================================
+           11. ISIE
+        ========================================================= */
+
+        .isie-section {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-dark),
+                    var(--primary)
+                );
+
+            color: var(--white);
+
+            overflow: hidden;
+        }
+
+        .isie-section::after {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -160px;
+            top: -160px;
+
+            border: 80px solid rgba(255,255,255,0.035);
+
+            border-radius: 50%;
+        }
+
+        .isie-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns: 0.95fr 1.05fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .isie-image img {
+            width: 100%;
+            min-height: 430px;
+
+            object-fit: cover;
+
+            border-radius: var(--radius-lg);
+
+            box-shadow: var(--shadow-lg);
+        }
+
+        .isie-content .eyebrow {
+            color: var(--accent);
+        }
+
+        .isie-content h2 {
+            color: var(--white);
+
+            font-size: clamp(2rem, 4vw, 3rem);
+
+            line-height: 1.12;
+
+            margin-bottom: 18px;
+        }
+
+        .isie-content > p {
+            color: rgba(255,255,255,0.78);
+
+            margin-bottom: 15px;
+        }
+
+        .isie-points {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            list-style: none;
+
+            margin: 25px 0 30px;
+        }
+
+        .isie-points li {
+            padding: 13px;
+
+            background: rgba(255,255,255,0.07);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 9px;
+
+            color: rgba(255,255,255,0.92);
+
+            font-size: 0.88rem;
+            font-weight: 650;
+        }
+
+
+        /* =========================================================
+           12. LEADERSHIP
+        ========================================================= */
+
+        .leadership-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .leadership-card {
+            display: grid;
+
+            grid-template-columns: 150px 1fr;
+
+            gap: 25px;
+
+            padding: 28px;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+
+            transition: var(--transition);
+        }
+
+        .leadership-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-4px);
+        }
+
+        .leadership-photo {
+            width: 150px;
+            height: 190px;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+        }
+
+        .leadership-card h3 {
+            color: var(--primary);
+
+            font-size: 1.25rem;
+
+            margin-bottom: 4px;
+        }
+
+        .leadership-role {
+            color: var(--secondary);
+
+            font-size: 0.8rem;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+
+            margin-bottom: 15px;
+        }
+
+        .leadership-card p {
+            color: var(--text);
+
+            font-size: 0.91rem;
+
+            margin-bottom: 12px;
+        }
+
+        .signature {
+            color: var(--primary) !important;
+
+            font-weight: 800;
+
+            margin-top: 18px;
+        }
+
+        .why-list {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 8px;
+
+            list-style: none;
+
+            margin-top: 15px;
+        }
+
+        .why-list li {
+            color: var(--text);
+
+            font-size: 0.84rem;
+
+            padding-left: 20px;
+
+            position: relative;
+        }
+
+        .why-list li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 0;
+
+            color: var(--success);
+
+            font-weight: 900;
+        }
+
+
+        /* =========================================================
+           13. WHY CHOOSE US
+        ========================================================= */
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .why-card {
+            padding: 28px;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            border-color: #b8d8f1;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .why-number {
+            color: #cbd5e1;
+
+            font-size: 0.8rem;
+            font-weight: 900;
+
+            margin-bottom: 12px;
+        }
+
+        .why-card h3 {
+            color: var(--primary);
+
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: var(--muted);
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================================
+           14. PROGRAMS
+        ========================================================= */
+
+        .program-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .program-card {
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow-sm);
+
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+
+        .program-image {
+            position: relative;
+            height: 205px;
+
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.5s ease;
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.05);
+        }
+
+        .program-tag {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            padding: 5px 10px;
+
+            background: var(--accent);
+            color: #111827;
+
+            border-radius: 999px;
+
+            font-size: 0.7rem;
+            font-weight: 900;
+
+            text-transform: uppercase;
+        }
+
+        .program-body {
+            padding: 23px;
+        }
+
+        .program-body h3 {
+            color: var(--primary);
+
+            margin-bottom: 9px;
+        }
+
+        .program-body p {
+            color: var(--muted);
+
+            font-size: 0.9rem;
+        }
+
+        .program-link {
+            display: inline-flex;
+
+            margin-top: 15px;
+
+            color: var(--secondary);
+
+            font-size: 0.84rem;
+            font-weight: 800;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           15. TRAINING MODEL
+        ========================================================= */
+
+        .training-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+            counter-reset: training;
+        }
+
+        .training-card {
+            position: relative;
+
+            padding: 32px;
+
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .training-card::before {
+            counter-increment: training;
+
+            content: "0" counter(training);
+
+            display: block;
+
+            color: var(--accent-dark);
+
+            font-size: 2.5rem;
+            font-weight: 900;
+
+            line-height: 1;
+
+            margin-bottom: 18px;
+        }
+
+        .training-card h3 {
+            color: var(--primary);
+            margin-bottom: 9px;
+        }
+
+        .training-card p {
+            color: var(--muted);
+            font-size: 0.91rem;
+        }
+
+
+        /* =========================================================
+           16. NEWS & EVENTS
+        ========================================================= */
+
+        .news-ticker {
+            display: flex;
+            align-items: center;
+
+            margin-bottom: 35px;
+
+            background: var(--primary);
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .ticker-label {
+            flex-shrink: 0;
+
+            padding: 12px 17px;
+
+            background: var(--accent);
+            color: #111827;
+
+            font-size: 0.78rem;
+            font-weight: 900;
+
+            text-transform: uppercase;
+        }
+
+        .ticker-window {
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .news-track {
+            display: inline-block;
+
+            white-space: nowrap;
+
+            padding: 12px 20px;
+
+            color: var(--white);
+
+            font-size: 0.87rem;
+            font-weight: 650;
+
+            animation: ticker 24s linear infinite;
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .news-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .news-card {
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 17px 20px;
+
+            background: var(--primary);
+
+            color: var(--white);
+
+            font-weight: 800;
+        }
+
+        .news-body {
+            padding: 22px;
+        }
+
+        .news-body ul {
+            list-style: none;
+        }
+
+        .news-body li {
+            position: relative;
+
+            padding: 11px 0 11px 20px;
+
+            border-bottom: 1px solid var(--border);
+
+            color: var(--text);
+
+            font-size: 0.89rem;
+        }
+
+        .news-body li:last-child {
+            border-bottom: 0;
+        }
+
+        .news-body li::before {
+            content: "›";
+
+            position: absolute;
+            left: 0;
+
+            color: var(--secondary);
+
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+
+
+        /* =========================================================
+           17. ADMISSIONS CTA
+        ========================================================= */
+
+        .admission-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--secondary),
+                    var(--primary)
+                );
+
+            color: var(--white);
+        }
+
+        .admission-inner {
+            display: grid;
+
+            grid-template-columns: 1fr auto;
+
+            gap: 35px;
+
+            align-items: center;
+        }
+
+        .admission-inner h2 {
+            color: var(--white);
+
+            font-size: clamp(2rem, 4vw, 3rem);
+
+            line-height: 1.15;
+
+            margin-bottom: 10px;
+        }
+
+        .admission-inner p {
+            color: rgba(255,255,255,0.82);
+
+            max-width: 720px;
+        }
+
+        .admission-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+
+        /* =========================================================
+           18. GALLERY
+        ========================================================= */
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 14px;
+        }
+
+        .gallery-item {
+            position: relative;
+
+            height: 220px;
+
+            border: 0;
+
+            padding: 0;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            background: var(--light);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.45s ease;
+        }
+
+        .gallery-item::after {
+            content: "View";
+
+            position: absolute;
+
+            inset: 0;
+
+            display: grid;
+            place-items: center;
+
+            background: rgba(3,40,79,0.55);
+
+            color: var(--white);
+
+            font-size: 0.9rem;
+            font-weight: 800;
+
+            opacity: 0;
+
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+
+        /* =========================================================
+           19. LIGHTBOX
+        ========================================================= */
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+
+            z-index: 5000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            background: rgba(2, 12, 24, 0.94);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: min(1100px, 94vw);
+            max-height: 85vh;
+
+            border-radius: 10px;
+
+            box-shadow: var(--shadow-lg);
+        }
+
+        .lightbox-close {
+            position: absolute;
+
+            top: 20px;
+            right: 25px;
+
+            width: 45px;
+            height: 45px;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.12);
+            color: var(--white);
+
+            font-size: 1.6rem;
+        }
+
+
+        /* =========================================================
+           20. CONTACT
+        ========================================================= */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns: 0.8fr 1.2fr;
+
+            gap: 25px;
+        }
+
+        .contact-info {
+            padding: 32px;
+
+            background: var(--primary);
+
+            color: var(--white);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h2 {
+            color: var(--white);
+
+            margin-bottom: 12px;
+        }
+
+        .contact-info > p {
+            color: rgba(255,255,255,0.76);
+
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 14px;
+
+            padding: 16px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .contact-item:last-child {
+            border-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            flex-shrink: 0;
+
+            background: rgba(255,255,255,0.1);
+
+            border-radius: 9px;
+        }
+
+        .contact-item strong {
+            display: block;
+
+            color: var(--accent);
+
+            font-size: 0.78rem;
+
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .map-box {
+            min-height: 420px;
+
+            overflow: hidden;
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+
+            background: #e2e8f0;
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+
+            border: 0;
+        }
+
+
+        /* =========================================================
+           21. FOOTER
+        ========================================================= */
+
+        footer {
+            background: #021b34;
+
+            color: rgba(255,255,255,0.72);
+
+            padding: 65px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+            gap: 45px;
+
+            padding-bottom: 45px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand img {
+            width: 62px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            max-width: 360px;
+            font-size: 0.88rem;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+
+            margin-bottom: 16px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 9px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.7);
+
+            text-decoration: none;
+
+            font-size: 0.87rem;
+
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            padding-top: 20px;
+
+            font-size: 0.8rem;
+        }
+
+
+        /* =========================================================
+           22. BACK TO TOP
+        ========================================================= */
+
+        .back-to-top {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            z-index: 1200;
+
+            width: 46px;
+            height: 46px;
+
+            display: grid;
+            place-items: center;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: var(--primary);
+            color: var(--white);
+
+            box-shadow: var(--shadow);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform: translateY(15px);
+
+            transition: var(--transition);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           23. RESPONSIVE — TABLET
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+                gap: 0;
+            }
+
+            .nav-links a {
+                padding-inline: 8px;
+                font-size: 0.83rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-stat:nth-child(2) {
+                border-right: 0;
+            }
+
+            .hero-stat:nth-child(-n+2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .quick-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .quick-card:nth-child(3) {
+                border-right: 0;
+            }
+
+            .quick-card:nth-child(-n+2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .about-grid,
+            .isie-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                max-width: 800px;
+                margin: auto;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-grid,
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* =========================================================
+           24. RESPONSIVE — MOBILE
+        ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .top-bar {
+                display: none;
+            }
+
+            .navbar {
+                min-height: 72px;
+            }
+
+            .logo-area img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .logo-text strong {
+                font-size: 0.95rem;
+            }
+
+            .logo-text span {
+                font-size: 0.65rem;
+            }
+
+            .menu-toggle {
+                display: grid;
+                place-items: center;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 100%;
+                left: 0;
+                right: 0;
+
+                display: none;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                padding: 12px;
+
+                background: var(--white);
+
+                border-top: 1px solid var(--border);
+
+                box-shadow: var(--shadow);
+
+                max-height: calc(100vh - 72px);
+                overflow-y: auto;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 13px 14px;
+            }
+
+            .nav-links .nav-apply {
+                margin: 5px 0 0;
+                text-align: center;
+            }
+
+            .hero {
+                min-height: 730px;
+            }
+
+            .hero-content {
+                padding: 70px 0 180px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.3rem, 11vw, 3.5rem);
+            }
+
+            .hero-description {
+                font-size: 0.96rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-stat {
+                padding: 15px 10px;
+            }
+
+            .hero-stat strong {
+                font-size: 1.05rem;
+            }
+
+            .hero-stat span {
+                font-size: 0.72rem;
+            }
+
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-card {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .quick-card:nth-child(2n) {
+                border-right: 0;
+            }
+
+            .quick-card:last-child {
+                grid-column: span 2;
+                border-right: 0;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .about-image img,
+            .isie-image img {
+                min-height: 300px;
+            }
+
+            .about-image-badge {
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .feature-list,
+            .isie-points,
+            .mv-grid,
+            .why-grid,
+            .training-grid,
+            .program-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-card {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-photo {
+                width: 150px;
+                height: 180px;
+            }
+
+            .why-list {
+                grid-template-columns: 1fr;
+            }
+
+            .admission-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item {
+                height: 180px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+	
+	/*==========================================================
+	  25. ADMIN LOGIN
+	=========================================================== */
+ 	.admin-login-link {
+    	    margin-top: 15px;
+	}
+
+	.admin-login-link a {
+    	    color: rgba(255, 255, 255, 0.75);
+    	    text-decoration: none;
+    	    font-size: 0.85rem;
+    	     transition: color 0.3s ease;
+	}
+
+	.admin-login-link a:hover {
+    	    color: #ffd700;
+	}																
+
+        /* =========================================================
+           25. SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 480px) {
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-card,
+            .quick-card:last-child {
+                grid-column: auto;
+                border-right: 0;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-stat:nth-child(odd) {
+                border-right: 1px solid var(--border);
+            }
+
+            .hero-stat:nth-child(even) {
+                border-right: 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 230px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<a href="#main-content" class="skip-link">
+    Skip to main content
+</a>
+
+
+<!-- =============================================================
+     TOP BAR
+============================================================== -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-inner">
+
+        <div class="top-bar-info">
+
+            <a href="tel:+256705414545">
+                ☎ 0705 414 545
+            </a>
+
+            <a href="mailto:ndejjecentralhighschool@gmail.com">
+                ✉ ndejjecentralhighschool@gmail.com
+            </a>
+
+            <span>
+                📍 Zanta, Kampala, Uganda
+            </span>
+
+        </div>
+
+        <div class="top-socials">
+
+            <a href="#" aria-label="Facebook">
+                Facebook
+            </a>
+
+            <a href="#" aria-label="YouTube">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =============================================================
+     HEADER
+============================================================== -->
+
+<header class="site-header" id="site-header">
+
+    <div class="container navbar">
+
+        <a href="index.html"
+           class="logo-area"
+           aria-label="Ndejje Central High School home">
+
+            <img
+                src="images/nchslogo.png"
+                alt="Ndejje Central High School logo">
+
+            <div class="logo-text">
+
+                <strong>
+                    Ndejje Central High School
+                </strong>
+
+                <span>
+                    Zanta · Centre of Knowledge
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="main-navigation">
+
+            ☰
+
+        </button>
+
+
+        <nav aria-label="Main navigation">
+
+            <ul class="nav-links" id="main-navigation">
+
+                <li>
+                    <a href="index.html" class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="academics.html">
+                        Academics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="student-life.html">
+                        Student Life
+                    </a>
+                </li>
+
+                <li>
+                    <a href="news.html">
+                        News
+                    </a>
+                </li>
+
+                <li>
+                    <a href="gallery.html">
+                        Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="downloads.html">
+                        Downloads
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="application.html"
+                       class="nav-apply">
+                        Apply Now
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main id="main-content">
+
+
+<!-- =============================================================
+     HERO
+============================================================== -->
+
+<section class="hero" aria-labelledby="hero-title">
+
+    <div class="container hero-content">
+
+        <div class="hero-badge">
+            🎓 Centre of Knowledge
+        </div>
+
+        <h1 id="hero-title">
+            Ndejje Central
+            <span>High School - Zanta</span>
+        </h1>
+
+        <p class="hero-motto" id="hero-motto">
+            Excellence • Discipline • Innovation
+        </p>
+
+        <p class="hero-description">
+
+            We provide holistic education that combines
+            academic excellence, discipline, innovation,
+            entrepreneurship and practical skills development
+            to prepare learners for a changing world.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="application.html"
+               class="btn btn-primary">
+                Apply Now →
+            </a>
+
+            <a href="admission.html"
+               class="btn btn-outline-light">
+                Explore Admissions
+            </a>
+
+            <a href="about.html"
+               class="btn btn-outline-light">
+                Discover Our School
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+        <div class="hero-stat">
+            <strong>Excellence</strong>
+            <span>Academic Focus</span>
+        </div>
+
+        <div class="hero-stat">
+            <strong>Innovation</strong>
+            <span>Future-Ready Skills</span>
+        </div>
+
+        <div class="hero-stat">
+            <strong>Enterprise</strong>
+            <span>Practical Learning</span>
+        </div>
+
+        <div class="hero-stat">
+            <strong>Discipline</strong>
+            <span>Character Development</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     QUICK ACCESS
+============================================================== -->
+
+<section class="quick-access"
+         aria-label="Quick access">
+
+    <div class="container">
+
+        <div class="quick-grid">
+
+            <a href="admission.html" class="quick-card">
+
+                <span class="quick-icon">🎓</span>
+
+                <span>
+                    <strong>Admissions</strong>
+                    <span>Join our school</span>
+                </span>
+
+            </a>
+
+
+            <a href="academics.html" class="quick-card">
+
+                <span class="quick-icon">📚</span>
+
+                <span>
+                    <strong>Academics</strong>
+                    <span>Learning programs</span>
+                </span>
+
+            </a>
+
+
+            <a href="student-life.html" class="quick-card">
+
+                <span class="quick-icon">🏆</span>
+
+                <span>
+                    <strong>Student Life</strong>
+                    <span>Beyond the classroom</span>
+                </span>
+
+            </a>
+
+
+            <a href="#isie" class="quick-card">
+
+                <span class="quick-icon">💡</span>
+
+                <span>
+                    <strong>ISIE Hub</strong>
+                    <span>Skills & enterprise</span>
+                </span>
+
+            </a>
+
+
+            <a href="contact.html" class="quick-card">
+
+                <span class="quick-icon">📞</span>
+
+                <span>
+                    <strong>Contact Us</strong>
+                    <span>Talk to the school</span>
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     ABOUT SCHOOL
+============================================================== -->
+
+<section class="section section-white"
+         id="about"
+         aria-labelledby="about-title">
+
+    <div class="container about-grid">
+
+        <div class="about-image">
+
+            <img
+                src="images/schoolGate.png"
+                alt="Students participating in practical learning at Ndejje Central High School"
+                loading="lazy">
+
+            <div class="about-image-badge">
+
+                <strong>Learn.</strong>
+
+                <span>
+                    Create. Innovate. Lead.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <span class="eyebrow">
+                About Our School
+            </span>
+
+            <h2 id="about-title">
+                Education Beyond the Classroom
+            </h2>
+
+            <p>
+                Ndejje Central High School – Zanta is a
+                Centre of Knowledge committed to providing
+                holistic education that develops the whole
+                learner.
+            </p>
+
+            <p>
+                Our approach combines academic learning with
+                discipline, innovation, entrepreneurship,
+                technology and practical skills development.
+            </p>
+
+            <p>
+                We believe learners should not only prepare
+                for examinations, but should also develop the
+                confidence, competence and creativity needed
+                to contribute meaningfully to society.
+            </p>
+
+
+            <ul class="feature-list">
+
+                <li>
+                    Academic Excellence
+                </li>
+
+                <li>
+                    Character Development
+                </li>
+
+                <li>
+                    Innovation & Technology
+                </li>
+
+                <li>
+                    Practical Skills
+                </li>
+
+                <li>
+                    Entrepreneurship
+                </li>
+
+                <li>
+                    Leadership Development
+                </li>
+
+            </ul>
+
+
+            <a href="about.html"
+               class="btn btn-secondary">
+
+                Learn More About Us →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     MISSION / VISION / VALUES
+============================================================== -->
+
+<section class="section section-light"
+         aria-labelledby="identity-title">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                Our Foundation
+            </span>
+
+            <h2 class="section-title"
+                id="identity-title">
+
+                What Guides Us
+
+            </h2>
+
+            <p class="section-description">
+
+                Our educational approach is built around
+                strong values, purposeful learning and
+                preparation for life beyond school.
+
+            </p>
+
+        </div>
+
+
+        <div class="mv-grid">
+
+            <article class="mv-card">
+
+                <div class="mv-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Our Mission
+                </h3>
+
+                <p>
+                    To produce qualitative, competent and
+                    morally upright citizens who are capable
+                    of creating opportunities and serving
+                    society effectively.
+                </p>
+
+            </article>
+
+
+            <article class="mv-card">
+
+                <div class="mv-icon">
+                    👁
+                </div>
+
+                <h3>
+                    Our Vision
+                </h3>
+
+                <p>
+                    To provide quality education that
+                    transforms learners through knowledge,
+                    discipline, innovation, entrepreneurship
+                    and practical skills.
+                </p>
+
+            </article>
+
+
+            <article class="mv-card">
+
+                <div class="mv-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Our Values
+                </h3>
+
+                <p>
+                    Excellence, discipline, integrity,
+                    innovation, responsibility, teamwork,
+                    creativity and service to society.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     ISIE SECTION
+============================================================== -->
+
+<section class="section isie-section"
+         id="isie"
+         aria-labelledby="isie-title">
+
+    <div class="container isie-grid">
+
+        <div class="isie-image">
+
+            <img
+                src="images/ict3.png"
+                alt="Integrated Skills, Innovation and Enterprise learning"
+                loading="lazy">
+
+        </div>
+
+
+        <div class="isie-content">
+
+            <span class="eyebrow">
+                ISIE Strategy
+            </span>
+
+            <h2 id="isie-title">
+                Integrated Skills,
+                Innovation & Enterprise
+            </h2>
+
+            <p>
+                Our ISIE approach gives learners opportunities
+                to connect classroom knowledge with practical
+                skills, innovation and enterprise.
+            </p>
+
+            <p>
+                Through hands-on learning, students can
+                discover talents, develop competencies and
+                explore opportunities for creating value.
+            </p>
+
+
+            <ul class="isie-points">
+
+                <li>
+                    💻 Digital Skills & Coding
+                </li>
+
+                <li>
+                    🌱 Smart Agribusiness
+                </li>
+
+                <li>
+                    🧵 Vocational Skills
+                </li>
+
+                <li>
+                    💄 Beauty & Wellness
+                </li>
+
+                <li>
+                    ♻ Eco Innovation
+                </li>
+
+                <li>
+                    🚀 Entrepreneurship
+                </li>
+
+            </ul>
+
+
+            <a href="academics.html"
+               class="btn btn-primary">
+
+                Explore ISIE Programs →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     LEADERSHIP
+============================================================== -->
+
+<section class="section section-light"
+         id="leadership"
+         aria-labelledby="leadership-title">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                School Leadership
+            </span>
+
+            <h2 class="section-title"
+                id="leadership-title">
+
+                Leadership & Direction
+
+            </h2>
+
+            <p class="section-description">
+
+                Our leadership team is committed to creating
+                an environment where learners can grow,
+                learn and develop their potential.
+
+            </p>
+
+        </div>
+
+
+        <div class="leadership-grid">
+
+
+            <!-- HEADTEACHER -->
+
+            <article class="leadership-card">
+
+                <img
+                    src="images/headteacher.jpg"
+                    alt="Headteacher of Ndejje Central High School"
+                    class="leadership-photo"
+                    loading="lazy">
+
+
+                <div>
+
+                    <h3>
+                        Headteacher's Message
+                    </h3>
+
+                    <div class="leadership-role">
+                        Headteacher
+                    </div>
+
+                    <p>
+                        Welcome to Ndejje Central High School –
+                        Zanta, a Centre of Motivation. We are
+                        committed to providing holistic education
+                        that combines academic excellence,
+                        discipline, innovation and practical
+                        skills development.
+                    </p>
+
+                    <p>
+                        Through our Integrated Skills,
+                        Innovation & Enterprise approach,
+                        learners are exposed to ICT,
+                        agribusiness, vocational training,
+                        entrepreneurship and creative
+                        opportunities.
+                    </p>
+
+                    <p>
+                        We believe education should prepare
+                        learners not only to pass examinations,
+                        but also to create opportunities,
+                        serve society and lead responsibly.
+                    </p>
+
+                    <p class="signature">
+			Bukenya Edward<br>
+                        Headteacher<br>
+                        Ndejje Central High School – Zanta
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- DIRECTOR -->
+
+            <article class="leadership-card">
+
+                <img
+                    src="images/director.jpg"
+                    alt="Director of Ndejje Central High School"
+                    class="leadership-photo"
+                    loading="lazy">
+
+
+                <div>
+
+                    <h3>
+                        Director's Message
+                    </h3>
+
+                    <div class="leadership-role">
+                        School Director
+                    </div>
+
+                    <p>
+                        Ndejje Central High School is founded
+                        on the vision of providing good
+                        educational services to young citizens
+                        of Uganda.
+                    </p>
+
+                    <p>
+                        Our Integrated Skills, Innovation and
+                        Enterprise model encourages learners
+                        to acquire practical competencies,
+                        develop innovative thinking and explore
+                        enterprise opportunities.
+                    </p>
+
+                    <h4 style="color:var(--primary); margin-top:18px;">
+                        Why Choose Us?
+                    </h4>
+
+                    <ul class="why-list">
+
+                        <li>Qualified teachers</li>
+                        <li>ISIE Innovation Hub</li>
+                        <li>Academic focus</li>
+                        <li>Strong discipline</li>
+                        <li>ICT training</li>
+                        <li>Entrepreneurship</li>
+
+                    </ul>
+
+                    <p class="signature">
+                        Mayambala Brian<br>
+			Directore<br>
+                        Centre of Knowledge
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     WHY CHOOSE US
+============================================================== -->
+
+<section class="section section-white"
+         aria-labelledby="why-title">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                The Ndejje Difference
+            </span>
+
+            <h2 class="section-title"
+                id="why-title">
+
+                Why Choose Ndejje Central?
+
+            </h2>
+
+            <p class="section-description">
+
+                We seek to develop learners academically,
+                practically, socially and personally.
+
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <article class="why-card">
+
+                <div class="why-number">
+                    01
+                </div>
+
+                <h3>
+                    Academic Development
+                </h3>
+
+                <p>
+                    Structured learning designed to support
+                    academic growth, critical thinking and
+                    lifelong learning.
+                </p>
+
+            </article>
+
+
+            <article class="why-card">
+
+                <div class="why-number">
+                    02
+                </div>
+
+                <h3>
+                    Practical Skills
+                </h3>
+
+                <p>
+                    Learners explore practical and technical
+                    skills alongside conventional academic
+                    education.
+                </p>
+
+            </article>
+
+
+            <article class="why-card">
+
+                <div class="why-number">
+                    03
+                </div>
+
+                <h3>
+                    Innovation
+                </h3>
+
+                <p>
+                    Students are encouraged to experiment,
+                    solve problems and develop creative
+                    solutions.
+                </p>
+
+            </article>
+
+
+            <article class="why-card">
+
+                <div class="why-number">
+                    04
+                </div>
+
+                <h3>
+                    Entrepreneurship
+                </h3>
+
+                <p>
+                    Enterprise learning helps students
+                    understand value creation, financial
+                    literacy and responsible business.
+                </p>
+
+            </article>
+
+
+            <article class="why-card">
+
+                <div class="why-number">
+                    05
+                </div>
+
+                <h3>
+                    Character & Discipline
+                </h3>
+
+                <p>
+                    We emphasize responsible behavior,
+                    integrity, discipline and respect for
+                    others.
+                </p>
+
+            </article>
+
+
+            <article class="why-card">
+
+                <div class="why-number">
+                    06
+                </div>
+
+                <h3>
+                    Leadership
+                </h3>
+
+                <p>
+                    Learners are encouraged to develop
+                    confidence, teamwork, communication and
+                    leadership abilities.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     PROGRAMS
+============================================================== -->
+
+<section class="section section-light"
+         id="programs"
+         aria-labelledby="programs-title">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                Learning & Innovation
+            </span>
+
+            <h2 class="section-title"
+                id="programs-title">
+
+                Explore Our Training Areas
+
+            </h2>
+
+            <p class="section-description">
+
+                Practical learning opportunities support the
+                school's wider academic and ISIE strategy.
+
+            </p>
+
+        </div>
+
+
+        <div class="program-grid">
+
+
+            <article class="program-card">
+
+                <div class="program-image">
+
+                    <img
+                        src="images/digitalClass.png"
+                        alt="Computer Lab"
+                        loading="lazy">
+
+                    <span class="program-tag">
+                        Digital
+                    </span>
+
+                </div>
+
+                <div class="program-body">
+
+                    <h3>
+                        Digital Skills Lab
+                    </h3>
+
+                    <p>
+                        Coding, website development, graphic
+                        design, video editing, mobile
+                        applications, social media and data
+                        skills.
+                    </p>
+
+                    <a href="academics.html"
+                       class="program-link">
+                        Explore Program →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-image">
+
+                    <img
+                        src="images/aquaponics.jpg"
+                        alt="Smart urban agribusiness training"
+                        loading="lazy">
+
+                    <span class="program-tag">
+                        Agriculture
+                    </span>
+
+                </div>
+
+                <div class="program-body">
+
+                    <h3>
+                        Smart Urban Agribusiness
+                    </h3>
+
+                    <p>
+                        Sack gardening, poultry hatchery
+                        management, aquaponics, mushroom
+                        growing and vertical farming.
+                    </p>
+
+                    <a href="academics.html"
+                       class="program-link">
+                        Explore Program →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-image">
+
+                    <img
+                        src="images/beauty.png"
+                        alt="Beauty and wellness training"
+                        loading="lazy">
+
+                    <span class="program-tag">
+                        Wellness
+                    </span>
+
+                </div>
+
+                <div class="program-body">
+
+                    <h3>
+                        Beauty & Wellness
+                    </h3>
+
+                    <p>
+                        Hair science, wig making, skincare,
+                        nail technology and organic beauty
+                        product development.
+                    </p>
+
+                    <a href="academics.html"
+                       class="program-link">
+                        Explore Program →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-image">
+
+                    <img
+                        src="images/welding.jpg" 
+                        alt="Vocational skills training"
+                        loading="lazy">
+
+                    <span class="program-tag">
+                        Technical
+                    </span>
+
+                </div>
+
+                <div class="program-body">
+
+                    <h3>
+                        Vocational & Technical
+                    </h3>
+
+                    <p>
+                        Tailoring, soap making, baking,
+                        shoe making, welding, solar
+                        installation and technical skills.
+                    </p>
+
+                    <a href="academics.html"
+                       class="program-link">
+                        Explore Program →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-image">
+
+                    <img
+                        src="images/eco.jpg"
+                        alt="Environmental innovation project"
+                        loading="lazy">
+
+                    <span class="program-tag">
+                        Environment
+                    </span>
+
+                </div>
+
+                <div class="program-body">
+
+                    <h3>
+                        Eco Innovation
+                    </h3>
+
+                    <p>
+                        Waste recycling, briquette production,
+                        biogas systems, eco-bricks and
+                        sustainability projects.
+                    </p>
+
+                    <a href="academics.html"
+                       class="program-link">
+                        Explore Program →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="program-card">
+
+                <div class="program-image">
+
+                    <img
+                        src="images/lubigi.jpg"
+                        alt="Students working together"
+                        loading="lazy">
+
+                    <span class="program-tag">
+                        Enterprise
+                    </span>
+
+                </div>
+
+                <div class="program-body">
+
+                    <h3>
+                        Leadership & Enterprise
+                    </h3>
+
+                    <p>
+                        Public speaking, teamwork, financial
+                        literacy, business development and
+                        proposal writing.
+                    </p>
+
+                    <a href="academics.html"
+                       class="program-link">
+                        Explore Program →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     TRAINING MODEL
+============================================================== -->
+
+<section class="section section-white"
+         aria-labelledby="training-title">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                ISIE Learning Journey
+            </span>
+
+            <h2 class="section-title"
+                id="training-title">
+
+                Our Training Model
+
+            </h2>
+
+            <p class="section-description">
+
+                Learners can progressively move from
+                exploration to specialization and practical
+                enterprise projects.
+
+            </p>
+
+        </div>
+
+
+        <div class="training-grid">
+
+            <article class="training-card">
+
+                <h3>
+                    Foundation
+                </h3>
+
+                <p>
+                    <strong>S.1 – S.2</strong><br><br>
+
+                    Students explore ICT, agriculture,
+                    entrepreneurship and vocational skills
+                    while building foundational competencies.
+                </p>
+
+            </article>
+
+
+            <article class="training-card">
+
+                <h3>
+                    Exploration
+                </h3>
+
+                <p>
+                    <strong>S.3 – S.4</strong><br><br>
+
+                    Students explore skill tracks and begin
+                    developing practical projects and
+                    enterprise ideas.
+                </p>
+
+            </article>
+
+
+            <article class="training-card">
+
+                <h3>
+                    Specialization
+                </h3>
+
+                <p>
+                    <strong>S.5 – S.6</strong><br><br>
+
+                    Students deepen their selected areas and
+                    participate in more advanced production,
+                    innovation and enterprise activities.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     NEWS & EVENTS
+============================================================== -->
+
+<section class="section section-light"
+         id="news-events"
+         aria-labelledby="news-title">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                Stay Connected
+            </span>
+
+            <h2 class="section-title"
+                id="news-title">
+
+                News & Events
+
+            </h2>
+
+            <p class="section-description">
+
+                Stay informed about school announcements,
+                activities and innovation projects.
+
+            </p>
+
+        </div>
+
+
+        <div class="news-ticker"
+             aria-label="Latest school announcements">
+
+            <span class="ticker-label">
+                📢 Latest
+            </span>
+
+            <div class="ticker-window">
+
+                <div class="news-track">
+
+                    Admissions information • School activities •
+                    ISIE training opportunities • Innovation
+                    projects • Academic updates • Parent
+                    communication
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="news-grid">
+
+
+            <article class="news-card">
+
+                <div class="news-header">
+                    📢 Announcements
+                </div>
+
+                <div class="news-body">
+
+                    <ul>
+
+                        <li>
+                            Admissions for S.1 and S.5 are ongoing.
+                        </li>
+
+                        <li>
+                            Term reporting dates will be
+                            communicated by the school.
+                        </li>
+
+                        <li>
+                            Parents are reminded to clear
+                            outstanding school dues.
+                        </li>
+
+                        <li>
+                            UNEB registration information will
+                            be communicated to relevant learners.
+                        </li>
+
+                        <li>
+                            New ISIE training opportunities are
+                            available.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <article class="news-card">
+
+                <div class="news-header">
+                    📅 Upcoming Activities
+                </div>
+
+                <div class="news-body">
+
+                    <ul>
+
+                        <li>
+                            Innovation Exhibition Day
+                        </li>
+
+                        <li>
+                            Career Guidance Workshop
+                        </li>
+
+                        <li>
+                            Parents & Teachers Meeting
+                        </li>
+
+                        <li>
+                            Inter-school Sports Competition
+                        </li>
+
+                        <li>
+                            Study tours and educational visits
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+
+            <article class="news-card">
+
+                <div class="news-header">
+                    🚀 Ongoing Projects
+                </div>
+
+                <div class="news-body">
+
+                    <ul>
+
+                        <li>
+                            Digital Skills & Coding Training
+                        </li>
+
+                        <li>
+                            Smart Urban Agribusiness
+                        </li>
+
+                        <li>
+                            Fashion & Tailoring
+                        </li>
+
+                        <li>
+                            Entrepreneurship Development
+                        </li>
+
+                        <li>
+                            Waste-to-Wealth Innovation
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div style="text-align:center; margin-top:30px;">
+
+            <a href="news.html"
+               class="btn btn-secondary">
+
+                View All News & Events →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     ADMISSIONS CTA
+============================================================== -->
+
+<section class="section admission-section"
+         aria-labelledby="admission-title">
+
+    <div class="container admission-inner">
+
+        <div>
+
+            <h2 id="admission-title">
+                Start Your Journey With Ndejje Central
+            </h2>
+
+            <p>
+                Interested in joining Ndejje Central High
+                School? Explore our admissions information
+                or begin the application process.
+            </p>
+
+        </div>
+
+
+        <div class="admission-actions">
+
+            <a href="application.html"
+               class="btn btn-primary">
+
+                Apply Now →
+
+            </a>
+
+            <a href="admission.html"
+               class="btn btn-outline-light">
+
+                Admission Information
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     GALLERY
+============================================================== -->
+
+<section class="section section-white"
+         id="gallery"
+         aria-labelledby="gallery-title">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                School Life
+            </span>
+
+            <h2 class="section-title"
+                id="gallery-title">
+
+                A Glimpse Into Our School
+
+            </h2>
+
+            <p class="section-description">
+
+                Explore learning, collaboration and school
+                life at Ndejje Central High School.
+
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop"
+                aria-label="View school learning photograph">
+
+                <img
+                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop"
+                    alt="Students in a learning environment"
+                    loading="lazy">
+
+            </button>
+
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop"
+                aria-label="View students photograph">
+
+                <img
+                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop"
+                    alt="Students collaborating"
+                    loading="lazy">
+
+            </button>
+
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-image="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop"
+                aria-label="View digital learning photograph">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop"
+                    alt="Students using technology"
+                    loading="lazy">
+
+            </button>
+
+
+            <button
+                class="gallery-item"
+                type="button"
+                data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+                aria-label="View student teamwork photograph">
+
+                <img
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+                    alt="Students working together"
+                    loading="lazy">
+
+            </button>
+
+        </div>
+
+
+        <div style="text-align:center; margin-top:30px;">
+
+            <a href="gallery.html"
+               class="btn btn-secondary">
+
+                View Full Gallery →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =============================================================
+     CONTACT
+============================================================== -->
+
+<section class="section section-light"
+         id="contact"
+         aria-labelledby="contact-title">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                Get In Touch
+            </span>
+
+            <h2 class="section-title"
+                id="contact-title">
+
+                Contact Ndejje Central
+
+            </h2>
+
+            <p class="section-description">
+
+                Have a question about admissions, academics
+                or school life? Contact the school directly.
+
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-info">
+
+                <h2>
+                    School Information
+                </h2>
+
+                <p>
+                    Ndejje Central High School – Zanta
+                </p>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Location
+                        </strong>
+
+                        Zanta, Kampala, Uganda
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Phone
+                        </strong>
+
+                        <a href="tel:+256705414545">
+                            0705 414 545
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Email
+                        </strong>
+
+                        <a href="mailto:ndejjecentralhighschool@gmail.com">
+                            ndejjecentralhighschool@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        🎓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Admissions
+                        </strong>
+
+                        <a href="application.html">
+                            Start an application
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="map-box">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18..."
+              width="100%" height="400" style="border:0;" loading="lazy"></iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =============================================================
+     FOOTER
+============================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <img
+                    src="images/nchslogo.png"
+                    alt="Ndejje Central High School logo">
+
+                <h3>
+                    Ndejje Central High School
+                </h3>
+
+                <p>
+                    A Centre of Knowledge committed to
+                    excellence, discipline, innovation,
+                    practical skills and responsible
+                    leadership.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    School
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="academics.html">
+                            Academics
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="student-life.html">
+                            Student Life
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="gallery.html">
+                            Gallery
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Admissions
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="admission.html">
+                            Admission Information
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="application.html">
+                            Apply Online
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="downloads.html">
+                            Downloads
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Admissions
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="tel:+256705414545">
+                            0705 414 545
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="mailto:ndejjecentralhighschool@gmail.com">
+                            Email School
+                        </a>
+                    </li>
+
+                    <li>
+                        Zanta, Kampala
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © <span id="current-year">2026</span>
+                Ndejje Central High School – Zanta.
+                All rights reserved.
+            </p>
+
+            <p>
+                Excellence • Discipline • Innovation
+            </p>
+
+        </div>
+
+	 <div class="admin-login-link">
+        <a href="admin-login.html">
+           Staff / Admin Login
+        </a>
+    </div>
+  
+    </div>
+
+</footer>
+
+
+<!-- =============================================================
+     LIGHTBOX
+============================================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image preview">
+
+    <button
+        class="lightbox-close"
+        id="lightbox-close"
+        type="button"
+        aria-label="Close image preview">
+
+        ×
+
+    </button>
+
+    <img
+        id="lightbox-image"
+        src=""
+        alt="Expanded gallery image">
+
+</div>
+
+
+<!-- =============================================================
+     BACK TO TOP
+============================================================== -->
+
+<button
+    class="back-to-top"
+    id="back-to-top"
+    type="button"
+    aria-label="Back to top">
+
+    ↑
+
+</button>
+
+
+<!-- =============================================================
+     JAVASCRIPT
+============================================================== -->
+
+<script>
+
+    /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================= */
+
+    const menuToggle =
+        document.getElementById("menu-toggle");
+
+    const mainNavigation =
+        document.getElementById("main-navigation");
+
+
+    menuToggle.addEventListener("click", () => {
+
+        const isOpen =
+            mainNavigation.classList.toggle("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+        menuToggle.textContent =
+            isOpen ? "×" : "☰";
+
+    });
+
+
+    /*
+     * Close mobile navigation after selecting
+     * a navigation item.
+     */
+
+    document
+        .querySelectorAll("#main-navigation a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                mainNavigation.classList.remove("open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+
+    /* =========================================================
+       HEADER SCROLL EFFECT
+    ========================================================= */
+
+    const siteHeader =
+        document.getElementById("site-header");
+
+    const backToTop =
+        document.getElementById("back-to-top");
+
+
+    function handleScroll() {
+
+        if (window.scrollY > 40) {
+
+            siteHeader.classList.add("scrolled");
+            backToTop.classList.add("show");
+
+        } else {
+
+            siteHeader.classList.remove("scrolled");
+            backToTop.classList.remove("show");
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        handleScroll,
+        { passive: true }
+    );
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    backToTop.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+
+    /* =========================================================
+       HERO MESSAGE ROTATION
+    ========================================================= */
+
+    const heroMotto =
+        document.getElementById("hero-motto");
+
+
+    const heroMessages = [
+
+        "Excellence • Discipline • Innovation",
+
+        "Skills • Innovation • Enterprise",
+
+        "Learning by Doing, Not Theory Alone",
+
+        "Building Future Job Creators",
+
+        "Developing Competent & Responsible Leaders"
+
+    ];
+
+
+    let heroMessageIndex = 0;
+
+
+    setInterval(() => {
+
+        heroMessageIndex =
+            (heroMessageIndex + 1)
+            % heroMessages.length;
+
+        heroMotto.style.opacity = "0";
+
+
+        setTimeout(() => {
+
+            heroMotto.textContent =
+                heroMessages[heroMessageIndex];
+
+            heroMotto.style.opacity = "1";
+
+        }, 250);
+
+    }, 3500);
+
+
+    /* =========================================================
+       GALLERY LIGHTBOX
+    ========================================================= */
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const lightboxImage =
+        document.getElementById("lightbox-image");
+
+    const lightboxClose =
+        document.getElementById("lightbox-close");
+
+
+    document
+        .querySelectorAll(".gallery-item")
+        .forEach(item => {
+
+            item.addEventListener("click", () => {
+
+                const image =
+                    item.dataset.image;
+
+                lightboxImage.src = image;
+
+                lightbox.classList.add("active");
+
+                document.body.style.overflow = "hidden";
+
+            });
+
+        });
+
+
+    function closeLightbox() {
+
+        lightbox.classList.remove("active");
+
+        lightboxImage.src = "";
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    lightboxClose.addEventListener(
+        "click",
+        closeLightbox
+    );
+
+
+    lightbox.addEventListener("click", event => {
+
+        if (event.target === lightbox) {
+
+            closeLightbox();
+
+        }
+
+    });
+
+
+    document.addEventListener("keydown", event => {
+
+        if (
+            event.key === "Escape" &&
+            lightbox.classList.contains("active")
+        ) {
+
+            closeLightbox();
+
+        }
+
+    });
+
+
+    /* =========================================================
+       CURRENT YEAR
+    ========================================================= */
+
+    document.getElementById(
+        "current-year"
+    ).textContent = new Date().getFullYear();
+
+   
+
+    /* =========================================================
+       SIMPLE ACTIVE NAVIGATION
+    ========================================================= */
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop() || "index.html";
+
+
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            const href =
+                link.getAttribute("href");
+
+            if (
+                href === currentPage &&
+                href !== "index.html"
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+</script>
+
+
+<!-- =============================================================
+     STRUCTURED DATA
+============================================================== -->
+
+<script type="application/ld+json">
+
+{
+    "@context": "https://schema.org",
+    "@type": "School",
+    "name": "Ndejje Central High School – Zanta",
+    "description": "Ndejje Central High School – Zanta is a Centre of Knowledge committed to academic excellence, discipline, innovation, practical skills and enterprise development.",
+    "telephone": "+256705414545",
+    "email": "ndejjecentralhighschool@gmail.com",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zanta",
+        "addressRegion": "Kampala",
+        "addressCountry": "UG"
+    },
+    "url": "index.html"
+}
+
+</script>
+
+
+</body>
+</html>
+

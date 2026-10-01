@@ -1,0 +1,1887 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admission / Vacancy Offer | Ndejje Central High School – Zanta</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #003366;
+      --blue-dark: #00264d;
+      --light: #f4f7fb;
+      --border: #d7dee8;
+      --text: #172033;
+      --muted: #667085;
+      --success: #087443;
+      --success-bg: #ecfdf3;
+      --error: #b42318;
+      --error-bg: #fef3f2;
+      --warning-bg: #fff8e6;
+      --warning-border: #f2d58a;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      background: var(--light);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    .header {
+      background: var(--blue);
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    .header img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+
+    .header h2 {
+      margin: 5px 0;
+      font-size: 16px;
+      font-weight: normal;
+      font-style: italic;
+    }
+
+    .header p {
+      margin: 5px 0 0;
+      font-size: 13px;
+    }
+
+    .container {
+      width: min(1050px, calc(100% - 30px));
+      margin: 28px auto 50px;
+    }
+
+    .notice {
+      background: white;
+      border-left: 5px solid var(--blue);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, .05);
+    }
+
+    .notice h2 {
+      margin: 0 0 7px;
+      color: var(--blue);
+      font-size: 20px;
+    }
+
+    .notice p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .form-card {
+      background: white;
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, .06);
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue);
+      font-size: 18px;
+      margin: 0 0 18px;
+      padding-bottom: 9px;
+      border-bottom: 2px solid var(--blue);
+    }
+
+    .section-number {
+      width: 29px;
+      height: 29px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px 20px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #344054;
+    }
+
+    .required {
+      color: var(--error);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: white;
+      color: var(--text);
+      font: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0, 51, 102, .10);
+    }
+
+    textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .help {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .offer-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .offer-box p {
+      margin: 5px 0;
+      font-size: 13px;
+    }
+
+    .requirements {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .requirement {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px;
+      background: white;
+    }
+
+    .requirement input {
+      width: 18px;
+      height: 18px;
+      margin: 1px 0 0;
+      flex-shrink: 0;
+    }
+
+    .requirement label {
+      margin: 0;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .warning {
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: 6px;
+      color: #6b4f00;
+      font-size: 13px;
+    }
+
+    .confirmation {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 17px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .checkbox-row input {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checkbox-row label {
+      margin: 0;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .submit-button {
+      background: var(--blue);
+      color: white;
+      min-width: 230px;
+    }
+
+    .submit-button:hover {
+      background: var(--blue-dark);
+    }
+
+    .submit-button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .reset-button {
+      background: #eef2f6;
+      color: #344054;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .message.success {
+      background: var(--success-bg);
+      border: 1px solid #abefc6;
+      color: var(--success);
+    }
+
+    .message.error {
+      background: var(--error-bg);
+      border: 1px solid #fecdca;
+      color: var(--error);
+    }
+
+    .message h3 {
+      margin: 0 0 7px;
+    }
+
+    .reference {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: white;
+      border: 1px solid #abefc6;
+      border-radius: 5px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 25px 15px;
+    }
+
+    .footer strong {
+      color: var(--blue);
+    }
+
+    @media (max-width: 800px) {
+      .grid,
+      .requirements {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .form-card {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: calc(100% - 18px);
+        margin-top: 12px;
+      }
+
+      .header h1 {
+        font-size: 21px;
+      }
+
+      .form-card {
+        padding: 16px;
+      }
+
+      .submit-button {
+        width: 100%;
+      }
+
+      .reset-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+
+    <img
+      src="images/nchslogo.png"
+      alt="Ndejje Central High School Logo"
+    >
+
+    <h1>Ndejje Central High School – Zanta</h1>
+
+    <h2>Centre of Motivation</h2>
+
+    <p>
+      Makindye Ssabagabo Municipality, Wakiso District, Uganda
+    </p>
+
+  </header>
+
+
+  <main class="container">
+
+    <section class="notice">
+
+      <h2>Admission / Vacancy Offer</h2>
+
+      <p>
+        This form is used by the school to formally issue an
+        admission offer to a student who has been allocated a
+        vacancy.
+      </p>
+
+      <p>
+        Completion of this form creates an official admission offer
+        record. It is not a student application form.
+      </p>
+
+    </section>
+
+
+    <form
+      id="admissionForm"
+      class="form-card"
+    >
+
+      <!-- =====================================================
+           1. STUDENT INFORMATION
+           ===================================================== -->
+
+      <section class="section">
+
+        <h2 class="section-title">
+          <span class="section-number">1</span>
+          Student Information
+        </h2>
+
+        <div class="grid">
+
+          <div class="field full">
+
+            <label for="studentName">
+              Student Full Name
+              <span class="required">*</span>
+            </label>
+
+            <input
+              id="studentName"
+              name="studentName"
+              type="text"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="gender">
+              Gender
+              <span class="required">*</span>
+            </label>
+
+            <select
+              id="gender"
+              name="gender"
+              required
+            >
+              <option value="">Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="dateOfBirth">
+              Date of Birth
+              <span class="required">*</span>
+            </label>
+
+            <input
+              id="dateOfBirth"
+              name="dateOfBirth"
+              type="date"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="nationality">
+              Nationality
+            </label>
+
+            <input
+              id="nationality"
+              name="nationality"
+              type="text"
+              value="Ugandan"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="previousSchool">
+              Previous School
+            </label>
+
+            <input
+              id="previousSchool"
+              name="previousSchool"
+              type="text"
+            >
+
+          </div>
+
+
+          <div class="field full">
+
+            <label for="studentAddress">
+              Student / Home Address
+            </label>
+
+            <textarea
+              id="studentAddress"
+              name="studentAddress"
+            ></textarea>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           2. ADMISSION / VACANCY DETAILS
+           ===================================================== -->
+
+      <section class="section">
+
+        <h2 class="section-title">
+          <span class="section-number">2</span>
+          Admission / Vacancy Details
+        </h2>
+
+        <div class="offer-box">
+
+          <div class="grid">
+
+            <div class="field">
+
+              <label for="admissionNumber">
+                Admission Number
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="admissionNumber"
+                name="admissionNumber"
+                type="text"
+                placeholder="e.g. NCHS/2026/001"
+                required
+              >
+
+              <span class="help">
+                Enter the official admission number issued by the school.
+              </span>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="academicYear">
+                Academic Year
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="academicYear"
+                name="academicYear"
+                type="text"
+                placeholder="e.g. 2027"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="term">
+                Admission Term
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="term"
+                name="term"
+                required
+              >
+                <option value="">Select term</option>
+                <option value="Term 1">Term 1</option>
+                <option value="Term 2">Term 2</option>
+                <option value="Term 3">Term 3</option>
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="classOffered">
+                Class Offered
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="classOffered"
+                name="classOffered"
+                required
+              >
+                <option value="">Select class</option>
+                <option value="S.1">S.1</option>
+                <option value="S.2">S.2</option>
+                <option value="S.3">S.3</option>
+                <option value="S.4">S.4</option>
+                <option value="S.5">S.5</option>
+                <option value="S.6">S.6</option>
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="stream">
+                Stream
+              </label>
+
+              <input
+                id="stream"
+                name="stream"
+                type="text"
+                placeholder="e.g. A"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="studyType">
+                Study Type
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="studyType"
+                name="studyType"
+                required
+              >
+                <option value="">Select study type</option>
+                <option value="Day">Day</option>
+                <option value="Boarding">Boarding</option>
+                <option value="Day & Boarding">Day & Boarding</option>
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="admissionDate">
+                Admission Offer Date
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="admissionDate"
+                name="admissionDate"
+                type="date"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="reportingDate">
+                Reporting Date
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="reportingDate"
+                name="reportingDate"
+                type="date"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="reportingTime">
+                Reporting Time
+                <span class="required">*</span>
+              </label>
+
+              <input
+                id="reportingTime"
+                name="reportingTime"
+                type="time"
+                value="08:00"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="vacancyType">
+                Vacancy Type
+                <span class="required">*</span>
+              </label>
+
+              <select
+                id="vacancyType"
+                name="vacancyType"
+                required
+              >
+                <option value="">Select vacancy type</option>
+                <option value="New Admission">New Admission</option>
+                <option value="Replacement Vacancy">Replacement Vacancy</option>
+                <option value="Transfer Admission">Transfer Admission</option>
+                <option value="Re-admission">Re-admission</option>
+              </select>
+
+            </div>
+
+
+            <div class="field full">
+
+              <label for="admissionConditions">
+                Special Admission Conditions
+              </label>
+
+              <textarea
+                id="admissionConditions"
+                name="admissionConditions"
+                placeholder="Enter any conditions attached to this admission offer, if applicable."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           3. PARENT / GUARDIAN
+           ===================================================== -->
+
+      <section class="section">
+
+        <h2 class="section-title">
+          <span class="section-number">3</span>
+          Parent / Guardian Information
+        </h2>
+
+        <div class="grid">
+
+          <div class="field">
+
+            <label for="guardianName">
+              Parent / Guardian Name
+              <span class="required">*</span>
+            </label>
+
+            <input
+              id="guardianName"
+              name="guardianName"
+              type="text"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="guardianRelationship">
+              Relationship
+              <span class="required">*</span>
+            </label>
+
+            <select
+              id="guardianRelationship"
+              name="guardianRelationship"
+              required
+            >
+              <option value="">Select relationship</option>
+              <option value="Father">Father</option>
+              <option value="Mother">Mother</option>
+              <option value="Guardian">Guardian</option>
+              <option value="Other">Other</option>
+            </select>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="guardianPhone">
+              Phone Number
+              <span class="required">*</span>
+            </label>
+
+            <input
+              id="guardianPhone"
+              name="guardianPhone"
+              type="tel"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="guardianEmail">
+              Email Address
+            </label>
+
+            <input
+              id="guardianEmail"
+              name="guardianEmail"
+              type="email"
+            >
+
+          </div>
+
+
+          <div class="field full">
+
+            <label for="guardianAddress">
+              Residential Address
+            </label>
+
+            <textarea
+              id="guardianAddress"
+              name="guardianAddress"
+            ></textarea>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           4. FEES
+           ===================================================== -->
+
+      <section class="section">
+
+        <h2 class="section-title">
+          <span class="section-number">4</span>
+          School Fees
+        </h2>
+
+        <div class="grid">
+
+          <div class="field">
+
+            <label for="feesCategory">
+              Fees Category
+              <span class="required">*</span>
+            </label>
+
+            <input
+              id="feesCategory"
+              name="feesCategory"
+              type="text"
+              placeholder="e.g. S.1 Boarding"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="feesAmount">
+              Applicable Fees Amount
+            </label>
+
+            <input
+              id="feesAmount"
+              name="feesAmount"
+              type="number"
+              min="0"
+              step="1"
+              placeholder="Enter amount in UGX"
+            >
+
+          </div>
+
+
+          <div class="field full">
+
+            <label for="feesInstructions">
+              Fees / Payment Instructions
+            </label>
+
+            <textarea
+              id="feesInstructions"
+              name="feesInstructions"
+              placeholder="Enter approved payment instructions or other relevant fees information."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+        <div class="warning">
+          The official school fees structure and approved payment
+          channels remain subject to the school's current fees policy.
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           5. REPORTING REQUIREMENTS
+           ===================================================== -->
+
+      <section class="section">
+
+        <h2 class="section-title">
+          <span class="section-number">5</span>
+          Reporting Requirements
+        </h2>
+
+        <div class="requirements">
+
+          <div class="requirement">
+
+            <input
+              id="reqResults"
+              name="requirements"
+              type="checkbox"
+              value="Academic result slip"
+              checked
+            >
+
+            <label for="reqResults">
+              Academic result slip / previous school report
+            </label>
+
+          </div>
+
+
+          <div class="requirement">
+
+            <input
+              id="reqBirth"
+              name="requirements"
+              type="checkbox"
+              value="Birth certificate"
+              checked
+            >
+
+            <label for="reqBirth">
+              Birth certificate / proof of age
+            </label>
+
+          </div>
+
+
+          <div class="requirement">
+
+            <input
+              id="reqPhotos"
+              name="requirements"
+              type="checkbox"
+              value="Two passport photographs"
+              checked
+            >
+
+            <label for="reqPhotos">
+              Two passport photographs
+            </label>
+
+          </div>
+
+
+          <div class="requirement">
+
+            <input
+              id="reqFees"
+              name="requirements"
+              type="checkbox"
+              value="Proof of fees payment"
+              checked
+            >
+
+            <label for="reqFees">
+              Proof of fees payment
+            </label>
+
+          </div>
+
+
+          <div class="requirement">
+
+            <input
+              id="reqUniform"
+              name="requirements"
+              type="checkbox"
+              value="Complete school uniform"
+              checked
+            >
+
+            <label for="reqUniform">
+              Complete school uniform
+            </label>
+
+          </div>
+
+
+          <div class="requirement">
+
+            <input
+              id="reqBedding"
+              name="requirements"
+              type="checkbox"
+              value="Bedding and mattress where applicable"
+            >
+
+            <label for="reqBedding">
+              Bedding and mattress where applicable
+            </label>
+
+          </div>
+
+
+          <div class="requirement">
+
+            <input
+              id="reqToiletries"
+              name="requirements"
+              type="checkbox"
+              value="Bucket and personal toiletries"
+              checked
+            >
+
+            <label for="reqToiletries">
+              Bucket and personal toiletries
+            </label>
+
+          </div>
+
+
+          <div class="requirement">
+
+            <input
+              id="reqOther"
+              name="requirements"
+              type="checkbox"
+              value="Other school requirements"
+            >
+
+            <label for="reqOther">
+              Other school requirements
+            </label>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           6. SCHOOL PROGRAM
+           ===================================================== -->
+
+      <section class="section">
+
+        <h2 class="section-title">
+          <span class="section-number">6</span>
+          Admission Notes
+        </h2>
+
+        <div class="grid">
+
+          <div class="field full">
+
+            <label for="schoolNotes">
+              School Notes
+            </label>
+
+            <textarea
+              id="schoolNotes"
+              name="schoolNotes"
+              placeholder="Enter any additional information that should appear on the admission record."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           7. ISSUE ADMISSION
+           ===================================================== -->
+
+      <section class="section">
+
+        <h2 class="section-title">
+          <span class="section-number">7</span>
+          Issue Admission Offer
+        </h2>
+
+        <div class="confirmation">
+
+          <div class="checkbox-row">
+
+            <input
+              id="authorization"
+              name="authorization"
+              type="checkbox"
+              required
+            >
+
+            <label for="authorization">
+              I confirm that the school has authorized this vacancy
+              and that the student named above is being formally
+              offered admission to Ndejje Central High School –
+              Zanta under the stated admission conditions.
+              <span class="required">*</span>
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            type="reset"
+            class="reset-button"
+            id="resetButton"
+          >
+            Clear Form
+          </button>
+
+          <button
+            type="submit"
+            class="submit-button"
+            id="submitButton"
+          >
+            Issue Admission Offer
+          </button>
+
+        </div>
+
+
+        <div
+          id="successMessage"
+          class="message success"
+          role="status"
+          aria-live="polite"
+        >
+
+          <h3>
+            Admission Offer Created
+          </h3>
+
+          <p>
+            The student's official admission offer has been
+            recorded successfully.
+          </p>
+
+          <p>
+            Admission Number:
+          </p>
+
+          <div
+            id="successAdmissionNumber"
+            class="reference"
+          ></div>
+
+          <p>
+            Admission Record:
+          </p>
+
+          <div
+            id="successAdmissionId"
+            class="reference"
+          ></div>
+
+        </div>
+
+
+        <div
+          id="errorMessage"
+          class="message error"
+          role="alert"
+          aria-live="assertive"
+        >
+
+          <h3>
+            Admission Offer Could Not Be Created
+          </h3>
+
+          <p id="errorText">
+            Please check the information and try again.
+          </p>
+
+        </div>
+
+      </section>
+
+    </form>
+
+  </main>
+
+
+  <footer class="footer">
+
+    <strong>
+      Ndejje Central High School – Zanta
+    </strong>
+
+    <br>
+
+    Centre of Motivation
+
+    <br>
+
+    Empowering Learners Through Excellence,
+    Discipline, Skills, Innovation and Enterprise.
+
+  </footer>
+
+
+  <!-- =========================================================
+       FIREBASE
+       ========================================================= -->
+
+  <script type="module">
+
+    import {
+      auth,
+      db
+    } from "./firebase-config.js";
+
+
+    import {
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+    import {
+      collection,
+      addDoc,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+    const form =
+      document.getElementById("admissionForm");
+
+    const submitButton =
+      document.getElementById("submitButton");
+
+    const successMessage =
+      document.getElementById("successMessage");
+
+    const errorMessage =
+      document.getElementById("errorMessage");
+
+    const errorText =
+      document.getElementById("errorText");
+
+    const successAdmissionNumber =
+      document.getElementById(
+        "successAdmissionNumber"
+      );
+
+    const successAdmissionId =
+      document.getElementById(
+        "successAdmissionId"
+      );
+
+
+    let currentUser = null;
+
+
+    /*
+     * ---------------------------------------------------------
+     * AUTHORIZATION
+     *
+     * This is a school-issued admission record.
+     * It should not be publicly writable.
+     * ---------------------------------------------------------
+     */
+
+    async function verifyAdmin(user) {
+
+      if (!user?.uid) {
+        return false;
+      }
+
+
+      /*
+       * We deliberately use the existing admins
+       * collection and authentication system.
+       */
+      const adminModule =
+        await import(
+          "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js"
+        );
+
+
+      const adminRef =
+        adminModule.doc(
+          db,
+          "admins",
+          user.uid
+        );
+
+
+      const snapshot =
+        await adminModule.getDoc(
+          adminRef
+        );
+
+
+      if (!snapshot.exists()) {
+        return false;
+      }
+
+
+      const data =
+        snapshot.data() || {};
+
+
+      return (
+        data.active === true &&
+        data.role === "admin"
+      );
+    }
+
+
+    /*
+     * ---------------------------------------------------------
+     * FORM HELPERS
+     * ---------------------------------------------------------
+     */
+
+    function value(name) {
+
+      const field =
+        form.elements[name];
+
+      if (!field) {
+        return "";
+      }
+
+      return String(
+        field.value || ""
+      ).trim();
+    }
+
+
+    function selectedRequirements() {
+
+      return Array.from(
+        form.querySelectorAll(
+          'input[name="requirements"]:checked'
+        )
+      ).map(
+        checkbox => checkbox.value
+      );
+    }
+
+
+    function showError(message) {
+
+      errorText.textContent =
+        message ||
+        "The admission offer could not be created.";
+
+      errorMessage.style.display =
+        "block";
+
+      successMessage.style.display =
+        "none";
+
+      errorMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+
+    function showSuccess(
+      admissionNumber,
+      admissionId
+    ) {
+
+      successAdmissionNumber.textContent =
+        admissionNumber;
+
+      successAdmissionId.textContent =
+        admissionId;
+
+      successMessage.style.display =
+        "block";
+
+      errorMessage.style.display =
+        "none";
+
+      successMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+
+    function disableForm() {
+
+      const fields =
+        form.querySelectorAll(
+          "input, select, textarea, button"
+        );
+
+      fields.forEach(
+        field => {
+          field.disabled = true;
+        }
+      );
+
+      submitButton.textContent =
+        "Admission Offer Issued";
+    }
+
+
+    /*
+     * ---------------------------------------------------------
+     * FORM SUBMISSION
+     * ---------------------------------------------------------
+     */
+
+    form.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        successMessage.style.display =
+          "none";
+
+        errorMessage.style.display =
+          "none";
+
+
+        if (!form.checkValidity()) {
+
+          form.reportValidity();
+
+          return;
+        }
+
+
+        if (!currentUser) {
+
+          showError(
+            "Your administrator session is not available. Please sign in again."
+          );
+
+          return;
+        }
+
+
+        submitButton.disabled =
+          true;
+
+        submitButton.textContent =
+          "Issuing Admission Offer...";
+
+
+        try {
+
+          const admissionNumber =
+            value("admissionNumber");
+
+
+          /*
+           * Official admission offer record.
+           *
+           * This is NOT an application.
+           *
+           * This record represents a vacancy/offer
+           * issued by the school.
+           */
+          const admissionData = {
+
+            admissionNumber,
+
+            status: "offered",
+
+            offerType:
+              "school-admission-vacancy",
+
+
+            student: {
+
+              fullName:
+                value("studentName"),
+
+              gender:
+                value("gender"),
+
+              dateOfBirth:
+                value("dateOfBirth"),
+
+              nationality:
+                value("nationality"),
+
+              previousSchool:
+                value("previousSchool"),
+
+              address:
+                value("studentAddress")
+            },
+
+
+            guardian: {
+
+              name:
+                value("guardianName"),
+
+              relationship:
+                value("guardianRelationship"),
+
+              phone:
+                value("guardianPhone"),
+
+              email:
+                value("guardianEmail"),
+
+              address:
+                value("guardianAddress")
+            },
+
+
+            academic: {
+
+              academicYear:
+                value("academicYear"),
+
+              term:
+                value("term"),
+
+              classOffered:
+                value("classOffered"),
+
+              stream:
+                value("stream"),
+
+              studyType:
+                value("studyType")
+            },
+
+
+            offer: {
+
+              admissionDate:
+                value("admissionDate"),
+
+              reportingDate:
+                value("reportingDate"),
+
+              reportingTime:
+                value("reportingTime"),
+
+              vacancyType:
+                value("vacancyType"),
+
+              specialConditions:
+                value("admissionConditions"),
+
+              status:
+                "offered"
+            },
+
+
+            fees: {
+
+              category:
+                value("feesCategory"),
+
+              amount:
+                value("feesAmount"),
+
+              currency:
+                "UGX",
+
+              instructions:
+                value("feesInstructions")
+            },
+
+
+            requirements:
+              selectedRequirements(),
+
+
+            notes:
+              value("schoolNotes"),
+
+
+            acceptance: {
+
+              status:
+                "pending",
+
+              acceptedAt:
+                null,
+
+              acceptedBy:
+                null
+            },
+
+
+            enrollment: {
+
+              status:
+                "not_enrolled",
+
+              studentId:
+                null,
+
+              enrolledAt:
+                null
+            },
+
+
+            issuedBy: {
+
+              uid:
+                currentUser.uid,
+
+              email:
+                currentUser.email || null
+            },
+
+
+            createdAt:
+              serverTimestamp(),
+
+            updatedAt:
+              serverTimestamp()
+          };
+
+
+          /*
+           * Create the official admission offer.
+           */
+          const admissionRef =
+            await addDoc(
+              collection(
+                db,
+                "admissions"
+              ),
+              admissionData
+            );
+
+
+          showSuccess(
+            admissionNumber,
+            admissionRef.id
+          );
+
+
+          disableForm();
+
+
+        } catch (error) {
+
+          console.error(
+            "Admission offer creation error:",
+            error
+          );
+
+
+          let message =
+            "The admission offer could not be created.";
+
+
+          if (
+            error?.code ===
+            "permission-denied"
+          ) {
+
+            message =
+              "You are not authorized to issue admission offers. Please check your administrator account.";
+
+          } else if (
+            error?.code ===
+            "unavailable"
+          ) {
+
+            message =
+              "Firebase is temporarily unavailable. Please check your internet connection and try again.";
+
+          }
+
+
+          showError(message);
+
+
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            "Issue Admission Offer";
+        }
+
+      }
+    );
+
+
+    /*
+     * ---------------------------------------------------------
+     * RESET
+     * ---------------------------------------------------------
+     */
+
+    form.addEventListener(
+      "reset",
+      () => {
+
+        successMessage.style.display =
+          "none";
+
+        errorMessage.style.display =
+          "none";
+
+        submitButton.disabled =
+          false;
+
+        submitButton.textContent =
+          "Issue Admission Offer";
+
+      }
+    );
+
+
+    /*
+     * ---------------------------------------------------------
+     * ADMIN SESSION
+     * ---------------------------------------------------------
+     */
+
+    onAuthStateChanged(
+      auth,
+      async user => {
+
+        if (!user) {
+
+          window.location.replace(
+            "admin-login.html"
+          );
+
+          return;
+        }
+
+
+        try {
+
+          const authorized =
+            await verifyAdmin(user);
+
+
+          if (!authorized) {
+
+            window.location.replace(
+              "admin-login.html"
+            );
+
+            return;
+          }
+
+
+          currentUser =
+            user;
+
+
+          /*
+           * Default admission offer date to today.
+           */
+          const admissionDate =
+            document.getElementById(
+              "admissionDate"
+            );
+
+
+          if (
+            admissionDate &&
+            !admissionDate.value
+          ) {
+
+            const today =
+              new Date();
+
+            const year =
+              today.getFullYear();
+
+            const month =
+              String(
+                today.getMonth() + 1
+              ).padStart(2, "0");
+
+            const day =
+              String(
+                today.getDate()
+              ).padStart(2, "0");
+
+
+            admissionDate.value =
+              `${year}-${month}-${day}`;
+          }
+
+
+        } catch (error) {
+
+          console.error(
+            "Administrator verification error:",
+            error
+          );
+
+
+          window.location.replace(
+            "admin-login.html"
+          );
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
+

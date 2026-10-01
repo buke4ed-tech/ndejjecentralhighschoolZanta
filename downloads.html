@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Downloads | Ndejje Central High School – Zanta</title>
+
+  <meta
+    name="description"
+    content="Access school forms, academic resources, information materials and downloadable documents from Ndejje Central High School – Zanta."
+  >
+  <meta name="theme-color" content="#003366">
+
+  <meta property="og:title" content="Downloads | Ndejje Central High School – Zanta">
+  <meta
+    property="og:description"
+    content="Access school information, forms and downloadable resources from Ndejje Central High School – Zanta."
+  >
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --primary: #003366;
+      --primary-dark: #00264d;
+      --secondary: #00509e;
+      --accent: #ffd700;
+      --light: #f4f7fb;
+      --white: #ffffff;
+      --text: #222222;
+      --muted: #667085;
+      --border: #dce4ee;
+      --success: #198754;
+      --shadow: 0 12px 30px rgba(0, 51, 102, 0.10);
+      --shadow-lg: 0 22px 55px rgba(0, 51, 102, 0.16);
+      --radius: 14px;
+      --transition: 0.25s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: -100px;
+      z-index: 10000;
+      padding: 12px 18px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    /* =========================
+       TOP BAR
+    ========================== */
+
+    .top-bar {
+      background: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+    }
+
+    .top-bar-inner {
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .top-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .top-contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .top-contact strong {
+      color: var(--accent);
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid transparent;
+      transition:
+        box-shadow var(--transition),
+        border-color var(--transition);
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 6px 25px rgba(0, 51, 102, 0.10);
+      border-color: var(--border);
+    }
+
+    .nav-wrap {
+      position: relative;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      line-height: 1.15;
+    }
+
+    .brand-name {
+      color: var(--primary);
+      font-size: 1.02rem;
+      font-weight: 800;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 10px 11px;
+      color: #344054;
+      font-size: 0.92rem;
+      font-weight: 650;
+      border-radius: 8px;
+      transition:
+        color var(--transition),
+        background var(--transition);
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--primary);
+      background: #eef5fb;
+    }
+
+    .main-nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      right: 11px;
+      bottom: 3px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 10px;
+    }
+
+    .nav-cta {
+      padding: 11px 18px !important;
+      background: var(--primary) !important;
+      color: var(--white) !important;
+      border-radius: 8px !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--secondary) !important;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--primary);
+      border-radius: 9px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .page-hero {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 38, 77, 0.91),
+          rgba(0, 51, 102, 0.64)
+        ),
+        url("images/school-hero.jpg") center / cover no-repeat;
+      color: var(--white);
+    }
+
+    .hero-content {
+      width: min(850px, calc(100% - 40px));
+      text-align: center;
+      padding: 70px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 15px;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-content p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.08rem;
+    }
+
+    .breadcrumb {
+      margin-top: 22px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================== */
+
+    .section {
+      padding: 82px 0;
+    }
+
+    .section-light {
+      background: var(--light);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow {
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      line-height: 1.2;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       DOWNLOAD INTRO
+    ========================== */
+
+    .download-intro {
+      max-width: 800px;
+      margin: -5px auto 38px;
+      text-align: center;
+    }
+
+    .download-intro p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    /* =========================
+       SEARCH / FILTER BAR
+    ========================== */
+
+    .download-tools {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 30px;
+      padding: 18px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+    }
+
+    .search-box span {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .search-box input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px 0 44px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text);
+      border-radius: 9px;
+      outline: none;
+      transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(0, 80, 158, 0.10);
+    }
+
+    .category-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .category-btn {
+      min-height: 42px;
+      padding: 8px 15px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: #344054;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-weight: 700;
+      transition:
+        color var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+    }
+
+    .category-btn:hover {
+      border-color: var(--secondary);
+      color: var(--secondary);
+    }
+
+    .category-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+
+    /* =========================
+       DOWNLOAD GRID
+    ========================== */
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .download-card {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+    }
+
+    .download-card:hover {
+      transform: translateY(-3px);
+      border-color: #c5d4e4;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .download-card.hidden {
+      display: none;
+    }
+
+    .file-icon {
+      width: 58px;
+      height: 66px;
+      flex: 0 0 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #edf4fa;
+      color: var(--primary);
+      border-radius: 10px;
+      font-size: 1.6rem;
+    }
+
+    .file-type {
+      position: absolute;
+      bottom: 5px;
+      font-size: 0.58rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .download-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .download-category {
+      display: inline-block;
+      margin-bottom: 6px;
+      color: var(--secondary);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .download-content h3 {
+      margin-bottom: 6px;
+      color: var(--primary);
+      font-size: 1.12rem;
+      line-height: 1.35;
+    }
+
+    .download-content p {
+      margin-bottom: 13px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .download-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #7a8492;
+      font-size: 0.76rem;
+    }
+
+    .download-action {
+      flex-shrink: 0;
+      align-self: center;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 42px;
+      padding: 9px 15px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      transition:
+        background var(--transition),
+        transform var(--transition);
+    }
+
+    .download-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-1px);
+    }
+
+    .download-btn.disabled {
+      background: #eef1f4;
+      border-color: #d9dfe6;
+      color: #8a94a1;
+      cursor: not-allowed;
+    }
+
+    .download-btn.disabled:hover {
+      background: #eef1f4;
+      transform: none;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 50px 20px;
+      text-align: center;
+      background: var(--light);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+    }
+
+    .empty-state.visible {
+      display: block;
+    }
+
+    .empty-state-icon {
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    .empty-state h3 {
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
+
+    .empty-state p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       INFORMATION CARDS
+    ========================== */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .info-card {
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .info-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: #eaf3fb;
+      color: var(--primary);
+      border-radius: 12px;
+      font-size: 1.35rem;
+    }
+
+    .info-card h3 {
+      margin-bottom: 9px;
+      color: var(--primary);
+      font-size: 1.16rem;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    /* =========================
+       NOTICE
+    ========================== */
+
+    .notice {
+      display: flex;
+      gap: 17px;
+      align-items: flex-start;
+      margin-top: 28px;
+      padding: 20px 22px;
+      background: #fff9df;
+      border: 1px solid #f2df82;
+      border-radius: 12px;
+    }
+
+    .notice-icon {
+      flex: 0 0 auto;
+      font-size: 1.25rem;
+    }
+
+    .notice h3 {
+      margin-bottom: 4px;
+      color: var(--primary-dark);
+      font-size: 0.98rem;
+    }
+
+    .notice p {
+      color: #5f5a3c;
+      font-size: 0.87rem;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      right: -100px;
+      top: -140px;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.10);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cta h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+    }
+
+    .cta p {
+      max-width: 680px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 21px;
+      border-radius: 8px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition:
+        transform var(--transition),
+        background var(--transition);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .btn-light:hover {
+      background: #f2f5f8;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: #001f3f;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .footer-main {
+      padding: 62px 0 45px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      max-width: 360px;
+    }
+
+    .footer-brand .brand {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand .brand-name {
+      color: var(--white);
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.92rem;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 17px;
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li + li {
+      margin-top: 9px;
+    }
+
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.67);
+      font-size: 0.9rem;
+      transition: color var(--transition);
+    }
+
+    .footer-column a:hover {
+      color: var(--accent);
+    }
+
+    .footer-contact li {
+      color: rgba(255, 255, 255, 0.67);
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      padding: 19px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      text-align: center;
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 0.84rem;
+    }
+
+    /* =========================
+       REVEAL
+    ========================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1100px) {
+      .main-nav {
+        gap: 0;
+      }
+
+      .main-nav a {
+        padding-inline: 8px;
+        font-size: 0.86rem;
+      }
+
+      .download-tools {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px 20px 20px;
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 16px 30px rgba(0, 51, 102, 0.12);
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .main-nav a {
+        padding: 13px 12px;
+      }
+
+      .main-nav a.active::after {
+        left: 12px;
+        right: auto;
+        width: 35px;
+      }
+
+      .nav-cta {
+        margin-top: 6px;
+        text-align: center;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .download-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-card {
+        flex-wrap: wrap;
+      }
+
+      .download-action {
+        width: 100%;
+        margin-top: 2px;
+      }
+
+      .download-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .top-bar {
+        display: none;
+      }
+
+      .nav-wrap {
+        min-height: 72px;
+      }
+
+      .brand img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand-name {
+        font-size: 0.88rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.7rem;
+      }
+
+      .page-hero {
+        min-height: 330px;
+      }
+
+      .hero-content {
+        padding: 55px 0;
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+
+      .category-filter {
+        justify-content: center;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- =========================
+       TOP BAR
+  ========================== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+
+      <div class="top-contact">
+        <span>📍 Zanta, Kampala</span>
+        <span>
+          ✉
+          <strong>ndejjecentralhighschool@gmail.com</strong>
+        </span>
+      </div>
+
+      <div>
+        <span>☎ 0705 414 545</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header" id="siteHeader">
+
+    <div class="container nav-wrap">
+
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="Ndejje Central High School – Zanta home"
+      >
+        <img
+          src="images/nchslogo.png"
+          alt="Ndejje Central High School – Zanta logo"
+        >
+
+        <span class="brand-text">
+          <span class="brand-name">
+            Ndejje Central High School – Zanta
+          </span>
+
+          <span class="brand-subtitle">
+            Centre of Knowledge
+          </span>
+        </span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="mainNav"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav
+        class="main-nav"
+        id="mainNav"
+        aria-label="Main navigation"
+      >
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="academic.html">Academics</a>
+        <a href="studentLife.html">Student Life</a>
+        <a href="news.html">News &amp; Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a
+          href="downloads.html"
+          class="active"
+          aria-current="page"
+        >
+          Downloads
+        </a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="page-hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">Resources &amp; Documents</div>
+
+        <h1>Downloads</h1>
+
+        <p>
+          Access school information, forms, academic resources and
+          other documents made available by Ndejje Central High School
+          – Zanta.
+        </p>
+
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true"> / </span>
+          Downloads
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         DOWNLOADS
+    ========================== -->
+    <section class="section" id="downloads">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="eyebrow">School Resources</div>
+
+          <h2>Useful Documents &amp; Resources</h2>
+
+          <p>
+            This section provides a central place for school documents
+            and resources that can be downloaded when they are made
+            available.
+          </p>
+
+        </div>
+
+        <div class="download-intro reveal">
+
+          <p>
+            Official documents should always be downloaded from the
+            school when they are published. If you need a document
+            that is not currently listed, please contact the school
+            directly.
+          </p>
+
+        </div>
+
+        <!-- SEARCH + FILTER -->
+        <div class="download-tools reveal">
+
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+
+            <input
+              type="search"
+              id="downloadSearch"
+              placeholder="Search documents..."
+              aria-label="Search downloadable documents"
+            >
+          </div>
+
+          <div
+            class="category-filter"
+            role="group"
+            aria-label="Filter documents by category"
+          >
+
+            <button
+              type="button"
+              class="category-btn active"
+              data-category="all"
+            >
+              All
+            </button>
+
+            <button
+              type="button"
+              class="category-btn"
+              data-category="admissions"
+            >
+              Admissions
+            </button>
+
+            <button
+              type="button"
+              class="category-btn"
+              data-category="academics"
+            >
+              Academics
+            </button>
+
+            <button
+              type="button"
+              class="category-btn"
+              data-category="school"
+            >
+              School Information
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- DOWNLOAD GRID -->
+        <div class="download-grid" id="downloadGrid">
+
+          <!--
+            These are intentionally presented as document slots until
+            the actual school files are supplied.
+          -->
+
+          <article
+            class="download-card reveal"
+            data-category="admissions"
+            data-search="admission application form admissions"
+          >
+
+            <div class="file-icon" aria-hidden="true">
+              📄
+              <span class="file-type">PDF</span>
+            </div>
+
+            <div class="download-content">
+
+              <span class="download-category">
+                Admissions
+              </span>
+
+              <h3>Admission Application Form</h3>
+
+              <p>
+                Admission application material for prospective
+                students, when officially published by the school.
+              </p>
+
+              <div class="download-meta">
+                <span>Official school document</span>
+                <span>•</span>
+                <span>PDF</span>
+              </div>
+
+            </div>
+
+            <div class="download-action">
+
+              <button
+                type="button"
+                class="download-btn disabled"
+                disabled
+                title="Document will be available when uploaded"
+              >
+                ↓ Download
+              </button>
+
+            </div>
+
+          </article>
+
+          <!-- Academic -->
+          <article
+            class="download-card reveal"
+            data-category="academics"
+            data-search="academic calendar timetable academic information"
+          >
+
+            <div class="file-icon" aria-hidden="true">
+              📅
+              <span class="file-type">PDF</span>
+            </div>
+
+            <div class="download-content">
+
+              <span class="download-category">
+                Academics
+              </span>
+
+              <h3>Academic Calendar</h3>
+
+              <p>
+                Academic dates, school sessions and important
+                academic activities, when officially published.
+              </p>
+
+              <div class="download-meta">
+                <span>Academic resource</span>
+                <span>•</span>
+                <span>PDF</span>
+              </div>
+
+            </div>
+
+            <div class="download-action">
+
+              <button
+                type="button"
+                class="download-btn disabled"
+                disabled
+                title="Document will be available when uploaded"
+              >
+                ↓ Download
+              </button>
+
+            </div>
+
+          </article>
+
+          <!-- School Information -->
+          <article
+            class="download-card reveal"
+            data-category="school"
+            data-search="school prospectus school information profile"
+          >
+
+            <div class="file-icon" aria-hidden="true">
+              📘
+              <span class="file-type">PDF</span>
+            </div>
+
+            <div class="download-content">
+
+              <span class="download-category">
+                School Information
+              </span>
+
+              <h3>School Prospectus</h3>
+
+              <p>
+                General information about the school, its educational
+                approach, programmes and learning environment.
+              </p>
+
+              <div class="download-meta">
+                <span>School information</span>
+                <span>•</span>
+                <span>PDF</span>
+              </div>
+
+            </div>
+
+            <div class="download-action">
+
+              <button
+                type="button"
+                class="download-btn disabled"
+                disabled
+                title="Document will be available when uploaded"
+              >
+                ↓ Download
+              </button>
+
+            </div>
+
+          </article>
+
+          <!-- Academic -->
+          <article
+            class="download-card reveal"
+            data-category="academics"
+            data-search="academic programmes curriculum subjects learning"
+          >
+
+            <div class="file-icon" aria-hidden="true">
+              🎓
+              <span class="file-type">PDF</span>
+            </div>
+
+            <div class="download-content">
+
+              <span class="download-category">
+                Academics
+              </span>
+
+              <h3>Academic Programmes Information</h3>
+
+              <p>
+                Information about academic learning and the school's
+                approach to developing knowledge and practical skills.
+              </p>
+
+              <div class="download-meta">
+                <span>Academic resource</span>
+                <span>•</span>
+                <span>PDF</span>
+              </div>
+
+            </div>
+
+            <div class="download-action">
+
+              <button
+                type="button"
+                class="download-btn disabled"
+                disabled
+                title="Document will be available when uploaded"
+              >
+                ↓ Download
+              </button>
+
+            </div>
+
+          </article>
+
+          <!-- School Information -->
+          <article
+            class="download-card reveal"
+            data-category="school"
+            data-search="school handbook rules regulations discipline"
+          >
+
+            <div class="file-icon" aria-hidden="true">
+              📑
+              <span class="file-type">PDF</span>
+            </div>
+
+            <div class="download-content">
+
+              <span class="download-category">
+                School Information
+              </span>
+
+              <h3>Student &amp; School Handbook</h3>
+
+              <p>
+                Student guidance, school information and other
+                official guidance, when published by the school.
+              </p>
+
+              <div class="download-meta">
+                <span>School resource</span>
+                <span>•</span>
+                <span>PDF</span>
+              </div>
+
+            </div>
+
+            <div class="download-action">
+
+              <button
+                type="button"
+                class="download-btn disabled"
+                disabled
+                title="Document will be available when uploaded"
+              >
+                ↓ Download
+              </button>
+
+            </div>
+
+          </article>
+
+          <!-- Admissions -->
+          <article
+            class="download-card reveal"
+            data-category="admissions"
+            data-search="admissions information joining requirements application"
+          >
+
+            <div class="file-icon" aria-hidden="true">
+              📝
+              <span class="file-type">PDF</span>
+            </div>
+
+            <div class="download-content">
+
+              <span class="download-category">
+                Admissions
+              </span>
+
+              <h3>Admissions Information</h3>
+
+              <p>
+                General admissions information and instructions,
+                subject to the official requirements published by
+                the school.
+              </p>
+
+              <div class="download-meta">
+                <span>Admissions resource</span>
+                <span>•</span>
+                <span>PDF</span>
+              </div>
+
+            </div>
+
+            <div class="download-action">
+
+              <button
+                type="button"
+                class="download-btn disabled"
+                disabled
+                title="Document will be available when uploaded"
+              >
+                ↓ Download
+              </button>
+
+            </div>
+
+          </article>
+
+        </div>
+
+        <div
+          class="empty-state"
+          id="emptyState"
+          aria-live="polite"
+        >
+          <div class="empty-state-icon" aria-hidden="true">
+            🔎
+          </div>
+
+          <h3>No documents found</h3>
+
+          <p>
+            Try a different search term or select another category.
+          </p>
+        </div>
+
+        <!-- NOTICE -->
+        <div class="notice reveal">
+
+          <div class="notice-icon" aria-hidden="true">
+            ℹ️
+          </div>
+
+          <div>
+            <h3>Need a document that is not listed?</h3>
+
+            <p>
+              Contact Ndejje Central High School – Zanta directly for
+              information about available forms, official documents
+              and school resources.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         RESOURCE AREAS
+    ========================== -->
+    <section class="section section-light">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="eyebrow">Resource Centre</div>
+
+          <h2>What You Can Find Here</h2>
+
+          <p>
+            The downloads area can grow as official school resources
+            become available.
+          </p>
+
+        </div>
+
+        <div class="info-grid">
+
+          <article class="info-card reveal">
+
+            <div class="info-icon" aria-hidden="true">
+              🎓
+            </div>
+
+            <h3>Academic Resources</h3>
+
+            <p>
+              Academic calendars, programme information and other
+              resources supporting teaching and learning.
+            </p>
+
+          </article>
+
+          <article class="info-card reveal">
+
+            <div class="info-icon" aria-hidden="true">
+              📋
+            </div>
+
+            <h3>School Forms</h3>
+
+            <p>
+              Official forms and documents that may be required by
+              students, parents and prospective members of the
+              school community.
+            </p>
+
+          </article>
+
+          <article class="info-card reveal">
+
+            <div class="info-icon" aria-hidden="true">
+              📚
+            </div>
+
+            <h3>School Information</h3>
+
+            <p>
+              School information materials that help families and
+              learners understand the school's programmes and
+              educational approach.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         CTA
+    ========================== -->
+    <section class="section cta">
+
+      <div class="container cta-inner">
+
+        <div>
+
+          <h2>Need More Information?</h2>
+
+          <p>
+            Contact Ndejje Central High School – Zanta if you need
+            assistance finding a school document or resource.
+          </p>
+
+        </div>
+
+        <a href="contact.html" class="btn btn-light">
+          Contact the School
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+
+        <a href="index.html" class="brand">
+
+          <img
+            src="images/nchslogo.png"
+            alt="Ndejje Central High School – Zanta logo"
+          >
+
+          <span class="brand-text">
+
+            <span class="brand-name">
+              Ndejje Central High School – Zanta
+            </span>
+
+            <span class="brand-subtitle">
+              Centre of Knowledge
+            </span>
+
+          </span>
+
+        </a>
+
+        <p>
+          Excellence • Discipline • Innovation. Providing education
+          that connects academic learning with practical skills,
+          innovation and enterprise.
+        </p>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h3>Quick Links</h3>
+
+        <ul>
+          <li>
+            <a href="about.html">About Us</a>
+          </li>
+
+          <li>
+            <a href="academic.html">Academics</a>
+          </li>
+
+          <li>
+            <a href="studentLife.html">Student Life</a>
+          </li>
+
+          <li>
+            <a href="news.html">News &amp; Events</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h3>Explore</h3>
+
+        <ul>
+          <li>
+            <a href="gallery.html">Gallery</a>
+          </li>
+
+          <li>
+            <a href="downloads.html">Downloads</a>
+          </li>
+
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-column footer-contact">
+
+        <h3>Contact</h3>
+
+        <ul>
+          <li>Zanta, Kampala</li>
+          <li>0705 414 545</li>
+          <li>ndejjecentralhighschool@gmail.com</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <div class="container">
+        &copy;
+        <span id="currentYear"></span>
+        Ndejje Central High School – Zanta.
+        Centre of Knowledge.
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* =========================
+         ELEMENTS
+      ========================== */
+
+      const header =
+        document.getElementById("siteHeader");
+
+      const navToggle =
+        document.getElementById("navToggle");
+
+      const mainNav =
+        document.getElementById("mainNav");
+
+      const currentYear =
+        document.getElementById("currentYear");
+
+      const searchInput =
+        document.getElementById("downloadSearch");
+
+      const categoryButtons =
+        document.querySelectorAll(".category-btn");
+
+      const downloadCards =
+        Array.from(
+          document.querySelectorAll(".download-card")
+        );
+
+      const emptyState =
+        document.getElementById("emptyState");
+
+      let activeCategory = "all";
+
+      /* =========================
+         CURRENT YEAR
+      ========================== */
+
+      if (currentYear) {
+        currentYear.textContent =
+          new Date().getFullYear();
+      }
+
+      /* =========================
+         MOBILE NAVIGATION
+      ========================== */
+
+      function closeMobileNav() {
+        mainNav.classList.remove("open");
+
+        navToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        navToggle.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+      }
+
+      navToggle.addEventListener("click", () => {
+
+        const isOpen =
+          mainNav.classList.toggle("open");
+
+        navToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+        navToggle.setAttribute(
+          "aria-label",
+          isOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
+        );
+      });
+
+      mainNav
+        .querySelectorAll("a")
+        .forEach((link) => {
+          link.addEventListener(
+            "click",
+            closeMobileNav
+          );
+        });
+
+      /* =========================
+         HEADER SHADOW
+      ========================== */
+
+      function updateHeader() {
+
+        if (window.scrollY > 15) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+
+      }
+
+      updateHeader();
+
+      window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
+      );
+
+      /* =========================
+         DOWNLOAD FILTERING
+      ========================== */
+
+      function filterDownloads() {
+
+        const searchTerm =
+          searchInput.value
+            .trim()
+            .toLowerCase();
+
+        let visibleCount = 0;
+
+        downloadCards.forEach((card) => {
+
+          const category =
+            card.dataset.category || "";
+
+          const searchableText =
+            card.dataset.search ||
+            card.textContent ||
+            "";
+
+          const matchesCategory =
+            activeCategory === "all" ||
+            category === activeCategory;
+
+          const matchesSearch =
+            !searchTerm ||
+            searchableText
+              .toLowerCase()
+              .includes(searchTerm);
+
+          const shouldShow =
+            matchesCategory &&
+            matchesSearch;
+
+          card.classList.toggle(
+            "hidden",
+            !shouldShow
+          );
+
+          if (shouldShow) {
+            visibleCount++;
+          }
+
+        });
+
+        emptyState.classList.toggle(
+          "visible",
+          visibleCount === 0
+        );
+      }
+
+      categoryButtons.forEach((button) => {
+
+        button.addEventListener("click", () => {
+
+          categoryButtons.forEach((btn) => {
+            btn.classList.remove("active");
+          });
+
+          button.classList.add("active");
+
+          activeCategory =
+            button.dataset.category;
+
+          filterDownloads();
+        });
+
+      });
+
+      searchInput.addEventListener(
+        "input",
+        filterDownloads
+      );
+
+      /* =========================
+         REVEAL ANIMATIONS
+      ========================== */
+
+      const revealElements =
+        document.querySelectorAll(".reveal");
+
+      if (
+        "IntersectionObserver" in window &&
+        !window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches
+      ) {
+
+        const observer =
+          new IntersectionObserver(
+            (entries, observerInstance) => {
+
+              entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                  entry.target.classList.add(
+                    "visible"
+                  );
+
+                  observerInstance.unobserve(
+                    entry.target
+                  );
+                }
+
+              });
+
+            },
+            {
+              threshold: 0.12
+            }
+          );
+
+        revealElements.forEach((element) => {
+          observer.observe(element);
+        });
+
+      } else {
+
+        revealElements.forEach((element) => {
+          element.classList.add("visible");
+        });
+
+      }
+
+    });
+  </script>
+
+</body>
+</html>

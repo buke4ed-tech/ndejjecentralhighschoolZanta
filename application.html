@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admission Application | Ndejje Central High School - Zanta</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    padding: 30px;
+    color: #222;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.header h1 {
+    color: #003366;
+    margin-top: 10px;
+    line-height: 1.3;
+}
+
+.header p {
+    color: #555;
+    margin-top: 5px;
+}
+
+.section-title {
+    background: #003366;
+    color: white;
+    padding: 10px 14px;
+    margin: 25px 0 15px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    background: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #003366;
+    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.08);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin: 0;
+}
+
+.required-note {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.document-notice {
+    background: #f1f6fb;
+    border-left: 4px solid #003366;
+    padding: 15px;
+    border-radius: 5px;
+    line-height: 1.6;
+}
+
+.document-notice ul {
+    margin: 10px 0 10px 22px;
+}
+
+.certification {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.certification label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.certification input {
+    width: auto;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #003366;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background: #00509e;
+}
+
+.submit-btn:disabled {
+    background: #7d8b99;
+    cursor: not-allowed;
+}
+
+.success {
+    display: none;
+    margin-top: 20px;
+    background: #d4edda;
+    color: #155724;
+    padding: 20px;
+    border-radius: 5px;
+    line-height: 1.7;
+}
+
+.success .application-reference {
+    display: inline-block;
+    background: #fff;
+    color: #003366;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.error-message {
+    display: none;
+    margin-top: 20px;
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 5px;
+    line-height: 1.6;
+}
+
+.info-message {
+    display: none;
+    margin-bottom: 20px;
+    background: #cfe2ff;
+    color: #084298;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #666;
+    line-height: 1.6;
+}
+
+.small-note {
+    color: #666;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <img
+            src="images/nchslogo.png"
+            alt="Ndejje Central High School Logo"
+            class="logo"
+        >
+
+        <h1>NDEJJE CENTRAL HIGH SCHOOL – ZANTA</h1>
+
+        <p>Admission Application Form</p>
+
+        <p>
+            <strong>Motto:</strong>
+            Centre of Knowledge
+        </p>
+    </div>
+
+    <div class="info-message" id="existingApplicationMessage">
+        An application has already been submitted from this browser.
+        Please keep your application reference for communication with the school.
+    </div>
+
+    <form id="admissionForm" novalidate>
+
+        <!-- =========================================================
+             STUDENT INFORMATION
+        ========================================================== -->
+
+        <div class="section-title">
+            Student Information
+        </div>
+
+        <div class="required-note">
+            Fields marked as required must be completed before submission.
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+                <label for="studentFullName">
+                    Full Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="studentFullName"
+                    name="studentFullName"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="gender">
+                    Gender *
+                </label>
+
+                <select
+                    id="gender"
+                    name="gender"
+                    required
+                >
+                    <option value="">
+                        Select Gender
+                    </option>
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+                <label for="dateOfBirth">
+                    Date of Birth *
+                </label>
+
+                <input
+                    type="date"
+                    id="dateOfBirth"
+                    name="dateOfBirth"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="nationality">
+                    Nationality
+                </label>
+
+                <input
+                    type="text"
+                    id="nationality"
+                    name="nationality"
+                    autocomplete="country-name"
+                >
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+                <label for="religion">
+                    Religion
+                </label>
+
+                <input
+                    type="text"
+                    id="religion"
+                    name="religion"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="classApplyingFor">
+                    Class Applying For *
+                </label>
+
+                <select
+                    id="classApplyingFor"
+                    name="classApplyingFor"
+                    required
+                >
+                    <option value="">
+                        Select Class
+                    </option>
+
+                    <option value="S.1">S.1</option>
+                    <option value="S.2">S.2</option>
+                    <option value="S.3">S.3</option>
+                    <option value="S.4">S.4</option>
+                    <option value="S.5">S.5</option>
+                    <option value="S.6">S.6</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="formerSchool">
+                Former School
+            </label>
+
+            <input
+                type="text"
+                id="formerSchool"
+                name="formerSchool"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="homeAddress">
+                Home Address
+            </label>
+
+            <textarea
+                id="homeAddress"
+                name="homeAddress"
+                rows="3"
+            ></textarea>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label for="studentPhone">
+                    Student Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="studentPhone"
+                    name="studentPhone"
+                    autocomplete="tel"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="studentEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="studentEmail"
+                    name="studentEmail"
+                    autocomplete="email"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================================
+             PARENT / GUARDIAN INFORMATION
+        ========================================================== -->
+
+        <div class="section-title">
+            Parent / Guardian Information
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label for="guardianName">
+                    Parent/Guardian Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="guardianName"
+                    name="guardianName"
+                    autocomplete="name"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="guardianRelationship">
+                    Relationship
+                </label>
+
+                <input
+                    type="text"
+                    id="guardianRelationship"
+                    name="guardianRelationship"
+                >
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label for="guardianOccupation">
+                    Occupation
+                </label>
+
+                <input
+                    type="text"
+                    id="guardianOccupation"
+                    name="guardianOccupation"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="guardianPhone">
+                    Phone Number *
+                </label>
+
+                <input
+                    type="tel"
+                    id="guardianPhone"
+                    name="guardianPhone"
+                    autocomplete="tel"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="guardianAddress">
+                Residential Address
+            </label>
+
+            <textarea
+                id="guardianAddress"
+                name="guardianAddress"
+                rows="3"
+            ></textarea>
+
+        </div>
+
+
+        <!-- =========================================================
+             ACADEMIC INFORMATION
+        ========================================================== -->
+
+        <div class="section-title">
+            Academic Information
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label for="lastClassCompleted">
+                    Last Class Completed
+                </label>
+
+                <input
+                    type="text"
+                    id="lastClassCompleted"
+                    name="lastClassCompleted"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="nationalExamination">
+                    National Examination
+                </label>
+
+                <select
+                    id="nationalExamination"
+                    name="nationalExamination"
+                >
+                    <option value="None">
+                        None
+                    </option>
+
+                    <option value="PLE">
+                        PLE
+                    </option>
+
+                    <option value="UCE">
+                        UCE
+                    </option>
+
+                    <option value="UACE">
+                        UACE
+                    </option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group">
+
+                <label for="examinationYear">
+                    Year of Examination
+                </label>
+
+                <input
+                    type="number"
+                    id="examinationYear"
+                    name="examinationYear"
+                    min="1900"
+                    max="2100"
+                    inputmode="numeric"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="indexNumber">
+                    Index Number
+                </label>
+
+                <input
+                    type="text"
+                    id="indexNumber"
+                    name="indexNumber"
+                >
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="results">
+                Results / Grades
+            </label>
+
+            <textarea
+                id="results"
+                name="results"
+                rows="3"
+            ></textarea>
+
+        </div>
+
+
+        <!-- =========================================================
+             SKILLS, TALENTS & INTERESTS
+        ========================================================== -->
+
+        <div class="section-title">
+            Skills, Talents & Interests
+        </div>
+
+        <div class="checkbox-group">
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Digital Skills & ICT"
+                >
+                Digital Skills & ICT
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Coding & Website Development"
+                >
+                Coding & Website Development
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Agribusiness & Smart Farming"
+                >
+                Agribusiness & Smart Farming
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Entrepreneurship"
+                >
+                Entrepreneurship
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Fashion & Tailoring"
+                >
+                Fashion & Tailoring
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Beauty & Wellness"
+                >
+                Beauty & Wellness
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Graphic Design"
+                >
+                Graphic Design
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Photography & Content Creation"
+                >
+                Photography & Content Creation
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Music, Dance & Drama"
+                >
+                Music, Dance & Drama
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Leadership & Public Speaking"
+                >
+                Leadership & Public Speaking
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Sports & Athletics"
+                >
+                Sports & Athletics
+            </label>
+
+            <label>
+                <input
+                    type="checkbox"
+                    name="interests"
+                    value="Environmental Innovation"
+                >
+                Environmental Innovation
+            </label>
+
+        </div>
+
+
+        <!-- =========================================================
+             MEDICAL INFORMATION
+        ========================================================== -->
+
+        <div class="section-title">
+            Medical Information
+        </div>
+
+        <div class="form-group">
+
+            <label for="medicalConditions">
+                Medical Conditions (if any)
+            </label>
+
+            <textarea
+                id="medicalConditions"
+                name="medicalConditions"
+                rows="3"
+            ></textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="allergies">
+                Allergies / Special Health Considerations
+            </label>
+
+            <textarea
+                id="allergies"
+                name="allergies"
+                rows="3"
+            ></textarea>
+
+        </div>
+
+
+        <!-- =========================================================
+             REQUIRED DOCUMENTS
+        ========================================================== -->
+
+        <div class="section-title">
+            Required Documents
+        </div>
+
+        <div class="document-notice">
+
+            <p>
+                The following documents may be required during
+                admission and registration:
+            </p>
+
+            <ul>
+                <li>Passport photograph</li>
+                <li>Academic results slip / report card</li>
+                <li>Birth certificate</li>
+            </ul>
+
+            <p>
+                <strong>Important:</strong>
+                These documents are not uploaded through this online
+                application. Original documents should be presented
+                to the school when requested.
+            </p>
+
+        </div>
+
+
+        <!-- =========================================================
+             CERTIFICATION
+        ========================================================== -->
+
+        <div class="certification">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="informationCertification"
+                    name="informationCertification"
+                    value="true"
+                    required
+                >
+
+                <span>
+                    I certify that the information provided is true
+                    and correct. *
+
+                    <div class="small-note">
+                        By submitting this application, I understand
+                        that the school may review and verify the
+                        information provided.
+                    </div>
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <!-- =========================================================
+             SUBMIT
+        ========================================================== -->
+
+        <button
+            type="submit"
+            class="submit-btn"
+            id="submitButton"
+        >
+            Submit Admission Application
+        </button>
+
+    </form>
+
+
+    <!-- =============================================================
+         SUCCESS MESSAGE
+    ============================================================== -->
+
+    <div
+        class="success"
+        id="successMessage"
+    ></div>
+
+
+    <!-- =============================================================
+         ERROR MESSAGE
+    ============================================================== -->
+
+    <div
+        class="error-message"
+        id="errorMessage"
+    ></div>
+
+
+    <footer>
+
+        <p>
+            Ndejje Central High School – Zanta
+            <br>
+            Makindye Ssabagabo Municipality,
+            Wakiso District, Uganda
+        </p>
+
+    </footer>
+
+</div>
+
+
+<!-- ================================================================
+     FIREBASE APPLICATION LOGIC
+================================================================ -->
+
+<script type="module">
+
+import { db } from "./firebase-config.js";
+
+import {
+    collection,
+    addDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/*
+|--------------------------------------------------------------------------
+| DOM REFERENCES
+|--------------------------------------------------------------------------
+*/
+
+const admissionForm =
+    document.getElementById("admissionForm");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const successMessage =
+    document.getElementById("successMessage");
+
+const errorMessage =
+    document.getElementById("errorMessage");
+
+const existingApplicationMessage =
+    document.getElementById("existingApplicationMessage");
+
+
+/*
+|--------------------------------------------------------------------------
+| CONSTANTS
+|--------------------------------------------------------------------------
+*/
+
+const APPLICATION_STORAGE_KEY =
+    "nchs_last_admission_application";
+
+
+/*
+|--------------------------------------------------------------------------
+| GENERATE APPLICATION REFERENCE
+|--------------------------------------------------------------------------
+|
+| This is a human-friendly reference.
+| Firestore still provides the authoritative document ID.
+|
+*/
+
+function generateApplicationNumber() {
+
+    const now = new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(now.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(now.getDate()).padStart(2, "0");
+
+    const randomValues =
+        new Uint32Array(2);
+
+    crypto.getRandomValues(randomValues);
+
+    const randomPart =
+        Array.from(randomValues)
+            .map(value =>
+                value.toString(36).toUpperCase()
+            )
+            .join("")
+            .replace(/[^A-Z0-9]/g, "")
+            .slice(0, 6);
+
+    return `NCHS-APP-${year}${month}${day}-${randomPart}`;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| GET FIELD VALUE
+|--------------------------------------------------------------------------
+*/
+
+function getValue(name) {
+
+    const field =
+        admissionForm.elements[name];
+
+    if (!field) {
+        return "";
+    }
+
+    return String(field.value || "").trim();
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| GET SELECTED INTERESTS
+|--------------------------------------------------------------------------
+*/
+
+function getSelectedInterests() {
+
+    return Array.from(
+        admissionForm.querySelectorAll(
+            'input[name="interests"]:checked'
+        )
+    ).map(input => input.value);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| SHOW ERROR
+|--------------------------------------------------------------------------
+*/
+
+function showError(message) {
+
+    errorMessage.innerHTML = `
+        <strong>Application could not be submitted.</strong>
+        <br><br>
+        ${message}
+    `;
+
+    errorMessage.style.display = "block";
+
+    successMessage.style.display = "none";
+
+    errorMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| SHOW SUCCESS
+|--------------------------------------------------------------------------
+*/
+
+function showSuccess(
+    applicationNumber,
+    applicationId
+) {
+
+    successMessage.innerHTML = `
+
+        <strong>
+            ✓ Application submitted successfully.
+        </strong>
+
+        <br><br>
+
+        Thank you for applying to
+        Ndejje Central High School – Zanta.
+
+        <br><br>
+
+        Your application has been received
+        and is now awaiting school review.
+
+        <br><br>
+
+        <strong>
+            Your Application Reference:
+        </strong>
+
+        <br>
+
+        <span class="application-reference">
+            ${applicationNumber}
+        </span>
+
+        <br>
+
+        <strong>
+            Please keep this reference safely.
+        </strong>
+
+        <br><br>
+
+        The school will use this reference when
+        communicating about your application.
+
+        <br><br>
+
+        Original academic and identification
+        documents should be presented to the
+        school when requested.
+
+    `;
+
+    successMessage.style.display = "block";
+
+    errorMessage.style.display = "none";
+
+    successMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| CHECK PREVIOUS SUCCESSFUL SUBMISSION
+|--------------------------------------------------------------------------
+|
+| This protects against the normal case where the same browser
+| refreshes or returns immediately after submitting.
+|
+*/
+
+function checkPreviousApplication() {
+
+    try {
+
+        const saved =
+            localStorage.getItem(
+                APPLICATION_STORAGE_KEY
+            );
+
+        if (!saved) {
+            return null;
+        }
+
+        const application =
+            JSON.parse(saved);
+
+        if (
+            application &&
+            application.applicationNumber
+        ) {
+
+            existingApplicationMessage.innerHTML = `
+
+                An application has already been submitted
+                from this browser.
+
+                <br><br>
+
+                <strong>
+                    Application Reference:
+                </strong>
+
+                ${application.applicationNumber}
+
+                <br><br>
+
+                If you need to submit another application,
+                please contact the school first.
+
+            `;
+
+            existingApplicationMessage.style.display =
+                "block";
+
+            return application;
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "Could not read previous application record:",
+            error
+        );
+
+    }
+
+    return null;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| INITIAL STATE
+|--------------------------------------------------------------------------
+*/
+
+checkPreviousApplication();
+
+
+/*
+|--------------------------------------------------------------------------
+| FORM SUBMISSION
+|--------------------------------------------------------------------------
+*/
+
+admissionForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Browser validation
+        |--------------------------------------------------------------------------
+        */
+
+        if (!admissionForm.checkValidity()) {
+
+            admissionForm.reportValidity();
+
+            return;
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Prevent double-click submissions
+        |--------------------------------------------------------------------------
+        */
+
+        if (submitButton.disabled) {
+            return;
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Check local submission record
+        |--------------------------------------------------------------------------
+        */
+
+        const previousApplication =
+            checkPreviousApplication();
+
+        if (previousApplication) {
+
+            showError(`
+                An application has already been submitted
+                from this browser.
+
+                <br><br>
+
+                Application Reference:
+                <strong>
+                    ${previousApplication.applicationNumber}
+                </strong>
+
+                <br><br>
+
+                Please contact the school if you need
+                to make another application.
+            `);
+
+            return;
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Lock submission button
+        |--------------------------------------------------------------------------
+        */
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Submitting Application...";
+
+
+        try {
+
+            /*
+            |--------------------------------------------------------------------------
+            | Generate reference
+            |--------------------------------------------------------------------------
+            */
+
+            const applicationNumber =
+                generateApplicationNumber();
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Collect interests
+            |--------------------------------------------------------------------------
+            */
+
+            const interests =
+                getSelectedInterests();
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Build application object
+            |--------------------------------------------------------------------------
+            */
+
+            const applicationData = {
+
+                applicationNumber,
+
+                status: "submitted",
+
+                source: "website-admission-form",
+
+                student: {
+
+                    fullName:
+                        getValue("studentFullName"),
+
+                    gender:
+                        getValue("gender"),
+
+                    dateOfBirth:
+                        getValue("dateOfBirth"),
+
+                    nationality:
+                        getValue("nationality"),
+
+                    religion:
+                        getValue("religion"),
+
+                    classApplyingFor:
+                        getValue("classApplyingFor"),
+
+                    formerSchool:
+                        getValue("formerSchool"),
+
+                    homeAddress:
+                        getValue("homeAddress"),
+
+                    phone:
+                        getValue("studentPhone"),
+
+                    email:
+                        getValue("studentEmail")
+
+                },
+
+
+                guardian: {
+
+                    name:
+                        getValue("guardianName"),
+
+                    relationship:
+                        getValue("guardianRelationship"),
+
+                    occupation:
+                        getValue("guardianOccupation"),
+
+                    phone:
+                        getValue("guardianPhone"),
+
+                    address:
+                        getValue("guardianAddress")
+
+                },
+
+
+                academic: {
+
+                    lastClassCompleted:
+                        getValue("lastClassCompleted"),
+
+                    examination:
+                        getValue("nationalExamination"),
+
+                    examinationYear:
+                        getValue("examinationYear"),
+
+                    indexNumber:
+                        getValue("indexNumber"),
+
+                    results:
+                        getValue("results")
+
+                },
+
+
+                interests,
+
+
+                medical: {
+
+                    conditions:
+                        getValue("medicalConditions"),
+
+                    allergies:
+                        getValue("allergies")
+
+                },
+
+
+                documents: {
+
+                    storageUsed: false,
+
+                    originalsRequired: true,
+
+                    passportPhoto:
+                        "to-be-presented-to-school",
+
+                    academicResults:
+                        "to-be-presented-to-school",
+
+                    birthCertificate:
+                        "to-be-presented-to-school"
+
+                },
+
+
+                review: {
+
+                    reviewed: false,
+
+                    reviewedAt: null,
+
+                    reviewedBy: null,
+
+                    notes: ""
+
+                },
+
+
+                admission: {
+
+                    admissionNumber: null,
+
+                    admittedAt: null,
+
+                    admittedBy: null,
+
+                    reportingDate: null,
+
+                    reportingTime: null
+
+                },
+
+
+                rejection: {
+
+                    rejectedAt: null,
+
+                    rejectedBy: null,
+
+                    reason: ""
+
+                },
+
+
+                createdAt:
+                    serverTimestamp(),
+
+                updatedAt:
+                    serverTimestamp()
+
+            };
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | WRITE TO FIRESTORE
+            |--------------------------------------------------------------------------
+            */
+
+            const applicationReference =
+                await addDoc(
+                    collection(
+                        db,
+                        "applications"
+                    ),
+                    applicationData
+                );
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Save successful submission locally
+            |--------------------------------------------------------------------------
+            */
+
+            localStorage.setItem(
+                APPLICATION_STORAGE_KEY,
+                JSON.stringify({
+
+                    applicationId:
+                        applicationReference.id,
+
+                    applicationNumber,
+
+                    submittedAt:
+                        new Date().toISOString()
+
+                })
+            );
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Disable form after successful submission
+            |--------------------------------------------------------------------------
+            */
+
+            Array.from(
+                admissionForm.elements
+            ).forEach(field => {
+
+                field.disabled = true;
+
+            });
+
+            submitButton.disabled = true;
+
+            submitButton.textContent =
+                "Application Submitted";
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Display success
+            |--------------------------------------------------------------------------
+            */
+
+            showSuccess(
+                applicationNumber,
+                applicationReference.id
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Ndejje admission application error:",
+                error
+            );
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Restore button
+            |--------------------------------------------------------------------------
+            */
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Submit Admission Application";
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Friendly error
+            |--------------------------------------------------------------------------
+            */
+
+            let message =
+                "Please check your internet connection and try again.";
+
+            if (
+                error &&
+                (
+                    error.code ===
+                    "permission-denied"
+                )
+            ) {
+
+                message =
+                    "The application could not be accepted by the school system. " +
+                    "Please contact the school administrator.";
+
+            } else if (
+                error &&
+                error.code ===
+                "failed-precondition"
+            ) {
+
+                message =
+                    "The school database is not currently ready " +
+                    "to receive applications. Please contact the school administrator.";
+
+            }
+
+
+            showError(message);
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

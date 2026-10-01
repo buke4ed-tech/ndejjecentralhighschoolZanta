@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Learn about Ndejje Central High School – Zanta, our vision, mission, values, leadership, educational philosophy and Integrated Skills, Innovation & Enterprise approach.">
+
+    <meta name="keywords"
+          content="Ndejje Central High School, Ndejje, Zanta, Uganda, secondary school, ISIE, education, innovation, entrepreneurship">
+
+    <meta name="theme-color" content="#003366">
+
+    <title>About Us | Ndejje Central High School – Zanta</title>
+
+    <style>
+        /* =========================================================
+           ROOT VARIABLES
+        ========================================================= */
+        :root {
+            --primary: #003366;
+            --primary-dark: #001f3d;
+            --secondary: #00509e;
+            --accent: #ffd700;
+            --accent-dark: #e6be00;
+
+            --light: #f4f7fb;
+            --lighter: #f8fafc;
+            --white: #ffffff;
+
+            --text: #222222;
+            --muted: #64748b;
+            --border: #e2e8f0;
+
+            --success: #15803d;
+
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.10);
+            --shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.14);
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+
+            --container: 1200px;
+        }
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(92%, var(--container));
+            margin: 0 auto;
+        }
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
+        .skip-link {
+            position: fixed;
+            left: 15px;
+            top: -100px;
+            background: var(--accent);
+            color: #000;
+            padding: 10px 16px;
+            border-radius: 6px;
+            z-index: 5000;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 15px;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            background: linear-gradient(
+                110deg,
+                var(--primary-dark),
+                var(--primary),
+                var(--secondary)
+            );
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+            min-width: 0;
+        }
+
+        .logo-area img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: var(--white);
+            padding: 3px;
+        }
+
+        .logo-text {
+            min-width: 0;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 1.05rem;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            display: block;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 10px 12px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            border-radius: 7px;
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255,255,255,0.12);
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: #111 !important;
+            padding: 10px 17px !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--white) !important;
+            color: var(--primary) !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           PAGE HERO
+        ========================================================= */
+        .page-hero {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(0, 31, 61, 0.82),
+                    rgba(0, 51, 102, 0.78)
+                ),
+                url("images/school-hero.jpg")
+                center / cover no-repeat;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 850px;
+            padding: 80px 0;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent);
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 span {
+            color: var(--accent);
+        }
+
+        .page-hero p {
+            max-width: 720px;
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* =========================================================
+           GENERIC SECTIONS
+        ========================================================= */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            max-width: 760px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        /* =========================================================
+           SCHOOL INTRODUCTION
+        ========================================================= */
+        .intro {
+            background: var(--white);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-image {
+            position: relative;
+        }
+
+        .intro-image img {
+            width: 100%;
+            min-height: 430px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .image-badge {
+            position: absolute;
+            right: -20px;
+            bottom: 25px;
+            background: var(--accent);
+            color: #111;
+            padding: 18px 22px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            font-weight: 800;
+        }
+
+        .intro-content h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-content p {
+            color: #475569;
+            margin-bottom: 17px;
+        }
+
+        .intro-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .intro-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 13px;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .intro-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--success);
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           VISION / MISSION
+        ========================================================= */
+        .identity {
+            background: var(--light);
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .identity-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-top: 5px solid var(--secondary);
+        }
+
+        .identity-card.mission {
+            border-top-color: var(--accent-dark);
+        }
+
+        .identity-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #eaf3ff;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .identity-card.mission .identity-icon {
+            background: #fff8d6;
+        }
+
+        .identity-card h3 {
+            color: var(--primary);
+            font-size: 1.45rem;
+            margin-bottom: 12px;
+        }
+
+        .identity-card p {
+            color: #475569;
+        }
+
+        /* =========================================================
+           CORE VALUES
+        ========================================================= */
+        .values {
+            background: var(--white);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .value-card {
+            text-align: center;
+            background: var(--lighter);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 30px 20px;
+            transition: 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+        }
+
+        .value-number {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 17px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 800;
+        }
+
+        .value-card h3 {
+            color: var(--primary);
+            margin-bottom: 9px;
+        }
+
+        .value-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* =========================================================
+           ISIE
+        ========================================================= */
+        .isie {
+            background:
+                linear-gradient(
+                    120deg,
+                    #001f3d,
+                    #003366
+                );
+            color: var(--white);
+        }
+
+        .isie-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .isie-image img {
+            width: 100%;
+            min-height: 430px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .isie-content .section-label {
+            color: var(--accent);
+        }
+
+        .isie-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .isie-content > p {
+            color: rgba(255,255,255,0.82);
+            margin-bottom: 25px;
+        }
+
+        .isie-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 13px;
+            list-style: none;
+        }
+
+        .isie-points li {
+            padding: 15px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .isie-points li::before {
+            content: "✓";
+            color: var(--accent);
+            margin-right: 8px;
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           EDUCATIONAL PHILOSOPHY
+        ========================================================= */
+        .philosophy {
+            background: var(--light);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .philosophy-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .philosophy-card .number {
+            color: var(--secondary);
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .philosophy-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .philosophy-card p {
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           LEADERSHIP
+        ========================================================= */
+        .leadership {
+            background: var(--white);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .leader-card {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: 25px;
+            align-items: start;
+            padding: 28px;
+            background: var(--lighter);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+        }
+
+        .leader-card img {
+            width: 170px;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .leader-card h3 {
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .leader-role {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .leader-card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        /* =========================================================
+           SCHOOL JOURNEY
+        ========================================================= */
+        .journey {
+            background: var(--light);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #dbeafe;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 75px;
+            margin-bottom: 35px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 8px;
+            top: 4px;
+            width: 35px;
+            height: 35px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 800;
+            border: 4px solid var(--light);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+        .cta {
+            padding: 75px 0;
+            background:
+                linear-gradient(
+                    120deg,
+                    var(--secondary),
+                    var(--primary)
+                );
+            color: var(--white);
+        }
+
+        .cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.8);
+            max-width: 650px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 23px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #111;
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255,255,255,0.75);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+        footer {
+            background: #001426;
+            color: var(--white);
+            padding: 55px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand img {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+            background: var(--white);
+            padding: 4px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand h3 {
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.9rem;
+        }
+
+        footer h4 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 9px;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.72);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            padding-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: rgba(255,255,255,0.55);
+            font-size: 0.82rem;
+        }
+
+        /* =========================================================
+           BACK TO TOP
+        ========================================================= */
+        .back-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 45px;
+            height: 45px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            display: none;
+            z-index: 1500;
+            font-size: 1.1rem;
+        }
+
+        .back-top.show {
+            display: block;
+        }
+
+        .back-top:hover {
+            background: var(--secondary);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+        @media (max-width: 1050px) {
+
+            .nav-links {
+                gap: 2px;
+            }
+
+            .nav-links a {
+                padding: 9px 8px;
+                font-size: 0.85rem;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 78px;
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 15px;
+                background: var(--primary-dark);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px 15px;
+            }
+
+            .intro-grid,
+            .isie-grid,
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leader-card {
+                grid-template-columns: 140px 1fr;
+            }
+
+            .leader-card img {
+                width: 140px;
+                height: 180px;
+            }
+
+            .cta-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 65px 0;
+            }
+
+            .navbar {
+                min-height: 70px;
+            }
+
+            .logo-area img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .logo-text strong {
+                font-size: 0.9rem;
+            }
+
+            .logo-text span {
+                display: none;
+            }
+
+            .nav-links {
+                top: 70px;
+            }
+
+            .page-hero {
+                min-height: 400px;
+            }
+
+            .page-hero-content {
+                padding: 60px 0;
+            }
+
+            .intro-image img,
+            .isie-image img {
+                min-height: 300px;
+            }
+
+            .image-badge {
+                right: 10px;
+                bottom: 15px;
+            }
+
+            .identity-grid,
+            .values-grid,
+            .isie-points {
+                grid-template-columns: 1fr;
+            }
+
+            .leader-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .leader-card img {
+                margin: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">
+    Skip to main content
+</a>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header>
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo-area">
+
+            <img
+                src="images/nchslogo.png"
+                alt="Ndejje Central High School logo"
+            >
+
+            <div class="logo-text">
+                <strong>Ndejje Central High School</strong>
+                <span>Zanta • Centre of Knowledge</span>
+            </div>
+
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="about.html" class="active">About Us</a>
+            </li>
+
+            <li>
+                <a href="academics.html">Academics</a>
+            </li>
+
+            <li>
+                <a href="student-life.html">Student Life</a>
+            </li>
+
+            <li>
+                <a href="news.html">News & Events</a>
+            </li>
+
+            <li>
+                <a href="gallery.html">Gallery</a>
+            </li>
+
+            <li>
+                <a href="downloads.html">Downloads</a>
+            </li>
+
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+
+            <li>
+                <a href="application.html" class="nav-cta">
+                    Apply Now
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<main id="main-content">
+
+<!-- =========================================================
+     PAGE HERO
+========================================================= -->
+<section class="page-hero">
+
+    <div class="container">
+
+        <div class="page-hero-content">
+
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>›</span>
+                <span>About Us</span>
+            </div>
+
+            <h1>
+                About <span>Ndejje Central High School-Zanta</span>
+            </h1>
+
+            <p>
+                Discover who we are, what we believe in, how we educate,
+                and how we prepare young people for academic success,
+                responsible citizenship, innovation and enterprise.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRODUCTION
+========================================================= -->
+<section class="intro">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+            <div class="intro-image">
+
+                <img
+                    src="images/schoolGate.png"
+                    alt="Ndejje Central High School-Zanta  campus"
+                    loading="lazy"
+                >
+
+                <div class="image-badge">
+                    Centre of Knowledge
+                </div>
+
+            </div>
+
+            <div class="intro-content">
+
+                <span class="section-label">
+                    Who We Are
+                </span>
+
+                <h2>
+                    Education for Knowledge, Character & Opportunity
+                </h2>
+
+                <p>
+                    Ndejje Central High School – Zanta is committed to
+                    providing learners with an education that develops
+                    academic knowledge, discipline, practical competence,
+                    creativity and responsible citizenship.
+                </p>
+
+                <p>
+                    We believe that education should prepare young people
+                    not only for examinations, but also for life beyond
+                    school. Our approach therefore combines classroom
+                    learning with practical skills, innovation,
+                    entrepreneurship and opportunities for learners to
+                    discover and develop their talents.
+                </p>
+
+                <p>
+                    Through our Integrated Skills, Innovation & Enterprise
+                    approach, we seek to create an environment where
+                    learners can learn, experiment, create, collaborate
+                    and develop solutions to real-world challenges.
+                </p>
+
+                <ul class="intro-list">
+
+                    <li>
+                        Academic development and examination preparation
+                    </li>
+
+                    <li>
+                        Character, discipline and responsible citizenship
+                    </li>
+
+                    <li>
+                        Practical and vocational skills development
+                    </li>
+
+                    <li>
+                        ICT, innovation and entrepreneurship
+                    </li>
+
+                    <li>
+                        Talent development and student leadership
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VISION & MISSION
+========================================================= -->
+<section class="identity">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Our Direction
+            </span>
+
+            <h2 class="section-title">
+                Vision & Mission
+            </h2>
+
+            <p class="section-intro">
+                Our educational direction is built around academic
+                development, character formation, practical competence
+                and preparation for the future.
+            </p>
+
+        </div>
+
+        <div class="identity-grid">
+
+            <article class="identity-card">
+
+                <div class="identity-icon">
+                    ◉
+                </div>
+
+                <h3>
+                    Our Vision
+                </h3>
+
+                <p>
+                    To nurture competent, disciplined, innovative and
+                    morally responsible young people who are prepared to
+                    contribute positively to their families, communities
+                    and country.
+                </p>
+
+            </article>
+
+
+            <article class="identity-card mission">
+
+                <div class="identity-icon">
+                    ◆
+                </div>
+
+                <h3>
+                    Our Mission
+                </h3>
+
+                <p>
+                    To provide quality and holistic education that develops
+                    academic competence, practical skills, creativity,
+                    discipline, entrepreneurship and responsible citizenship.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CORE VALUES
+========================================================= -->
+<section class="values">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                What Guides Us
+            </span>
+
+            <h2 class="section-title">
+                Our Core Values
+            </h2>
+
+            <p class="section-intro">
+                These values guide our approach to teaching, learning,
+                leadership and relationships within the school community.
+            </p>
+
+        </div>
+
+
+        <div class="values-grid">
+
+            <article class="value-card">
+
+                <div class="value-number">01</div>
+
+                <h3>
+                    Excellence
+                </h3>
+
+                <p>
+                    We encourage learners and staff to pursue high
+                    standards in academic, practical and personal
+                    development.
+                </p>
+
+            </article>
+
+
+            <article class="value-card">
+
+                <div class="value-number">02</div>
+
+                <h3>
+                    Discipline
+                </h3>
+
+                <p>
+                    We promote responsibility, respect, self-control
+                    and conduct that supports a productive learning
+                    environment.
+                </p>
+
+            </article>
+
+
+            <article class="value-card">
+
+                <div class="value-number">03</div>
+
+                <h3>
+                    Innovation
+                </h3>
+
+                <p>
+                    We encourage curiosity, creativity, problem-solving
+                    and the development of practical solutions.
+                </p>
+
+            </article>
+
+
+            <article class="value-card">
+
+                <div class="value-number">04</div>
+
+                <h3>
+                    Integrity
+                </h3>
+
+                <p>
+                    We value honesty, responsibility, respect and
+                    ethical behaviour in school and beyond.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ISIE STRATEGY
+========================================================= -->
+<section class="isie">
+
+    <div class="container">
+
+        <div class="isie-grid">
+
+            <div class="isie-image">
+
+                <img
+                    src="images/ict3.png"
+                    alt="Students participating in practical ICT and innovation activities"
+                    loading="lazy"
+                >
+
+            </div>
+
+
+            <div class="isie-content">
+
+                <span class="section-label">
+                    Our Distinctive Approach
+                </span>
+
+                <h2>
+                    Integrated Skills, Innovation & Enterprise
+                </h2>
+
+                <p>
+                    The ISIE approach complements academic education with
+                    practical learning and opportunities for learners to
+                    develop useful skills, explore ideas and understand
+                    enterprise.
+                </p>
+
+                <p>
+                    The objective is to help learners connect what they
+                    learn in class with practical applications and
+                    real-world challenges.
+                </p>
+
+                <ul class="isie-points">
+
+                    <li>Digital Skills & ICT</li>
+
+                    <li>Entrepreneurship</li>
+
+                    <li>Smart Agribusiness</li>
+
+                    <li>Vocational Skills</li>
+
+                    <li>Creative Industries</li>
+
+                    <li>Environmental Innovation</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EDUCATIONAL PHILOSOPHY
+========================================================= -->
+<section class="philosophy">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                How We Educate
+            </span>
+
+            <h2 class="section-title">
+                Our Educational Philosophy
+            </h2>
+
+            <p class="section-intro">
+                We aim to develop the whole learner by connecting
+                knowledge, character, skills and practical experience.
+            </p>
+
+        </div>
+
+
+        <div class="philosophy-grid">
+
+            <article class="philosophy-card">
+
+                <div class="number">01</div>
+
+                <h3>
+                    Learn
+                </h3>
+
+                <p>
+                    Learners develop strong foundations through classroom
+                    instruction, guided study, research and academic
+                    engagement.
+                </p>
+
+            </article>
+
+
+            <article class="philosophy-card">
+
+                <div class="number">02</div>
+
+                <h3>
+                    Practise
+                </h3>
+
+                <p>
+                    Learners are encouraged to apply knowledge through
+                    projects, practical activities, experimentation,
+                    teamwork and skills-based learning.
+                </p>
+
+            </article>
+
+
+            <article class="philosophy-card">
+
+                <div class="number">03</div>
+
+                <h3>
+                    Create & Lead
+                </h3>
+
+                <p>
+                    Learners develop confidence, creativity, leadership,
+                    entrepreneurship and the ability to contribute to
+                    their communities.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LEADERSHIP
+========================================================= -->
+<section class="leadership">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                School Leadership
+            </span>
+
+            <h2 class="section-title">
+                Leadership
+            </h2>
+
+            <p class="section-intro">
+                Our leadership works with teachers, learners, parents and
+                other stakeholders to support the school's educational
+                mission and development.
+            </p>
+
+        </div>
+
+
+        <div class="leadership-grid">
+
+            <!-- HEADTEACHER -->
+            <article class="leader-card">
+
+                <img
+                    src="images/headteacher.jpg"
+                    alt="Headteacher of Ndejje Central High School"
+                    loading="lazy"
+                >
+
+                <div>
+
+                    <h3>
+                        Headteacher
+                    </h3>
+
+                    <div class="leader-role">
+                        School Administration & Academic Leadership
+                    </div>
+
+                    <p>
+                        The Headteacher provides academic and administrative
+                        leadership while working with staff, learners,
+                        parents and the wider school community to support
+                        effective teaching, learning, discipline and
+                        student development.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- DIRECTOR -->
+            <article class="leader-card">
+
+                <img
+                    src="images/director.jpg"
+                    alt="Director of Ndejje Central High School"
+                    loading="lazy"
+                >
+
+                <div>
+
+                    <h3>
+                        School Director
+                    </h3>
+
+                    <div class="leader-role">
+                        Strategic Direction & Institutional Development
+                    </div>
+
+                    <p>
+                        The School Director provides strategic direction
+                        for the institution, including the school's
+                        educational development, innovation initiatives,
+                        enterprise activities and long-term growth.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SCHOOL JOURNEY
+========================================================= -->
+<section class="journey">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Our Development
+            </span>
+
+            <h2 class="section-title">
+                Our Educational Journey
+            </h2>
+
+            <p class="section-intro">
+                The school's development continues to focus on combining
+                academic education with practical skills, innovation and
+                opportunities for young people.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    01
+                </div>
+
+                <h3>
+                    Academic Foundation
+                </h3>
+
+                <p>
+                    Building strong foundations in academic learning,
+                    discipline, character and responsible citizenship.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    02
+                </div>
+
+                <h3>
+                    Skills Development
+                </h3>
+
+                <p>
+                    Expanding opportunities for learners to acquire
+                    practical, technical, digital and creative skills.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    03
+                </div>
+
+                <h3>
+                    Innovation & Enterprise
+                </h3>
+
+                <p>
+                    Developing the ISIE approach to connect education,
+                    innovation, practical projects and entrepreneurship.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    04
+                </div>
+
+                <h3>
+                    Future Readiness
+                </h3>
+
+                <p>
+                    Preparing learners to continue their education,
+                    participate meaningfully in society and pursue
+                    employment, enterprise and further opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CALL TO ACTION
+========================================================= -->
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-inner">
+
+            <div>
+
+                <h2>
+                    Discover Ndejje Central High School - Zanta
+                </h2>
+
+                <p>
+                    Explore our academic programmes, student life,
+                    practical skills initiatives and admissions
+                    opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="cta-buttons">
+
+                <a
+                    href="academics.html"
+                    class="btn btn-primary"
+                >
+                    Explore Academics
+                </a>
+
+                <a
+                    href="application.html"
+                    class="btn btn-outline"
+                >
+                    Apply Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <img
+                    src="images/nchslogo.png"
+                    alt="Ndejje Central High School logo"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Ndejje Central High School - Zanta
+                </h3>
+
+                <p>
+                    Zanta • Centre of Knowledge
+                </p>
+
+                <p>
+                    Excellence • Discipline • Innovation
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    School
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="academics.html">
+                            Academics
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="student-life.html">
+                            Student Life
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="gallery.html">
+                            Gallery
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Admissions
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="admission.html">
+                            Admissions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="application.html">
+                            Apply Now
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="downloads.html">
+                            Downloads
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Contact
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="mailto:ndejjecentralhighschool@gmail.com">
+                            ndejjecentralhighschool@gmail.com
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tel:+256705414545">
+                            0705 414 545
+                        </a>
+                    </li>
+
+                    <li>
+                        <span>
+                            Zanta, Kampala
+                        </span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                &copy; 2026 Ndejje Central High School – Zanta.
+                All rights reserved.
+            </span>
+
+            <span>
+                Centre of Knowledge
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     BACK TO TOP
+========================================================= -->
+<button
+    class="back-top"
+    id="backTop"
+    aria-label="Back to top"
+    title="Back to top"
+>
+    ↑
+</button>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+
+    /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================= */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+
+        menuToggle.addEventListener("click", () => {
+
+            const isOpen = navLinks.classList.toggle("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+
+        });
+
+
+        /* Close mobile menu after selecting a link */
+
+        navLinks.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+    }
+
+
+    /* =========================================================
+       BACK TO TOP
+    ========================================================= */
+
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 500) {
+            backTop.classList.add("show");
+        } else {
+            backTop.classList.remove("show");
+        }
+
+    });
+
+
+    if (backTop) {
+
+        backTop.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    }
+
+
+    /* =========================================================
+       ESCAPE KEY — CLOSE MOBILE NAVIGATION
+    ========================================================= */
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+
+            if (navLinks) {
+                navLinks.classList.remove("open");
+            }
+
+            if (menuToggle) {
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+
+                menuToggle.textContent = "☰";
+            }
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
+

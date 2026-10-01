@@ -1,0 +1,3048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Downloads Management | Ndejje Central High School – Zanta</title>
+
+  <meta
+    name="description"
+    content="Manage downloadable documents for Ndejje Central High School – Zanta."
+  />
+
+  <style>
+    :root {
+      --primary: #003366;
+      --primary-dark: #00264d;
+      --primary-light: #eaf2f8;
+      --accent: #f4b400;
+      --success: #198754;
+      --danger: #dc3545;
+      --warning: #d98c00;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dfe5eb;
+      --background: #f5f7fa;
+      --white: #ffffff;
+      --shadow: 0 8px 30px rgba(0, 51, 102, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* =========================================================
+       AUTH LOADING
+       ========================================================= */
+
+    #authLoading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .auth-loading-box {
+      max-width: 420px;
+    }
+
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 18px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* =========================================================
+       LAYOUT
+       ========================================================= */
+
+    .app {
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 250px;
+      background: var(--primary);
+      color: white;
+      min-height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand {
+      padding: 22px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      background: white;
+      border-radius: 8px;
+      padding: 3px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 11px;
+      opacity: 0.75;
+      margin-top: 3px;
+    }
+
+    .sidebar-nav {
+      padding: 18px 12px;
+      flex: 1;
+    }
+
+    .sidebar-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.55;
+      padding: 8px 12px;
+      margin-bottom: 5px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 11px 12px;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+    }
+
+    .nav-icon {
+      width: 20px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .sidebar-footer {
+      padding: 15px 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .admin-user {
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+    }
+
+    .admin-user small {
+      display: block;
+      opacity: 0.6;
+      font-size: 10px;
+      margin-bottom: 3px;
+    }
+
+    .admin-user span {
+      display: block;
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .logout-btn {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: white;
+      padding: 9px 12px;
+      border-radius: 7px;
+      text-align: left;
+    }
+
+    .logout-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .main {
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      min-height: 100vh;
+    }
+
+    .topbar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .topbar-title h1 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--primary);
+    }
+
+    .topbar-title p {
+      margin: 3px 0 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .mobile-menu {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 23px;
+      color: var(--primary);
+      margin-right: 10px;
+    }
+
+    .content {
+      padding: 30px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       STATS
+       ========================================================= */
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .stat-value {
+      font-size: 27px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* =========================================================
+       TOOLBAR
+       ========================================================= */
+
+    .toolbar {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 17px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .toolbar-left {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex: 1;
+    }
+
+    .search {
+      width: min(400px, 100%);
+      position: relative;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 11px 13px 11px 38px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .search input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.08);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+
+    .filter-select {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: white;
+      outline: none;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: #eef1f4;
+      color: #344054;
+    }
+
+    .btn-secondary:hover {
+      background: #e2e6ea;
+    }
+
+    .btn-danger {
+      background: #fff0f1;
+      color: var(--danger);
+    }
+
+    .btn-success {
+      background: #eaf7ef;
+      color: var(--success);
+    }
+
+    .btn-warning {
+      background: #fff7e5;
+      color: var(--warning);
+    }
+
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    /* =========================================================
+       TABLE
+       ========================================================= */
+
+    .table-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 950px;
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      text-align: left;
+      border-bottom: 1px solid #edf0f3;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #fafbfc;
+      color: #667085;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    td {
+      font-size: 13px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .document-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 3px;
+    }
+
+    .document-description {
+      font-size: 11px;
+      color: var(--muted);
+      max-width: 330px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .file-type {
+      display: inline-flex;
+      padding: 4px 8px;
+      border-radius: 5px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .category-badge {
+      display: inline-block;
+      padding: 5px 8px;
+      background: #f1f3f5;
+      color: #495057;
+      border-radius: 5px;
+      font-size: 11px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .status-published {
+      background: #eaf7ef;
+      color: var(--success);
+    }
+
+    .status-draft {
+      background: #fff7e5;
+      color: var(--warning);
+    }
+
+    .actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      border: 0;
+      padding: 7px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .action-edit {
+      background: #eef4ff;
+      color: #175cd3;
+    }
+
+    .action-publish {
+      background: #eaf7ef;
+      color: var(--success);
+    }
+
+    .action-unpublish {
+      background: #fff7e5;
+      color: var(--warning);
+    }
+
+    .action-delete {
+      background: #fff0f1;
+      color: var(--danger);
+    }
+
+    .action-view {
+      background: #f1f3f5;
+      color: #495057;
+    }
+
+    /* =========================================================
+       STATES
+       ========================================================= */
+
+    .table-state {
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .table-state-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+      opacity: 0.65;
+    }
+
+    .table-state strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .modal {
+      background: white;
+      width: min(720px, 100%);
+      border-radius: 14px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .modal-close {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 22px;
+    }
+
+    .modal-footer {
+      padding: 16px 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: #344054;
+    }
+
+    .required {
+      color: var(--danger);
+    }
+
+    .form-control {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 12px;
+      outline: none;
+      background: white;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.08);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 95px;
+    }
+
+    .upload-box {
+      border: 2px dashed #cdd5df;
+      border-radius: 10px;
+      padding: 22px;
+      text-align: center;
+      background: #fafbfc;
+      transition: 0.15s ease;
+    }
+
+    .upload-box:hover {
+      border-color: var(--primary);
+      background: #f8fbff;
+    }
+
+    .upload-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .upload-box strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .upload-box small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .upload-box input {
+      max-width: 100%;
+    }
+
+    .selected-file {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 7px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .existing-file {
+      margin-top: 10px;
+      padding: 10px;
+      background: #f6f7f9;
+      border-radius: 7px;
+      font-size: 12px;
+    }
+
+    .existing-file a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .checkbox-row input {
+      width: 17px;
+      height: 17px;
+    }
+
+    .checkbox-row label {
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .progress-wrap {
+      margin-top: 15px;
+      display: none;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #e9ecef;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-value {
+      height: 100%;
+      width: 0;
+      background: var(--primary);
+      transition: width 0.15s ease;
+    }
+
+    .progress-text {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    /* =========================================================
+       TOAST
+       ========================================================= */
+
+    #toastContainer {
+      position: fixed;
+      top: 85px;
+      right: 20px;
+      z-index: 1000;
+      width: min(390px, calc(100% - 40px));
+    }
+
+    .toast {
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      animation: toastIn 0.2s ease;
+    }
+
+    .toast.success {
+      border-left: 4px solid var(--success);
+    }
+
+    .toast.error {
+      border-left: 4px solid var(--danger);
+    }
+
+    .toast.warning {
+      border-left: 4px solid var(--warning);
+    }
+
+    @keyframes toastIn {
+      from {
+        transform: translateY(-8px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1100px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .mobile-menu {
+        display: inline-block;
+      }
+
+      .topbar {
+        padding: 0 18px;
+      }
+
+      .content {
+        padding: 18px;
+      }
+
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .toolbar-left {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search {
+        width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat-card {
+        padding: 14px;
+      }
+
+      .stat-value {
+        font-size: 22px;
+      }
+
+      .topbar-title h1 {
+        font-size: 17px;
+      }
+
+      .modal-backdrop {
+        padding: 8px;
+      }
+
+      .modal-body {
+        padding: 17px;
+      }
+
+      .modal-footer {
+        padding: 14px 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       AUTH LOADING
+       ========================================================= -->
+
+  <div id="authLoading">
+    <div class="auth-loading-box">
+      <div class="spinner"></div>
+      <strong>Checking administrator access...</strong>
+      <p>Please wait.</p>
+    </div>
+  </div>
+
+
+  <!-- =========================================================
+       APPLICATION
+       ========================================================= -->
+
+  <div id="app" class="app hidden">
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+
+      <div class="brand">
+        <img
+          src="images/nchslogo.png"
+          alt="Ndejje Central High School"
+          onerror="this.style.display='none'"
+        />
+
+        <div class="brand-text">
+          <strong>Ndejje Central High School</strong>
+          <span>Admin Portal · Zanta</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <div class="sidebar-label">Management</div>
+
+        <a href="admin.html" class="nav-item">
+          <span class="nav-icon">⌂</span>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="admin-news.html" class="nav-item">
+          <span class="nav-icon">📰</span>
+          <span>News</span>
+        </a>
+
+        <a href="admin-events.html" class="nav-item">
+          <span class="nav-icon">📅</span>
+          <span>Events</span>
+        </a>
+
+        <a href="admin-downloads.html" class="nav-item active">
+          <span class="nav-icon">📁</span>
+          <span>Downloads</span>
+        </a>
+
+        <a href="admin-enquiries.html" class="nav-item">
+          <span class="nav-icon">✉</span>
+          <span>Enquiries</span>
+        </a>
+
+        <div class="sidebar-label" style="margin-top: 15px;">
+          Website
+        </div>
+
+        <a href="downloads.html" target="_blank" class="nav-item">
+          <span class="nav-icon">↗</span>
+          <span>View Downloads</span>
+        </a>
+
+      </nav>
+
+      <div class="sidebar-footer">
+
+        <div class="admin-user">
+          <small>Signed in as</small>
+          <span id="adminEmail">Administrator</span>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
+          ⇥ &nbsp; Sign out
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <header class="topbar">
+
+        <div style="display:flex;align-items:center;">
+          <button
+            id="mobileMenuBtn"
+            class="mobile-menu"
+            type="button"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+
+          <div class="topbar-title">
+            <h1>Downloads</h1>
+            <p>Manage school documents and downloadable resources.</p>
+          </div>
+        </div>
+
+        <button
+          id="addDownloadBtn"
+          class="btn btn-primary"
+          type="button"
+        >
+          + Add Download
+        </button>
+
+      </header>
+
+
+      <section class="content">
+
+        <!-- STATS -->
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <div class="stat-label">Total Documents</div>
+            <div id="totalCount" class="stat-value">0</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Published</div>
+            <div id="publishedCount" class="stat-value">0</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Unpublished</div>
+            <div id="draftCount" class="stat-value">0</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Categories</div>
+            <div id="categoryCount" class="stat-value">0</div>
+          </div>
+
+        </div>
+
+
+        <!-- TOOLBAR -->
+        <div class="toolbar">
+
+          <div class="toolbar-left">
+
+            <div class="search">
+              <span class="search-icon">⌕</span>
+
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Search downloads..."
+                autocomplete="off"
+              />
+            </div>
+
+            <select id="categoryFilter" class="filter-select">
+              <option value="">All categories</option>
+            </select>
+
+            <select id="statusFilter" class="filter-select">
+              <option value="">All statuses</option>
+              <option value="published">Published</option>
+              <option value="draft">Unpublished</option>
+            </select>
+
+          </div>
+
+          <button
+            id="refreshBtn"
+            class="btn btn-secondary"
+            type="button"
+          >
+            ↻ Refresh
+          </button>
+
+        </div>
+
+
+        <!-- TABLE -->
+        <div class="table-card">
+
+          <div class="table-wrapper">
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Document</th>
+                  <th>Category</th>
+                  <th>File</th>
+                  <th>Size</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody id="downloadsTableBody">
+                <tr>
+                  <td colspan="7">
+                    <div class="table-state">
+                      <div class="spinner" style="border-color:#d9e1e8;border-top-color:#003366;"></div>
+                      Loading downloads...
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================================================
+       ADD / EDIT MODAL
+       ========================================================= -->
+
+  <div id="downloadModal" class="modal-backdrop hidden">
+
+    <div class="modal" role="dialog" aria-modal="true">
+
+      <div class="modal-header">
+
+        <h2 id="modalTitle">Add Download</h2>
+
+        <button
+          id="closeModalBtn"
+          class="modal-close"
+          type="button"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="downloadForm">
+
+        <div class="modal-body">
+
+          <div class="form-grid">
+
+            <div class="form-group full">
+              <label for="title">
+                Document Title <span class="required">*</span>
+              </label>
+
+              <input
+                id="title"
+                name="title"
+                class="form-control"
+                type="text"
+                maxlength="180"
+                required
+                placeholder="e.g. Admission Form 2027"
+              />
+            </div>
+
+
+            <div class="form-group full">
+              <label for="description">
+                Description
+              </label>
+
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                maxlength="600"
+                placeholder="Briefly describe this document..."
+              ></textarea>
+            </div>
+
+
+            <div class="form-group">
+              <label for="category">
+                Category <span class="required">*</span>
+              </label>
+
+              <input
+                id="category"
+                name="category"
+                class="form-control"
+                type="text"
+                maxlength="80"
+                required
+                list="categorySuggestions"
+                placeholder="e.g. Admissions"
+              />
+
+              <datalist id="categorySuggestions">
+                <option value="Admissions"></option>
+                <option value="Academic"></option>
+                <option value="Forms"></option>
+                <option value="Policies"></option>
+                <option value="School Information"></option>
+                <option value="Fees"></option>
+                <option value="Other"></option>
+              </datalist>
+            </div>
+
+
+            <div class="form-group">
+
+              <label>
+                Publication
+              </label>
+
+              <div class="checkbox-row">
+                <input
+                  id="published"
+                  name="published"
+                  type="checkbox"
+                />
+
+                <label for="published">
+                  Publish this document
+                </label>
+              </div>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>
+                File
+                <span id="fileRequiredMarker" class="required">*</span>
+              </label>
+
+              <div class="upload-box">
+
+                <div class="upload-icon">📄</div>
+
+                <strong>Upload document</strong>
+
+                <small>
+                  PDF, Word, Excel, PowerPoint or text documents.
+                </small>
+
+                <input
+                  id="fileInput"
+                  type="file"
+                  accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.csv"
+                />
+
+                <div
+                  id="selectedFile"
+                  class="selected-file hidden"
+                ></div>
+
+                <div
+                  id="existingFile"
+                  class="existing-file hidden"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              id="progressWrap"
+              class="progress-wrap form-group full"
+            >
+
+              <div class="progress-bar">
+                <div
+                  id="progressValue"
+                  class="progress-value"
+                ></div>
+              </div>
+
+              <div
+                id="progressText"
+                class="progress-text"
+              >
+                Uploading...
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+          <button
+            id="cancelBtn"
+            class="btn btn-secondary"
+            type="button"
+          >
+            Cancel
+          </button>
+
+          <button
+            id="saveBtn"
+            class="btn btn-primary"
+            type="submit"
+          >
+            Save Download
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOASTS -->
+  <div id="toastContainer"></div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <script type="module">
+
+    /*
+     * ==========================================================
+     * FIREBASE IMPORTS
+     * ==========================================================
+     */
+
+    import { db, app } from "./js/firebase-config.js";
+
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+     import {
+     collection,
+     getDocs,
+     getDoc,
+     addDoc,
+     updateDoc,
+     deleteDoc,
+     doc,
+     serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+    
+      import {
+      getStorage,
+      ref,
+      uploadBytesResumable,
+      getDownloadURL,
+      deleteObject
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
+
+    /*
+     * ==========================================================
+     * FIREBASE SERVICES
+     * ==========================================================
+     */
+
+    const auth = getAuth(app);
+    const storage = getStorage(app);
+
+
+    /*
+     * ==========================================================
+     * DOM
+     * ==========================================================
+     */
+
+    const authLoading = document.getElementById("authLoading");
+    const appElement = document.getElementById("app");
+
+    const adminEmail = document.getElementById("adminEmail");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    const sidebar = document.getElementById("sidebar");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+
+    const totalCount = document.getElementById("totalCount");
+    const publishedCount = document.getElementById("publishedCount");
+    const draftCount = document.getElementById("draftCount");
+    const categoryCount = document.getElementById("categoryCount");
+
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const statusFilter = document.getElementById("statusFilter");
+    const refreshBtn = document.getElementById("refreshBtn");
+
+    const tableBody = document.getElementById("downloadsTableBody");
+
+    const modal = document.getElementById("downloadModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const cancelBtn = document.getElementById("cancelBtn");
+
+    const form = document.getElementById("downloadForm");
+    const titleInput = document.getElementById("title");
+    const descriptionInput = document.getElementById("description");
+    const categoryInput = document.getElementById("category");
+    const publishedInput = document.getElementById("published");
+    const fileInput = document.getElementById("fileInput");
+
+    const selectedFile = document.getElementById("selectedFile");
+    const existingFile = document.getElementById("existingFile");
+    const fileRequiredMarker =
+      document.getElementById("fileRequiredMarker");
+
+    const progressWrap = document.getElementById("progressWrap");
+    const progressValue = document.getElementById("progressValue");
+    const progressText = document.getElementById("progressText");
+
+    const saveBtn = document.getElementById("saveBtn");
+    const addDownloadBtn =
+      document.getElementById("addDownloadBtn");
+
+    const toastContainer =
+      document.getElementById("toastContainer");
+
+
+    /*
+     * ==========================================================
+     * STATE
+     * ==========================================================
+     */
+
+    let currentUser = null;
+    let downloads = [];
+    let editingDownload = null;
+
+
+    /*
+     * ==========================================================
+     * AUTHENTICATION + ADMIN AUTHORIZATION
+     * ==========================================================
+     */
+
+    onAuthStateChanged(auth, async (user) => {
+
+  if (!user) {
+    window.location.href = "admin-login.html";
+    return;
+  }
+
+  try {
+
+    // Read ONLY the currently signed-in administrator's document.
+    // This matches the Firestore rule:
+    // admins/{userId} -> allow read when request.auth.uid == userId
+    const adminRef = doc(db, "admins", user.uid);
+    const adminSnapshot = await getDoc(adminRef);
+
+    if (!adminSnapshot.exists()) {
+      throw new Error(
+        "Your account does not have an administrator record."
+      );
+    }
+
+    const adminData = adminSnapshot.data();
+
+    if (
+      adminData.active !== true ||
+      adminData.role !== "admin"
+    ) {
+      throw new Error(
+        "Your administrator account is inactive or unauthorized."
+      );
+    }
+
+    currentUser = user;
+
+    adminEmail.textContent =
+      adminData.email ||
+      user.email ||
+      "Administrator";
+
+    authLoading.classList.add("hidden");
+    appElement.classList.remove("hidden");
+
+    await loadDownloads();
+
+  } catch (error) {
+
+    console.error(
+      "Admin authorization failed:",
+      error
+    );
+
+    authLoading.innerHTML = `
+      <div class="auth-loading-box">
+        <strong>Access denied</strong>
+        <p>${escapeHtml(
+          error.message ||
+          "You are not authorized to access this page."
+        )}</p>
+
+        <button
+          id="accessLogoutBtn"
+          class="btn btn-secondary"
+          type="button"
+          style="margin-top:15px;"
+        >
+          Sign out
+        </button>
+      </div>
+    `;
+
+    document
+      .getElementById("accessLogoutBtn")
+      ?.addEventListener("click", async () => {
+        await signOut(auth);
+        window.location.href = "admin-login.html";
+      });
+  }
+
+});
+
+
+    /*
+     * ==========================================================
+     * LOAD DOWNLOADS
+     * ==========================================================
+     */
+
+    async function loadDownloads() {
+
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="7">
+            <div class="table-state">
+              <div
+                class="spinner"
+                style="border-color:#d9e1e8;border-top-color:#003366;"
+              ></div>
+              Loading downloads...
+            </div>
+          </td>
+        </tr>
+      `;
+
+      try {
+
+        const snapshot =
+          await getDocs(collection(db, "downloads"));
+
+        downloads = snapshot.docs.map((downloadDoc) => ({
+          id: downloadDoc.id,
+          ...downloadDoc.data()
+        }));
+
+        downloads.sort((a, b) => {
+          const aDate = getTimestampMillis(
+            a.updatedAt || a.createdAt || a.publishedAt
+          );
+
+          const bDate = getTimestampMillis(
+            b.updatedAt || b.createdAt || b.publishedAt
+          );
+
+          return bDate - aDate;
+        });
+
+        updateStats();
+        populateCategoryFilter();
+        renderDownloads();
+
+      } catch (error) {
+
+        console.error("Error loading downloads:", error);
+
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="7">
+              <div class="table-state">
+                <div class="table-state-icon">⚠</div>
+                <strong>Could not load downloads</strong>
+                <span>${escapeHtml(
+                  error.message ||
+                  "An unexpected error occurred."
+                )}</span>
+              </div>
+            </td>
+          </tr>
+        `;
+
+        showToast(
+          error.message ||
+          "Could not load downloads.",
+          "error"
+        );
+      }
+    }
+
+
+    /*
+     * ==========================================================
+     * STATS
+     * ==========================================================
+     */
+
+    function updateStats() {
+
+      const published =
+        downloads.filter(
+          (item) => item.published === true
+        ).length;
+
+      const categories = new Set(
+        downloads
+          .map((item) => normalizeText(item.category))
+          .filter(Boolean)
+      );
+
+      totalCount.textContent = downloads.length;
+      publishedCount.textContent = published;
+      draftCount.textContent =
+        downloads.length - published;
+      categoryCount.textContent = categories.size;
+    }
+
+
+    /*
+     * ==========================================================
+     * CATEGORY FILTER
+     * ==========================================================
+     */
+
+    function populateCategoryFilter() {
+
+      const currentValue =
+        categoryFilter.value;
+
+      const categories = [
+        ...new Set(
+          downloads
+            .map((item) => item.category)
+            .filter(Boolean)
+            .map((value) => String(value).trim())
+        )
+      ].sort((a, b) =>
+        a.localeCompare(b)
+      );
+
+      categoryFilter.innerHTML =
+        `<option value="">All categories</option>`;
+
+      categories.forEach((category) => {
+
+        const option =
+          document.createElement("option");
+
+        option.value = category;
+        option.textContent = category;
+
+        categoryFilter.appendChild(option);
+      });
+
+      if (
+        categories.includes(currentValue)
+      ) {
+        categoryFilter.value =
+          currentValue;
+      }
+    }
+
+
+    /*
+     * ==========================================================
+     * RENDER
+     * ==========================================================
+     */
+
+    function renderDownloads() {
+
+      const search =
+        normalizeText(searchInput.value);
+
+      const category =
+        categoryFilter.value;
+
+      const status =
+        statusFilter.value;
+
+      const filtered =
+        downloads.filter((item) => {
+
+          const haystack = normalizeText(
+            [
+              item.title,
+              item.description,
+              item.category,
+              item.fileName,
+              item.fileType
+            ]
+              .filter(Boolean)
+              .join(" ")
+          );
+
+          const matchesSearch =
+            !search ||
+            haystack.includes(search);
+
+          const matchesCategory =
+            !category ||
+            item.category === category;
+
+          const matchesStatus =
+            !status ||
+            (
+              status === "published" &&
+              item.published === true
+            ) ||
+            (
+              status === "draft" &&
+              item.published !== true
+            );
+
+          return (
+            matchesSearch &&
+            matchesCategory &&
+            matchesStatus
+          );
+        });
+
+      if (!filtered.length) {
+
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="7">
+              <div class="table-state">
+                <div class="table-state-icon">📁</div>
+                <strong>No downloads found</strong>
+                <span>
+                  ${
+                    downloads.length
+                      ? "Try changing your search or filters."
+                      : "Add your first downloadable document."
+                  }
+                </span>
+              </div>
+            </td>
+          </tr>
+        `;
+
+        return;
+      }
+
+      tableBody.innerHTML =
+        filtered.map(renderRow).join("");
+    }
+
+
+    function renderRow(item) {
+
+      const published =
+        item.published === true;
+
+      const fileType =
+        item.fileType ||
+        getFileExtension(item.fileName) ||
+        "FILE";
+
+      const date =
+        formatDate(
+          item.publishedAt ||
+          item.updatedAt ||
+          item.createdAt
+        );
+
+      const size =
+        formatFileSize(item.fileSize);
+
+      return `
+        <tr>
+
+          <td>
+            <div class="document-title">
+              ${escapeHtml(
+                item.title || "Untitled document"
+              )}
+            </div>
+
+            <div class="document-description">
+              ${escapeHtml(
+                item.description || "No description"
+              )}
+            </div>
+          </td>
+
+          <td>
+            <span class="category-badge">
+              ${escapeHtml(
+                item.category || "Other"
+              )}
+            </span>
+          </td>
+
+          <td>
+            <span class="file-type">
+              ${escapeHtml(fileType)}
+            </span>
+          </td>
+
+          <td>
+            ${escapeHtml(size)}
+          </td>
+
+          <td>
+            ${
+              published
+                ? `
+                  <span class="status status-published">
+                    ● Published
+                  </span>
+                `
+                : `
+                  <span class="status status-draft">
+                    ● Unpublished
+                  </span>
+                `
+            }
+          </td>
+
+          <td>
+            ${escapeHtml(date)}
+          </td>
+
+          <td>
+
+            <div class="actions">
+
+              ${
+                item.fileUrl
+                  ? `
+                    <button
+                      class="action-btn action-view"
+                      type="button"
+                      data-action="view"
+                      data-id="${escapeHtml(item.id)}"
+                    >
+                      View
+                    </button>
+                  `
+                  : ""
+              }
+
+              <button
+                class="action-btn action-edit"
+                type="button"
+                data-action="edit"
+                data-id="${escapeHtml(item.id)}"
+              >
+                Edit
+              </button>
+
+              <button
+                class="action-btn ${
+                  published
+                    ? "action-unpublish"
+                    : "action-publish"
+                }"
+                type="button"
+                data-action="toggle"
+                data-id="${escapeHtml(item.id)}"
+              >
+                ${
+                  published
+                    ? "Unpublish"
+                    : "Publish"
+                }
+              </button>
+
+              <button
+                class="action-btn action-delete"
+                type="button"
+                data-action="delete"
+                data-id="${escapeHtml(item.id)}"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </td>
+
+        </tr>
+      `;
+    }
+
+
+    /*
+     * ==========================================================
+     * OPEN ADD MODAL
+     * ==========================================================
+     */
+
+    function openAddModal() {
+
+      editingDownload = null;
+
+      modalTitle.textContent =
+        "Add Download";
+
+      form.reset();
+
+      selectedFile.classList.add("hidden");
+      selectedFile.textContent = "";
+
+      existingFile.classList.add("hidden");
+      existingFile.innerHTML = "";
+
+      fileRequiredMarker.classList.remove("hidden");
+
+      progressWrap.style.display = "none";
+      progressValue.style.width = "0%";
+
+      modal.classList.remove("hidden");
+
+      setTimeout(() => {
+        titleInput.focus();
+      }, 50);
+    }
+
+
+    /*
+     * ==========================================================
+     * OPEN EDIT MODAL
+     * ==========================================================
+     */
+
+    function openEditModal(id) {
+
+      const item =
+        downloads.find(
+          (download) => download.id === id
+        );
+
+      if (!item) {
+        showToast(
+          "Download could not be found.",
+          "error"
+        );
+        return;
+      }
+
+      editingDownload = item;
+
+      modalTitle.textContent =
+        "Edit Download";
+
+      titleInput.value =
+        item.title || "";
+
+      descriptionInput.value =
+        item.description || "";
+
+      categoryInput.value =
+        item.category || "";
+
+      publishedInput.checked =
+        item.published === true;
+
+      fileInput.value = "";
+
+      selectedFile.classList.add("hidden");
+      selectedFile.textContent = "";
+
+      fileRequiredMarker.classList.add("hidden");
+
+      if (item.fileUrl) {
+
+        existingFile.classList.remove("hidden");
+
+        existingFile.innerHTML = `
+          Current file:
+          <a
+            href="${escapeAttribute(item.fileUrl)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${escapeHtml(
+              item.fileName || "Open current file"
+            )}
+          </a>
+        `;
+
+      } else {
+
+        existingFile.classList.add("hidden");
+        existingFile.innerHTML = "";
+      }
+
+      progressWrap.style.display = "none";
+      progressValue.style.width = "0%";
+
+      modal.classList.remove("hidden");
+
+      setTimeout(() => {
+        titleInput.focus();
+      }, 50);
+    }
+
+
+    /*
+     * ==========================================================
+     * CLOSE MODAL
+     * ==========================================================
+     */
+
+    function closeModal() {
+
+      if (progressWrap.style.display === "block") {
+        return;
+      }
+
+      modal.classList.add("hidden");
+      editingDownload = null;
+      form.reset();
+
+      selectedFile.classList.add("hidden");
+      existingFile.classList.add("hidden");
+    }
+
+
+    /*
+     * ==========================================================
+     * FILE SELECTION
+     * ==========================================================
+     */
+
+    fileInput.addEventListener("change", () => {
+
+      const file =
+        fileInput.files?.[0];
+
+      if (!file) {
+        selectedFile.classList.add("hidden");
+        selectedFile.textContent = "";
+        return;
+      }
+
+      selectedFile.classList.remove("hidden");
+
+      selectedFile.textContent =
+        `${file.name} · ${formatFileSize(file.size)}`;
+    });
+
+
+    /*
+     * ==========================================================
+     * SAVE DOWNLOAD
+     * ==========================================================
+     */
+
+    form.addEventListener("submit", async (event) => {
+
+      event.preventDefault();
+
+      if (!currentUser) {
+        showToast(
+          "Your administrator session has expired.",
+          "error"
+        );
+        return;
+      }
+
+      const title =
+        titleInput.value.trim();
+
+      const description =
+        descriptionInput.value.trim();
+
+      const category =
+        categoryInput.value.trim();
+
+      const published =
+        publishedInput.checked;
+
+      const file =
+        fileInput.files?.[0] || null;
+
+      if (!title) {
+        showToast(
+          "Enter a document title.",
+          "warning"
+        );
+        titleInput.focus();
+        return;
+      }
+
+      if (!category) {
+        showToast(
+          "Enter a document category.",
+          "warning"
+        );
+        categoryInput.focus();
+        return;
+      }
+
+      if (!editingDownload && !file) {
+        showToast(
+          "Select a file to upload.",
+          "warning"
+        );
+        fileInput.focus();
+        return;
+      }
+
+      try {
+
+        setSavingState(true);
+
+        let fileData = {};
+
+        /*
+         * Upload a new file only when one was selected.
+         */
+        if (file) {
+
+          validateFile(file);
+
+          fileData =
+            await uploadFile(file);
+        }
+
+        if (editingDownload) {
+
+          const updateData = {
+            title,
+            description,
+            category,
+            published,
+            updatedAt: serverTimestamp()
+          };
+
+          if (published && !editingDownload.published) {
+            updateData.publishedAt =
+              serverTimestamp();
+          }
+
+          if (!published) {
+            updateData.publishedAt = null;
+          }
+
+          if (file) {
+
+            updateData.fileUrl =
+              fileData.fileUrl;
+
+            updateData.fileName =
+              fileData.fileName;
+
+            updateData.fileType =
+              fileData.fileType;
+
+            updateData.fileSize =
+              fileData.fileSize;
+
+            updateData.storagePath =
+              fileData.storagePath;
+          }
+
+          await updateDoc(
+            doc(
+              db,
+              "downloads",
+              editingDownload.id
+            ),
+            updateData
+          );
+
+          /*
+           * Delete the previous Storage file after
+           * Firestore has been successfully updated.
+           */
+          if (
+            file &&
+            editingDownload.storagePath &&
+            editingDownload.storagePath !==
+              fileData.storagePath
+          ) {
+
+            await deleteStorageFile(
+              editingDownload.storagePath
+            );
+          }
+
+          showToast(
+            "Download updated successfully.",
+            "success"
+          );
+
+        } else {
+
+          const downloadData = {
+
+            title,
+
+            description,
+
+            category,
+
+            fileUrl:
+              fileData.fileUrl,
+
+            fileName:
+              fileData.fileName,
+
+            fileType:
+              fileData.fileType,
+
+            fileSize:
+              fileData.fileSize,
+
+            storagePath:
+              fileData.storagePath,
+
+            published,
+
+            publishedAt:
+              published
+                ? serverTimestamp()
+                : null,
+
+            createdAt:
+              serverTimestamp(),
+
+            updatedAt:
+              serverTimestamp(),
+
+            createdBy:
+              currentUser.uid,
+
+            createdByEmail:
+              currentUser.email || ""
+          };
+
+          await addDoc(
+            collection(db, "downloads"),
+            downloadData
+          );
+
+          showToast(
+            "Download added successfully.",
+            "success"
+          );
+        }
+
+        closeModal();
+
+        await loadDownloads();
+
+      } catch (error) {
+
+        console.error(
+          "Error saving download:",
+          error
+        );
+
+        showToast(
+          error.message ||
+          "Could not save the download.",
+          "error"
+        );
+
+      } finally {
+
+        setSavingState(false);
+      }
+    });
+
+
+    /*
+     * ==========================================================
+     * FILE UPLOAD
+     * ==========================================================
+     */
+
+    function uploadFile(file) {
+
+      return new Promise((resolve, reject) => {
+
+        const safeName =
+          sanitizeFileName(file.name);
+
+        const uniqueName =
+          `${Date.now()}-${Math.random()
+            .toString(36)
+            .slice(2, 10)}-${safeName}`;
+
+        const storagePath =
+          `downloads/${uniqueName}`;
+
+        const storageRef =
+          ref(storage, storagePath);
+
+        const uploadTask =
+          uploadBytesResumable(
+            storageRef,
+            file,
+            {
+              contentType:
+                file.type ||
+                "application/octet-stream"
+            }
+          );
+
+        progressWrap.style.display =
+          "block";
+
+        uploadTask.on(
+          "state_changed",
+
+          (snapshot) => {
+
+            const progress =
+              snapshot.totalBytes
+                ? (
+                    snapshot.bytesTransferred /
+                    snapshot.totalBytes
+                  ) * 100
+                : 0;
+
+            progressValue.style.width =
+              `${progress}%`;
+
+            progressText.textContent =
+              `Uploading ${Math.round(progress)}%`;
+          },
+
+          (error) => {
+            reject(error);
+          },
+
+          async () => {
+
+            try {
+
+              const fileUrl =
+                await getDownloadURL(
+                  uploadTask.snapshot.ref
+                );
+
+              progressValue.style.width =
+                "100%";
+
+              progressText.textContent =
+                "Upload complete.";
+
+              resolve({
+                fileUrl,
+                fileName: file.name,
+                fileType:
+                  getFileExtension(file.name)
+                    .toUpperCase(),
+                fileSize: file.size,
+                storagePath
+              });
+
+            } catch (error) {
+
+              reject(error);
+            }
+          }
+        );
+      });
+    }
+
+
+    /*
+     * ==========================================================
+     * DELETE DOWNLOAD
+     * ==========================================================
+     */
+
+    async function deleteDownload(id) {
+
+      const item =
+        downloads.find(
+          (download) => download.id === id
+        );
+
+      if (!item) {
+        return;
+      }
+
+      const confirmed =
+        window.confirm(
+          `Delete "${item.title || "this document"}"?\n\n` +
+          "This will remove the Firestore record and, " +
+          "when possible, the uploaded file."
+        );
+
+      if (!confirmed) {
+        return;
+      }
+
+      try {
+
+        await deleteDoc(
+          doc(db, "downloads", id)
+        );
+
+        if (item.storagePath) {
+          await deleteStorageFile(
+            item.storagePath
+          );
+        }
+
+        showToast(
+          "Download deleted successfully.",
+          "success"
+        );
+
+        await loadDownloads();
+
+      } catch (error) {
+
+        console.error(
+          "Error deleting download:",
+          error
+        );
+
+        showToast(
+          error.message ||
+          "Could not delete the download.",
+          "error"
+        );
+      }
+    }
+
+
+    /*
+     * ==========================================================
+     * TOGGLE PUBLISHED STATUS
+     * ==========================================================
+     */
+
+    async function togglePublished(id) {
+
+      const item =
+        downloads.find(
+          (download) => download.id === id
+        );
+
+      if (!item) {
+        return;
+      }
+
+      const newPublished =
+        item.published !== true;
+
+      try {
+
+        await updateDoc(
+          doc(db, "downloads", id),
+          {
+            published: newPublished,
+
+            publishedAt:
+              newPublished
+                ? serverTimestamp()
+                : null,
+
+            updatedAt:
+              serverTimestamp()
+          }
+        );
+
+        showToast(
+          newPublished
+            ? "Download published."
+            : "Download unpublished.",
+          "success"
+        );
+
+        await loadDownloads();
+
+      } catch (error) {
+
+        console.error(
+          "Error changing publication status:",
+          error
+        );
+
+        showToast(
+          error.message ||
+          "Could not change publication status.",
+          "error"
+        );
+      }
+    }
+
+
+    /*
+     * ==========================================================
+     * DELETE STORAGE FILE
+     * ==========================================================
+     */
+
+    async function deleteStorageFile(
+      storagePath
+    ) {
+
+      if (!storagePath) {
+        return;
+      }
+
+      try {
+
+        const fileRef =
+          ref(storage, storagePath);
+
+        await deleteObject(fileRef);
+
+      } catch (error) {
+
+        /*
+         * If the Storage file is already missing,
+         * don't make the Firestore operation appear
+         * to have failed.
+         */
+        if (
+          error.code ===
+          "storage/object-not-found"
+        ) {
+          return;
+        }
+
+        console.warn(
+          "Could not delete Storage file:",
+          error
+        );
+      }
+    }
+
+
+    /*
+     * ==========================================================
+     * VALIDATE FILE
+     * ==========================================================
+     */
+
+    function validateFile(file) {
+
+      const allowedExtensions = [
+        "pdf",
+        "doc",
+        "docx",
+        "xls",
+        "xlsx",
+        "ppt",
+        "pptx",
+        "txt",
+        "csv"
+      ];
+
+      const extension =
+        getFileExtension(file.name);
+
+      if (
+        !allowedExtensions.includes(
+          extension.toLowerCase()
+        )
+      ) {
+        throw new Error(
+          "This file type is not supported. " +
+          "Allowed types: PDF, Word, Excel, PowerPoint, TXT and CSV."
+        );
+      }
+
+      /*
+       * 25 MB maximum.
+       */
+      const maxSize =
+        25 * 1024 * 1024;
+
+      if (file.size > maxSize) {
+        throw new Error(
+          "The selected file is larger than 25 MB."
+        );
+      }
+    }
+
+
+    /*
+     * ==========================================================
+     * EVENT HANDLERS
+     * ==========================================================
+     */
+
+    addDownloadBtn.addEventListener(
+      "click",
+      openAddModal
+    );
+
+    closeModalBtn.addEventListener(
+      "click",
+      closeModal
+    );
+
+    cancelBtn.addEventListener(
+      "click",
+      closeModal
+    );
+
+    refreshBtn.addEventListener(
+      "click",
+      loadDownloads
+    );
+
+    searchInput.addEventListener(
+      "input",
+      renderDownloads
+    );
+
+    categoryFilter.addEventListener(
+      "change",
+      renderDownloads
+    );
+
+    statusFilter.addEventListener(
+      "change",
+      renderDownloads
+    );
+
+
+    tableBody.addEventListener(
+      "click",
+      async (event) => {
+
+        const button =
+          event.target.closest(
+            "[data-action]"
+          );
+
+        if (!button) {
+          return;
+        }
+
+        const action =
+          button.dataset.action;
+
+        const id =
+          button.dataset.id;
+
+        if (!id) {
+          return;
+        }
+
+        if (action === "view") {
+
+          const item =
+            downloads.find(
+              (download) =>
+                download.id === id
+            );
+
+          if (item?.fileUrl) {
+
+            window.open(
+              item.fileUrl,
+              "_blank",
+              "noopener,noreferrer"
+            );
+          }
+
+          return;
+        }
+
+        if (action === "edit") {
+
+          openEditModal(id);
+          return;
+        }
+
+        if (action === "toggle") {
+
+          await togglePublished(id);
+          return;
+        }
+
+        if (action === "delete") {
+
+          await deleteDownload(id);
+        }
+      }
+    );
+
+
+    logoutBtn.addEventListener(
+      "click",
+      async () => {
+
+        try {
+
+          await signOut(auth);
+
+          window.location.href =
+            "admin-login.html";
+
+        } catch (error) {
+
+          console.error(
+            "Logout failed:",
+            error
+          );
+
+          showToast(
+            "Could not sign out.",
+            "error"
+          );
+        }
+      }
+    );
+
+
+    mobileMenuBtn.addEventListener(
+      "click",
+      () => {
+        sidebar.classList.toggle("open");
+      }
+    );
+
+
+    modal.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target === modal
+        ) {
+          closeModal();
+        }
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          !modal.classList.contains("hidden")
+        ) {
+          closeModal();
+        }
+      }
+    );
+
+
+    /*
+     * ==========================================================
+     * UI HELPERS
+     * ==========================================================
+     */
+
+    function setSavingState(isSaving) {
+
+      saveBtn.disabled = isSaving;
+      cancelBtn.disabled = isSaving;
+      closeModalBtn.disabled = isSaving;
+
+      if (isSaving) {
+
+        saveBtn.textContent =
+          "Saving...";
+
+      } else {
+
+        saveBtn.textContent =
+          editingDownload
+            ? "Save Changes"
+            : "Save Download";
+      }
+    }
+
+
+    function showToast(
+      message,
+      type = "success"
+    ) {
+
+      const toast =
+        document.createElement("div");
+
+      toast.className =
+        `toast ${type}`;
+
+      toast.innerHTML = `
+        <div>
+          ${escapeHtml(message)}
+        </div>
+      `;
+
+      toastContainer.appendChild(toast);
+
+      setTimeout(() => {
+
+        toast.remove();
+
+      }, 4500);
+    }
+
+
+    /*
+     * ==========================================================
+     * FORMAT HELPERS
+     * ==========================================================
+     */
+
+    function formatFileSize(bytes) {
+
+      if (
+        bytes === null ||
+        bytes === undefined ||
+        bytes === "" ||
+        Number.isNaN(Number(bytes))
+      ) {
+        return "—";
+      }
+
+      const size =
+        Number(bytes);
+
+      if (size < 1024) {
+        return `${size} B`;
+      }
+
+      if (size < 1024 * 1024) {
+        return `${(
+          size / 1024
+        ).toFixed(1)} KB`;
+      }
+
+      if (size < 1024 * 1024 * 1024) {
+        return `${(
+          size /
+          (1024 * 1024)
+        ).toFixed(1)} MB`;
+      }
+
+      return `${(
+        size /
+        (1024 * 1024 * 1024)
+      ).toFixed(1)} GB`;
+    }
+
+
+    function formatDate(value) {
+
+      const millis =
+        getTimestampMillis(value);
+
+      if (!millis) {
+        return "—";
+      }
+
+      return new Intl.DateTimeFormat(
+        "en-UG",
+        {
+          year: "numeric",
+          month: "short",
+          day: "numeric"
+        }
+      ).format(new Date(millis));
+    }
+
+
+    function getTimestampMillis(value) {
+
+      if (!value) {
+        return 0;
+      }
+
+      if (
+        typeof value.toMillis ===
+        "function"
+      ) {
+        return value.toMillis();
+      }
+
+      if (
+        value instanceof Date
+      ) {
+        return value.getTime();
+      }
+
+      if (
+        typeof value === "number"
+      ) {
+        return value;
+      }
+
+      if (
+        typeof value === "string"
+      ) {
+
+        const parsed =
+          Date.parse(value);
+
+        return Number.isNaN(parsed)
+          ? 0
+          : parsed;
+      }
+
+      if (
+        typeof value.seconds ===
+        "number"
+      ) {
+
+        return (
+          value.seconds * 1000 +
+          Math.floor(
+            (value.nanoseconds || 0) /
+            1000000
+          )
+        );
+      }
+
+      return 0;
+    }
+
+
+    function getFileExtension(
+      filename = ""
+    ) {
+
+      const cleanName =
+        String(filename)
+          .split("?")[0]
+          .split("#")[0];
+
+      const parts =
+        cleanName.split(".");
+
+      if (parts.length < 2) {
+        return "";
+      }
+
+      return parts
+        .pop()
+        .toLowerCase();
+    }
+
+
+    function sanitizeFileName(
+      filename
+    ) {
+
+      return String(filename)
+        .replace(/[^\w.\-() ]+/g, "")
+        .replace(/\s+/g, "-")
+        .slice(0, 160);
+    }
+
+
+    function normalizeText(value) {
+
+      return String(value || "")
+        .trim()
+        .toLowerCase();
+    }
+
+
+    /*
+     * ==========================================================
+     * HTML SAFETY
+     * ==========================================================
+     */
+
+    function escapeHtml(value) {
+
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+
+    function escapeAttribute(value) {
+
+      return escapeHtml(value);
+    }
+
+  </script>
+
+</body>
+</html>
+

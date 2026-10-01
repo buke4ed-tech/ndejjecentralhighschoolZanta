@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+<meta
+ name="viewport"
+ content="width=device-width, initial-scale=1.0"
+/>
+
+  <title>Admin Login | Ndejje Central High School – Zanta</title>
+
+<meta
+ name="description"
+ content="Secure administration login for Ndejje Central High School – Zanta."
+/>
+
+<meta
+ name="theme-color"
+ content="#003366"
+/>
+
+  <link
+    rel="icon"
+    href="images/nchslogo.png"
+  />
+
+  <style>
+    :root {
+      --primary: #003366;
+      --primary-dark: #00264d;
+      --secondary: #00509e;
+      --accent: #ffd700;
+      --light: #f4f7fb;
+      --white: #ffffff;
+      --text: #222222;
+      --muted: #667085;
+      --border: #dce4ee;
+      --danger: #b42318;
+      --success: #16834a;
+      --shadow: 0 18px 45px rgba(0, 51, 102, 0.12);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 51, 102, 0.96),
+          rgba(0, 80, 158, 0.9)
+        ),
+        url("images/school-hero.jpg") center / cover no-repeat;
+
+      color: var(--text);
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .page-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .login-card {
+      width: min(440px, 100%);
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .login-header {
+      padding: 34px 32px 26px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      width: 82px;
+      height: 82px;
+      object-fit: contain;
+      margin: 0 auto 18px;
+    }
+
+    .login-header h1 {
+      color: var(--primary);
+      font-size: 1.55rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .login-header p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .admin-label {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: #eef4fa;
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .login-form {
+      padding: 30px 32px 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 12px 14px;
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .form-input:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(0, 80, 158, 0.12);
+    }
+
+    .password-input {
+      padding-right: 82px;
+    }
+
+    .password-toggle {
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      transform: translateY(-50%);
+      border: 0;
+      background: transparent;
+      color: var(--secondary);
+      padding: 7px 9px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .password-toggle:hover {
+      color: var(--primary);
+    }
+
+    .submit-button {
+      width: 100%;
+      min-height: 50px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 800;
+      cursor: pointer;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .submit-button:hover:not(:disabled) {
+      background: var(--secondary);
+      transform: translateY(-1px);
+    }
+
+    .submit-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .status {
+      display: none;
+      margin-bottom: 20px;
+      padding: 12px 14px;
+      border-radius: 9px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .status.show {
+      display: block;
+    }
+
+    .status.error {
+      background: #fef3f2;
+      border: 1px solid #fecdca;
+      color: var(--danger);
+    }
+
+    .status.success {
+      background: #ecfdf3;
+      border: 1px solid #abefc6;
+      color: var(--success);
+    }
+
+    .status.info {
+      background: #eff8ff;
+      border: 1px solid #b2ddff;
+      color: var(--secondary);
+    }
+
+    .login-footer {
+      padding: 20px 32px;
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .login-footer p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--secondary);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
+
+    .security-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 8px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: -3px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .site-footer {
+      padding: 16px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 500px) {
+      .page-wrapper {
+        padding: 20px 12px;
+      }
+
+      .login-header,
+      .login-form {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .login-footer {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main class="page-wrapper">
+
+```
+<section
+  class="login-card"
+  aria-labelledby="loginTitle"
+>
+
+  <div class="login-header">
+
+    <img
+      class="logo"
+      src="images/nchslogo.png"
+      alt="Ndejje Central High School logo"
+    />
+
+    <div class="admin-label">
+      School Administration
+    </div>
+
+    <h1 id="loginTitle">
+      Administrator Login
+    </h1>
+
+    <p>
+      Sign in to manage school news and events.
+    </p>
+
+  </div>
+
+  <form
+    class="login-form"
+    id="loginForm"
+    novalidate
+  >
+
+    <div
+      class="status"
+      id="statusMessage"
+      role="alert"
+      aria-live="polite"
+    ></div>
+
+    <div class="form-group">
+
+      <label
+        class="form-label"
+        for="email"
+      >
+        Email Address
+      </label>
+
+      <input
+        class="form-input"
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="username"
+        placeholder="Enter administrator email"
+        required
+      />
+
+    </div>
+
+    <div class="form-group">
+
+      <label
+        class="form-label"
+        for="password"
+      >
+        Password
+      </label>
+
+      <div class="input-wrapper">
+
+        <input
+          class="form-input password-input"
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Enter your password"
+          minlength="6"
+          required
+        />
+
+        <button
+          class="password-toggle"
+          id="passwordToggle"
+          type="button"
+          aria-label="Show password"
+          aria-pressed="false"
+        >
+          Show
+        </button>
+
+      </div>
+
+    </div>
+
+    <button
+      class="submit-button"
+      id="loginButton"
+      type="submit"
+    >
+      Sign In
+    </button>
+
+    <div class="security-note">
+      <span aria-hidden="true">🔒</span>
+
+      <span>
+        This area is restricted to authorized school
+        administrators.
+      </span>
+    </div>
+
+  </form>
+
+  <div class="login-footer">
+
+    <p>
+      Ndejje Central High School – Zanta
+      <br />
+      Excellence • Discipline • Innovation
+    </p>
+
+    <a
+      class="back-link"
+      href="./index.html"
+    >
+      ← Back to School Website
+    </a>
+
+  </div>
+
+</section>
+```
+
+  </main>
+
+  <footer class="site-footer">
+
+```
+© <span id="currentYear"></span>
+Ndejje Central High School – Zanta.
+All rights reserved.
+```
+
+  </footer>
+
+  <!-- =========================================
+       FIREBASE ADMIN AUTHENTICATION
+  ========================================== -->
+
+  <script type="module">
+
+    import { db } from "./js/firebase-config.js";
+
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+    import {
+      doc,
+      getDoc
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+    /* =========================================
+       FIREBASE
+    ========================================== */
+
+    const auth = getAuth();
+
+
+    /* =========================================
+       DOM
+    ========================================== */
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const emailInput =
+      document.getElementById("email");
+
+    const passwordInput =
+      document.getElementById("password");
+
+    const passwordToggle =
+      document.getElementById("passwordToggle");
+
+    const loginButton =
+      document.getElementById("loginButton");
+
+    const statusMessage =
+      document.getElementById("statusMessage");
+
+    const currentYear =
+      document.getElementById("currentYear");
+
+
+    /* =========================================
+       CONFIGURATION
+    ========================================== */
+
+    const ADMIN_PAGE =
+      "admin-news.html";
+
+
+    /*
+     * This prevents the auth-state listener from
+     * interfering with an active login operation.
+     */
+    let loginInProgress = false;
+
+    /*
+     * Prevents multiple redirects.
+     */
+    let redirectInProgress = false;
+
+
+    /* =========================================
+       STATUS MESSAGE
+    ========================================== */
+
+    function showStatus(message, type = "error") {
+
+      statusMessage.textContent = message;
+
+      statusMessage.className =
+        `status show ${type}`;
+
+    }
+
+
+    function clearStatus() {
+
+      statusMessage.textContent = "";
+
+      statusMessage.className = "status";
+
+    }
+
+
+    /* =========================================
+       BUTTON STATE
+    ========================================== */
+
+    function setLoading(isLoading) {
+
+      loginButton.disabled = isLoading;
+
+      if (isLoading) {
+
+        loginButton.innerHTML = `
+          <span class="spinner"></span>
+          Signing in...
+        `;
+
+      } else {
+
+        loginButton.textContent = "Sign In";
+
+      }
+
+    }
+
+
+    /* =========================================
+       PASSWORD VISIBILITY
+    ========================================== */
+
+    passwordToggle.addEventListener(
+      "click",
+      () => {
+
+        const showingPassword =
+          passwordInput.type === "text";
+
+        passwordInput.type =
+          showingPassword
+            ? "password"
+            : "text";
+
+        passwordToggle.textContent =
+          showingPassword
+            ? "Show"
+            : "Hide";
+
+        passwordToggle.setAttribute(
+          "aria-label",
+          showingPassword
+            ? "Show password"
+            : "Hide password"
+        );
+
+        passwordToggle.setAttribute(
+          "aria-pressed",
+          String(!showingPassword)
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       CHECK ADMIN AUTHORIZATION
+    ========================================== */
+
+    async function checkAdminAccess(user) {
+
+      if (!user) {
+
+        return {
+          authorized: false,
+          reason: "NO_AUTHENTICATED_USER"
+        };
+
+      }
+
+
+      try {
+
+        /*
+         * IMPORTANT:
+         *
+         * The Firestore document ID MUST be the
+         * Firebase Authentication UID.
+         *
+         * admins/{user.uid}
+         */
+
+        const adminRef =
+          doc(
+            db,
+            "admins",
+            user.uid
+          );
+
+
+        const adminSnapshot =
+          await getDoc(adminRef);
+
+
+        /*
+         * Admin document does not exist.
+         */
+
+        if (!adminSnapshot.exists()) {
+
+          console.error(
+            "Administrator document not found:",
+            `admins/${user.uid}`
+          );
+
+          return {
+            authorized: false,
+            reason: "ADMIN_DOCUMENT_NOT_FOUND"
+          };
+
+        }
+
+
+        const adminData =
+          adminSnapshot.data();
+
+
+        /*
+         * Validate role.
+         */
+
+        const validRole =
+          adminData.role === "admin";
+
+
+        /*
+         * Validate active status.
+         *
+         * This deliberately requires a Boolean true.
+         */
+
+        const validActive =
+          adminData.active === true;
+
+
+        console.log(
+          "Administrator authorization check:",
+          {
+            uid: user.uid,
+            email: user.email,
+            role: adminData.role,
+            active: adminData.active,
+            validRole,
+            validActive
+          }
+        );
+
+
+        if (!validRole) {
+
+          console.error(
+            "Administrator role is invalid:",
+            adminData.role
+          );
+
+          return {
+            authorized: false,
+            reason: "INVALID_ADMIN_ROLE"
+          };
+
+        }
+
+
+        if (!validActive) {
+
+          console.error(
+            "Administrator account is inactive."
+          );
+
+          return {
+            authorized: false,
+            reason: "ADMIN_INACTIVE"
+          };
+
+        }
+
+
+        /*
+         * Everything is valid.
+         */
+
+        return {
+          authorized: true,
+          reason: "AUTHORIZED",
+          data: adminData
+        };
+
+
+      } catch (error) {
+
+        console.error(
+          "Could not verify administrator:",
+          error
+        );
+
+
+        /*
+         * Return the actual reason instead of
+         * pretending every Firestore problem is
+         * an authorization failure.
+         */
+
+        return {
+          authorized: false,
+          reason: "FIRESTORE_ERROR",
+          error
+        };
+
+      }
+
+    }
+
+
+    /* =========================================
+       HANDLE ADMIN AUTHORIZATION FAILURE
+    ========================================== */
+
+    async function handleUnauthorized(result) {
+
+      /*
+       * Only sign out if there is actually a
+       * signed-in Firebase user.
+       */
+
+      if (auth.currentUser) {
+
+        try {
+
+          await signOut(auth);
+
+        } catch (error) {
+
+          console.error(
+            "Could not sign out unauthorized user:",
+            error
+          );
+
+        }
+
+      }
+
+
+      switch (result.reason) {
+
+        case "ADMIN_DOCUMENT_NOT_FOUND":
+
+          showStatus(
+            "Your Firebase account is valid, but no administrator record was found. Please verify that the Firestore document is located at admins/" +
+            (auth.currentUser?.uid || "your-user-uid") +
+            ".",
+            "error"
+          );
+
+          break;
+
+
+        case "INVALID_ADMIN_ROLE":
+
+          showStatus(
+            "Your account is not configured with the administrator role.",
+            "error"
+          );
+
+          break;
+
+
+        case "ADMIN_INACTIVE":
+
+          showStatus(
+            "Your administrator account is currently inactive. Please contact the school administrator.",
+            "error"
+          );
+
+          break;
+
+
+        case "FIRESTORE_ERROR":
+
+          showStatus(
+            "We could not verify your administrator authorization. Please check your connection and Firestore security rules.",
+            "error"
+          );
+
+          break;
+
+
+        default:
+
+          showStatus(
+            "This account is not authorized to access the school administration area.",
+            "error"
+          );
+
+      }
+
+    }
+
+
+    /* =========================================
+       CHECK EXISTING AUTH SESSION
+    ========================================== */
+
+    onAuthStateChanged(
+      auth,
+      async (user) => {
+
+        /*
+         * CRITICAL:
+         *
+         * Do not let the auth-state listener compete
+         * with the explicit login operation.
+         */
+
+        if (loginInProgress) {
+
+          return;
+
+        }
+
+
+        if (!user) {
+
+          return;
+
+        }
+
+
+        /*
+         * A user is already authenticated.
+         * Verify the existing session.
+         */
+
+        showStatus(
+          "Checking administrator access...",
+          "info"
+        );
+
+
+        const result =
+          await checkAdminAccess(user);
+
+
+        if (result.authorized) {
+
+          if (!redirectInProgress) {
+
+            redirectInProgress = true;
+
+            window.location.replace(
+              ADMIN_PAGE
+            );
+
+          }
+
+          return;
+
+        }
+
+
+        await handleUnauthorized(result);
+
+      }
+    );
+
+
+    /* =========================================
+       LOGIN
+    ========================================== */
+
+    loginForm.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+
+        /*
+         * Prevent double submissions.
+         */
+
+        if (loginInProgress) {
+
+          return;
+
+        }
+
+
+        clearStatus();
+
+
+        const email =
+          emailInput.value.trim();
+
+        const password =
+          passwordInput.value;
+
+
+        /* ---------------------------------------
+           BASIC VALIDATION
+        --------------------------------------- */
+
+        if (!email) {
+
+          showStatus(
+            "Please enter your email address."
+          );
+
+          emailInput.focus();
+
+          return;
+
+        }
+
+
+        if (!emailInput.validity.valid) {
+
+          showStatus(
+            "Please enter a valid email address."
+          );
+
+          emailInput.focus();
+
+          return;
+
+        }
+
+
+        if (!password) {
+
+          showStatus(
+            "Please enter your password."
+          );
+
+          passwordInput.focus();
+
+          return;
+
+        }
+
+
+        if (password.length < 6) {
+
+          showStatus(
+            "Your password must contain at least 6 characters."
+          );
+
+          passwordInput.focus();
+
+          return;
+
+        }
+
+
+        loginInProgress = true;
+
+        setLoading(true);
+
+
+        showStatus(
+          "Signing in...",
+          "info"
+        );
+
+
+        try {
+
+          /*
+           * -------------------------------------
+           * FIREBASE AUTHENTICATION
+           * -------------------------------------
+           */
+
+          const credential =
+            await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
+
+
+          const user =
+            credential.user;
+
+
+          console.log(
+            "Firebase authentication successful:",
+            {
+              uid: user.uid,
+              email: user.email
+            }
+          );
+
+
+          /*
+           * -------------------------------------
+           * FIRESTORE ADMIN AUTHORIZATION
+           * -------------------------------------
+           */
+
+          showStatus(
+            "Verifying administrator access...",
+            "info"
+          );
+
+
+          const result =
+            await checkAdminAccess(user);
+
+
+          /*
+           * -------------------------------------
+           * AUTHORIZATION FAILED
+           * -------------------------------------
+           */
+
+          if (!result.authorized) {
+
+            console.error(
+              "Administrator authorization failed:",
+              result.reason
+            );
+
+
+            /*
+             * We are still inside the login flow,
+             * so explicitly sign out the authenticated
+             * Firebase user.
+             */
+
+            try {
+
+              await signOut(auth);
+
+            } catch (signOutError) {
+
+              console.error(
+                "Sign-out after failed authorization failed:",
+                signOutError
+              );
+
+            }
+
+
+            setLoading(false);
+
+            loginInProgress = false;
+
+
+            switch (result.reason) {
+
+              case "ADMIN_DOCUMENT_NOT_FOUND":
+
+                showStatus(
+                  "Your login was successful, but no administrator record was found for this Firebase account. Please verify the Firestore admins document uses your exact Firebase UID.",
+                  "error"
+                );
+
+                break;
+
+
+              case "INVALID_ADMIN_ROLE":
+
+                showStatus(
+                  "Your login was successful, but your administrator record does not have role: admin.",
+                  "error"
+                );
+
+                break;
+
+
+              case "ADMIN_INACTIVE":
+
+                showStatus(
+                  "Your login was successful, but your administrator account is inactive.",
+                  "error"
+                );
+
+                break;
+
+
+              case "FIRESTORE_ERROR":
+
+                showStatus(
+                  "Your login was successful, but Firebase could not verify your administrator record. Check your Firestore security rules and internet connection.",
+                  "error"
+                );
+
+                break;
+
+
+              default:
+
+                showStatus(
+                  "Your login was successful, but this account is not authorized as a school administrator.",
+                  "error"
+                );
+
+            }
+
+
+            return;
+
+          }
+
+
+          /*
+           * -------------------------------------
+           * SUCCESS
+           * -------------------------------------
+           */
+
+          console.log(
+            "ADMIN LOGIN AUTHORIZED:",
+            user.uid
+          );
+
+
+          showStatus(
+            "Login successful. Opening administration dashboard...",
+            "success"
+          );
+
+
+          redirectInProgress = true;
+
+
+          /*
+           * Small delay allows the success message
+           * to render before navigation.
+           */
+
+          window.setTimeout(
+            () => {
+
+              window.location.replace(
+                ADMIN_PAGE
+              );
+
+            },
+            500
+          );
+
+
+        } catch (error) {
+
+          console.error(
+            "Firebase login error:",
+            error
+          );
+
+
+          setLoading(false);
+
+          loginInProgress = false;
+
+
+          let message =
+            "Unable to sign in. Please check your email and password.";
+
+
+          switch (error.code) {
+
+            case "auth/invalid-email":
+
+              message =
+                "The email address is not valid.";
+
+              break;
+
+
+            case "auth/user-disabled":
+
+              message =
+                "This Firebase account has been disabled.";
+
+              break;
+
+
+            case "auth/user-not-found":
+
+            case "auth/invalid-credential":
+
+              message =
+                "The email address or password is incorrect.";
+
+              break;
+
+
+            case "auth/wrong-password":
+
+              message =
+                "The email address or password is incorrect.";
+
+              break;
+
+
+            case "auth/too-many-requests":
+
+              message =
+                "Too many login attempts. Please wait a while and try again.";
+
+              break;
+
+
+            case "auth/network-request-failed":
+
+              message =
+                "Network error. Please check your internet connection and try again.";
+
+              break;
+
+
+            case "auth/operation-not-allowed":
+
+              message =
+                "Email/password authentication has not been enabled in Firebase Authentication.";
+
+              break;
+
+
+            case "auth/invalid-api-key":
+
+              message =
+                "Firebase configuration is invalid. Please check the Firebase project configuration.";
+
+              break;
+
+
+            default:
+
+              message =
+                error.message ||
+                message;
+
+          }
+
+
+          showStatus(
+            message,
+            "error"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       CURRENT YEAR
+    ========================================== */
+
+    currentYear.textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
